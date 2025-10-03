@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>&ast;&ast;&Pcy;&rcy;&acy;&kcy;&tcy;&icy;&chcy;&ncy;&iecy; &zcy;&acy;&ncy;&yacy;&tcy;&tcy;&yacy; &numero; 4&ast;&ast;</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        <link href="style.css" rel="stylesheet" type="text/css" />
+        </head>
+        <body class="vscode-body vscode-light">
+            <span id="markdown-mermaid" aria-hidden="true"
+                    data-dark-mode-theme="dark"
+                    data-light-mode-theme="default"
+                    data-max-text-size="50000"></span>
+                <h2 id="практичне-заняття--4"><strong>Практичне заняття № 4</strong></h2>
+<h1 id="адресація-в-сучасних-ікс"><strong>АДРЕСАЦІЯ В СУЧАСНИХ ІКС</strong></h1>
+<h2 id="навчальні-питання"><strong>Навчальні питання</strong></h2>
+<ol>
+<li>Розрахунок пулу <em>iP</em>-адрес за префіксом(маскою)..</li>
+<li>Розрахунок маски мережі в залежності від необхідної кількості <em>iР</em> -адрес.</li>
+</ol>
+<h2 id="очікувані-результати-заняття"><strong>Очікувані результати заняття:</strong></h2>
+<ol>
+<li>Знати, вміти відтворити (вибрати) визначення та теоретичні відомості, що наведені в Л5-Л6.</li>
+<li>Обчислити параметри <em>iP</em>-адресації (маску мережі, інверсну маску, <em>iP</em>-адресу мережі, <em>iP</em>-адресу вузла, мінімальну та максимальну <em>iP</em>-адреси діапазону, широкомовну <em>iP</em>-адресу, кількість вузлів) для заданої <em>iP</em>-адреси та префіксу мережі з використанням безкласового підходу.</li>
+<li>Визначити оптимальну маску та префікс мережі, враховуючи задану кількість вузлів та вимоги до економії адресного простору.</li>
+<li>Застосувати методи безкласової <em>iP</em>-адресації для розрахунку пулу <em>iP</em>-адрес на основі заданих параметрів.</li>
+<li>Порівняти вплив різних префіксів мережі на кількість доступних <em>iP</em>-адрес для вузлів.</li>
+<li>Пояснити принципи вибору оптимальної маски мережі з урахуванням потреб у кількості хостів, безпеки та майбутнього розширення мережі.</li>
+<li>Виконати практичні завдання з переведення <em>iP</em>-адрес і масок між двійковою та десятковою системами числення.</li>
+<li>Ідентифікувати відповідність обраної <em>iP</em>-адреси мережі вимогам приватних діапазонів та умовам завдання.</li>
+</ol>
+<h2 id="правила-техніки-безпеки-під-час-виконання-завдань-на-занятті-в-класах-пк"><strong>Правила техніки безпеки під час виконання завдань на занятті в класах ПК</strong></h2>
+<p>При обробці інформації чи вирішенні задач на ПК користувач <strong>повинен:</strong></p>
+<ol>
+<li>Одержати дозвіл на розв‘язування задачі і обробку інформації.</li>
+<li>Прийняти машину у відповідального ІОЦ.</li>
+<li>Зробити необхідні записи про початок роботи в журналі обліку роботи на ПК, а по закінченню роботи зробити відмітку про кінець роботи.</li>
+<li>Здати ПК відповідальному.</li>
+</ol>
+<p>При роботі на ПК <strong>забороняється:</strong></p>
+<ol>
+<li>Підключати до ПК нештатні блоки та пристрої.</li>
+<li>Застосовувати для з'єднання блоків ПК провідники з пошкодженою ізоляцією.</li>
+<li>Працювати на ПК, використовуючи незареєстровані магнітні носії інформації</li>
+<li>Проводити перекомутацію з‘єднувальних кабелів при підключеному електроживленні.</li>
+</ol>
+<p>Користувач несе <strong>особисту відповідальність</strong> за:</p>
+<ul>
+<li>дотримання правил експлуатації ПК;</li>
+<li>збереження комплекту ПК і носіїв інформації;</li>
+<li>дотримання правил і заходів електробезпеки на ПК.</li>
+</ul>
+<h2 id="1-питання-розрахунок-пулу-iр-адрес-за-префіксом-маскою"><strong>1 питання. Розрахунок пулу <em>iР</em>-адрес за префіксом (маскою)</strong></h2>
+<p><strong><em>iP</em>-адреса</strong> (<em><strong>Internet Protocol Address</strong></em>) – унікальний числовий ідентифікатор, який призначається мережному адаптеру/інтерфейсу і застосовується у процесі передачі даних у комп’ютерних межах. Стосовно моделі <em>OSI iP</em>-адреса – це адреса мережного рівня, стосовно стеку <em>TCP/IP</em> – адреса рівня міжмережної взаємодії. Система <em>iP</em>-адресації є однією з базових складових сучасної мережі Інтернет.<br>
+Існують дві версії <em>iP</em>-адресації – версії <strong>4</strong> та <strong>6</strong>.<br>
+iP-адреса версії 4 має довжину <strong>32 біти</strong> (<strong>4 байти</strong>). Як правило, запис iP-адреси версії 4 здійснюється побайтово у десятковій формі числення, і як роздільник байтів застосовується крапка. Такий запис називають <strong>десятково-крапковим форматом</strong> запису (<em>Decimal-Dotted Notation</em>). Іноді цей запис за кількістю байтів називають <em>Quad-Dotted Notation</em>. У деяких специфічних випадках запис <em>iP</em>-адреси версії 4 здійснюється у шістнадцятковій формі без роздільників.<br>
+Діапазон можливих iP-адрес версії 4 має вигляд:</p>
+<p>0.0.0.0– 255.255.255.255</p>
+<p>Залежно від застосування <em>iP</em>-адреса версії 4 може бути ідентифікована як:<br>
+– унікальна <em>iP</em>-адреса (<em>Unicast iP-Address</em>);<br>
+– групова <em>iP</em>-адреса (<em>Multicast iP-Address</em>);<br>
+– широкомовна <em>iP</em>-адреса (<em>Broadcast iP-Address</em>).<br>
+Структурно iP-адреса версії 4 складається з <strong>двох частин</strong> – одна частина (ліворуч) містить <strong><em>iP</em>-адресу (номер) мережі</strong>, до якої належить вузол, інша (праворуч) – <strong><em>iP</em>-адресу (номер) вузла</strong> в цій мережі.<br>
+Для аналізу та розрахунку параметрів <em>iP</em>-адреси за умови застосування безкласової <em>iP</em>-адресації користуються залежностями, що описують довжину <em>iP</em>-адреси та префікса у загальному вигляді:</p>
+<p style="text-align: center;"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>N</mi><mo>+</mo><mi>H</mi><mo>=</mo><mn>32</mn></mrow><annotation encoding="application/x-tex">N + H = 32</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">32</span></span></span></span> біта,<br>
+<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo>=</mo><mi>N</mi></mrow><annotation encoding="application/x-tex">P = N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span></span></span></span>,<br>
+<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn><mo>≤</mo><mi>N</mi><mo>≤</mo><mn>32</mn></mrow><annotation encoding="application/x-tex">0 ≤ N ≤ 32</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7804em;vertical-align:-0.136em;"></span><span class="mord">0</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8193em;vertical-align:-0.136em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">32</span></span></span></span>,<br>
+<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn><mo>≤</mo><mi>H</mi><mo>≤</mo><mn>32</mn></mrow><annotation encoding="application/x-tex">0 ≤ H ≤ 32</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7804em;vertical-align:-0.136em;"></span><span class="mord">0</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8193em;vertical-align:-0.136em;"></span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">32</span></span></span></span> , <br>
+<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn><mo>≤</mo><mi>P</mi><mo>≤</mo><mn>32</mn></mrow><annotation encoding="application/x-tex">0 ≤ P ≤ 32</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7804em;vertical-align:-0.136em;"></span><span class="mord">0</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8193em;vertical-align:-0.136em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">32</span></span></span></span> ,</p>
+<p>де  <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>N</mi></mrow><annotation encoding="application/x-tex">N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span></span></span></span> – кількість бітів, які виділені для адресації мережі (номер мережі);<br>
+<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>H</mi></mrow><annotation encoding="application/x-tex">H</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span></span></span></span> – кількість бітів, які виділені для адресації вузлів мережі;<br>
+<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi></mrow><annotation encoding="application/x-tex">P</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span></span></span></span> – кількість бітів, які виділені для формування префікса мережі.<br>
+Граничні значення параметрів <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>N</mi></mrow><annotation encoding="application/x-tex">N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span></span></span></span>, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>H</mi></mrow><annotation encoding="application/x-tex">H</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span></span></span></span>, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi></mrow><annotation encoding="application/x-tex">P</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span></span></span></span> мають спеціальне тлумачення. Зокрема це стосується значень 0, 31, 32.<br>
+Відповідно <strong>кількість <em>iP</em>-адрес</strong> однієї мережі, що можуть призначатися вузлам, розраховується за формулою:</p>
+<p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>K</mi><mtext>вузлів</mtext></msub><mo>=</mo><msup><mn>2</mn><mrow><mo stretchy="false">(</mo><mn>32</mn><mo>−</mo><mi>P</mi><mo stretchy="false">)</mo></mrow></msup><mo>−</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">K_{\text{вузлів}} = 2^{(32-P)} - 2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9694em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">K</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:-0.0715em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord cyrillic_fallback mtight">вузлів</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.9713em;vertical-align:-0.0833em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.888em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mtight">32</span><span class="mbin mtight">−</span><span class="mord mathnormal mtight" style="margin-right:0.13889em;">P</span><span class="mclose mtight">)</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">2</span></span></span></span></p>
+<p>Дана формула має сенс для значень префіксів в діапазоні <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo>=</mo><mo stretchy="false">[</mo><mn>0</mn><mo separator="true">;</mo><mn>30</mn><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">P = [0 ; 30]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord">0</span><span class="mpunct">;</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">30</span><span class="mclose">]</span></span></span></span>.<br>
+Граничні значення префікса <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo>=</mo><mn>31</mn></mrow><annotation encoding="application/x-tex">P = 31</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">31</span></span></span></span> та <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo>=</mo><mn>32</mn></mrow><annotation encoding="application/x-tex">P = 32</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">32</span></span></span></span> мають специфіку трактування і у вказаній формулі не застосовуються.<br>
+Очевидно, що збільшення значення префікса дає змогу зменшити кількість <em>iР</em>-адрес вузлів мережі, і навпаки, зменшення значення префікса дає змогу збільшити кількість <em>iР</em>-адрес вузлів мережі.</p>
+<p><strong>Приклад розрахунку пулу iР-адрес за префіксом (маскою).</strong>
+Для заданої <em>iP</em>-адреси мережного адаптера/інтерфейсу вузла <strong>175.12.187.92</strong> та префікса <strong>/21</strong> мережі із застосуванням безкласового підходу <strong>ВИЗНАЧИТИ</strong> такі параметри <em>iP</em>-адресації:</p>
+<ol>
+<li>маску (пряму маску) мережі;</li>
+<li>інверсну маску мережі;</li>
+<li>iP-адресу (номер) мережі;</li>
+<li>iP-адресу (номер) вузла;</li>
+<li>мінімальну iP-адресу діапазону, що може використовуватися для адресації вузлів мережі;</li>
+<li>широкомовну iP-адресу мережі;</li>
+<li>максимальну iP-адресу діапазону, що може використовуватися для адресації вузлів мережі;</li>
+<li>кількість вузлів (iP-адрес вузлів), які можуть входити в мережу.</li>
+</ol>
+<p><strong>Розв’язання</strong>. Для розв’язання даної задачі переводимо <em>iP</em>-адресу 175.12.187.92 з десяткової <strong>у двійкову систему числення</strong>:</p>
+<p style="text-align: center;">10101111 . 00001100 . 10111011 . 01011100</p>
+<ol>
+<li>
+<p>Для визначення маски мережі скористаємося такими твердженнями: <strong>довжина маски</strong> мережі становить <strong>32 біти</strong>; маска мережі у двійковій системі числення подається як дві взаємопродовжувальні послідовності: <strong>перша</strong> послідовність (ліворуч) – неперервна послідовність <strong>одиниць</strong> та <strong>друга</strong> послідовність (праворуч) – неперервна послідовність <strong>нулів</strong>.<br>
+Записуємо маску мережі як послідовність одиниць (їх кількість – префікс, показує кількість бітів, які використовуються для адресації (номера) мережі) та нулів (решта бітів, які використовуються для адресації (номера) вузла):</p>
+<p style="text-align: center;"><strong>11111111</strong>.<strong>11111111</strong>.<strong>11111</strong>000.00000000</p>
+<p>Результат у десятковій системі числення має вигляд:</p>
+<p style="text-align: center;"><strong>255.255.248</strong>.0</p>
+<div class="markdown-alert markdown-alert-note"><p class="markdown-alert-title"><svg class="octicon octicon-info mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Якщо заміcть префіксу мережі дана її маска у десятково-крапковому форматі перед наступним кроком її необхідно перевести у двійковий вигляд.</p><p></p>
+</div>
+</li>
+<li>
+<p><strong>Інверсна маска</strong> визначається шляхом виконання логічної операції інверсії (логічне <em>NOT</em>) над кожним із бітів прямої маски.<br>
+Результат виконання інверсії над попередньо визначеною прямою маскою у двійковій системі числення має вигляд:</p>
+<p style="text-align: center;">00000000.00000000.00000<strong>111</strong>.<strong>11111111</strong></p>
+<p>Результат у десятковій системі числення має вигляд:</p>
+<p style="text-align: center;">0.0.<strong>7.255</strong></p>
+</li>
+<li>
+<p><strong><em>iP</em>-адреса мережі</strong> визначається шляхом накладання прямої маски на вихідну <em>iP</em>-адресу, тобто виконання логічної операції кон’юнкції (логічне <em>AND</em>) між відповідними бітами вихідної <em>iP</em>-адреси та прямої маски. Тобто:</p>
+<p><img src="file:///f:\00_Дисципліни\01_КбІКС\09_КБІКС_MD\media\pr_4\pic1.jpg" alt="alt"></p>
+<p>В результаті виконання цієї операції <em>iP</em>-адреса мережі у двійковій системі числення матиме вигляд:</p>
+<p style="text-align: center;"><strong>10101111</strong>.<strong>00001100</strong>.<strong>10111</strong>000.00000000</p>
+<p>Перевівши визначену <em>iP</em>-адресу мережі з двійкової системи числення у десяткову системі отримаємо:</p>
+<p style="text-align: center;"><strong>175.12.184</strong>.0</p>
+<div class="markdown-alert markdown-alert-warning"><p class="markdown-alert-title"><svg class="octicon octicon-alert mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg>Зверніть увагу, що для префіксів в діапазоні P=[0;24] iP-адреса мережі буде ЗАВЖДИ закінчуватися нулем.</p><p></p>
+</div>
+</li>
+<li>
+<p><strong><em>iP</em>-адреса вузла</strong> визначається шляхом накладання інверсної маски на вихідну <em>iP</em>-адресу, тобто виконання логічної операції кон’юнкції (логічне <em>AND</em>) між відповідними бітами вихідної <em>iP</em>-адреси та інверсної маски:</p>
+<p><img src="file:///f:\00_Дисципліни\01_КбІКС\09_КБІКС_MD\media\pr_4\pic2.jpg" alt="alt"></p>
+<p>В результаті виконання цієї операції <em>iP</em>-адреса вузла у двійковій системі числення матиме вигляд::</p>
+<p style="text-align: center;">00000000.00000000.00000<strong>011</strong>.<strong>01011100</strong></p>
+<p>Перевівши визначену <em>iP</em>-адресу мережі з двійкової системи числення у десяткову системі отримаємо::</p>
+<p style="text-align: center;">0.0.<strong>3.92</strong></p>
+</li>
+<li>
+<p><em>iP</em>-адреса мережі і широкомовна <em>iP</em>-адреса (нульова й остання <em>iP</em>-адреси відповідно) не можуть призначатися вузлам. Тому <strong>мінімальною</strong> (першою) <strong><em>iP</em>-адресою</strong> для діапазону, який може використовуватися для адресації вузлів мережі, є <em>iP</em>-адреса, наступна за <em>iP</em>-адресою мережі, тобто потрібно <em>iP</em>-адресу мережі збільшити на одиницю.<br>
+Відповідно, мінімальна <em>iP</em>-адреса для нумерації вузлів в даному прикладі у двійковій системі числення матиме вигляд:</p>
+<p style="text-align: center;"><strong>10101111.00001100.10111</strong>000.0000000<strong>1</strong></p>
+<p>Перевівши визначену мінімальну <em>iP</em>-адресу з двійкової системи числення у десяткову системі отримаємо:</p>
+<p style="text-align: center;"><strong>175.12.184.1</strong></p>
+</li>
+<li>
+<p><strong>Широкомовна <strong>iP</strong>-адреса</strong> в мережі визначається шляхом встановлення всіх бітів частини адреси вузла в одиниці (1) для конкретної мережі, тоді як біти частини мережі залишаються незмінними. Тобто:</p>
+<p style="text-align: center;">10101111.00001100.10111<strong>111</strong>.<strong>11111111</strong></p>
+<p>Відповідно у десятковій системі числення широкомовна <em>iP</em>-адреса буде мати вигляд:</p>
+<p style="text-align: center;"><strong>175.12.191.255</strong></p>
+</li>
+<li>
+<p><strong>Максимальна <em>iP</em>-адреса</strong> діапазону, що може бути призначена пристрою в даній мережі – <em>iP</em>-адреса яка передує широкомовній <em>iP</em>-адресі, тобто на одиницю менша. В даному прикладі матиме вигляд:</p>
+<p style="text-align: center;">10101111.00001100.10111<strong>111</strong>.<strong>11111110</strong></p>
+<p>Перевівши визначену максимальну <em>iP</em>-адресу з двійкової системи числення у десяткову системі отримаємо:</p>
+<p style="text-align: center;"><strong>175.12.191.254</strong></p>
+</li>
+<li>
+<p>Кількість вузлів (<em>iP</em>-адрес вузлів) розраховується за формулою  <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>K</mi><mtext>вузлів</mtext></msub><mo>=</mo><msup><mn>2</mn><mrow><mo stretchy="false">(</mo><mn>32</mn><mo>−</mo><mi>P</mi><mo stretchy="false">)</mo></mrow></msup><mo>−</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">K_{\text{вузлів}} = 2^{(32-P)} - 2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9694em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">K</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:-0.0715em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord cyrillic_fallback mtight">вузлів</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.9713em;vertical-align:-0.0833em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.888em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mtight">32</span><span class="mbin mtight">−</span><span class="mord mathnormal mtight" style="margin-right:0.13889em;">P</span><span class="mclose mtight">)</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">2</span></span></span></span><br>
+У нашому випадку з умови задачі префікс дорівнює 21, відповідно кількість вузлів (iP-адрес вузлів) визначається як:</p>
+<p style="text-align: center;"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>K</mi><mtext>вузлів</mtext></msub><mo>=</mo><msup><mn>2</mn><mrow><mo stretchy="false">(</mo><mn>32</mn><mo>−</mo><mn>21</mn><mo stretchy="false">)</mo></mrow></msup><mo>−</mo><mn>2</mn><mo>=</mo><msup><mn>2</mn><mn>11</mn></msup><mo>−</mo><mn>2</mn><mo>=</mo><mn>2048</mn><mo>−</mo><mn>2</mn><mo>=</mo><mn>2046</mn></mrow><annotation encoding="application/x-tex">K_{\text{вузлів}} = 2^{(32-21)} - 2= 2^{11} - 2=2048-2=2046</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9694em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">K</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:-0.0715em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord cyrillic_fallback mtight">вузлів</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.9713em;vertical-align:-0.0833em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.888em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mtight">32</span><span class="mbin mtight">−</span><span class="mord mtight">21</span><span class="mclose mtight">)</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8974em;vertical-align:-0.0833em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">11</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">2048</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">2046</span></span></span></span></p>
+</li>
+</ol>
+<p>Таким чином, для <em>iP</em>-адреси мережного адаптера/інтерфейсу вузла <strong>175.12.187.92/21</strong> отримаємо наступні значення:</p>
+<ol>
+<li>Маска мережі - <strong>255.255.248</strong>.0;</li>
+<li>Інверсна маску мережі - 0.0.<strong>7.255</strong>;</li>
+<li><em>iP</em>-адреса (номер) мережі - <strong>175.12.184</strong>.0</li>
+<li><em>iP</em>-адреса (номер) вузла - 0.0.<strong>3.92</strong></li>
+<li>Мінімальна <em>iP</em>-адресу, що може використовуватися для адресації вузлів мережі - <strong>175.12.184.1</strong>;</li>
+<li>Максимальну <em>iP</em>-адресу діапазону, що може використовуватися для адресації вузлів мережі - <strong>175.12.191.254</strong>;</li>
+<li>Широкомовна <em>iP</em>-адресу мережі <strong>175.12.184.255</strong>;</li>
+<li>Кількість вузлів (<em>iP</em>-адрес вузлів), які можуть входити до мережі - <strong>2046</strong>.</li>
+</ol>
+<h3 id="завдання-1-для-заданої-ip-адреси-мережного-адаптераінтерфейсу-вузла-та-префікса-мережі-див-табл-11-із-застосуванням-безкласового-підходу-визначити"><em>Завдання 1. Для заданої iP-адреси мережного адаптера/інтерфейсу вузла та префікса мережі (див. табл. 1.1) із застосуванням безкласового підходу ВИЗНАЧИТИ</em>:</h3>
+<ol>
+<li>Маску (пряма маску) мережі;</li>
+<li>Інверсну маску мережі;</li>
+<li><em>iP</em>-адресу (номер) мережі;</li>
+<li><em>iP</em>-адресу (номер) вузла;</li>
+<li>Мінімальну <em>iP</em>-адресу діапазону, що може використовуватися для адресації вузлів мережі;</li>
+<li>Максимальну <em>iP</em>-адресу діапазону, що може використовуватися для адресації вузлів мережі;</li>
+<li>Широкомовну <em>iP</em>-адресу мережі;</li>
+<li>Кількість вузлів (<em>iP</em>-адрес вузлів), які можуть входити в мережу.</li>
+</ol>
+<p>Таблиця 1.1</p>
+<p><strong>Параметри для розрахунку</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">№ <br>варіанта</th>
+<th style="text-align:center"><em>iP</em>-адреса</th>
+<th style="text-align:center">Префікс мережі</th>
+<th style="text-align:center">№ <br>варіанта</th>
+<th style="text-align:center"><em>iP</em>-адреса</th>
+<th style="text-align:center">Префікс мережі</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center"><em>133.92.231.10</em></td>
+<td style="text-align:center"><em>18</em></td>
+<td style="text-align:center">16</td>
+<td style="text-align:center"><em>103.80.218.33</em></td>
+<td style="text-align:center"><em>23</em></td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center"><em>132.93.233.8</em></td>
+<td style="text-align:center"><em>19</em></td>
+<td style="text-align:center">17</td>
+<td style="text-align:center"><em>102.82.220.31</em></td>
+<td style="text-align:center"><em>24</em></td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center"><em>131.94.235.12</em></td>
+<td style="text-align:center"><em>20</em></td>
+<td style="text-align:center">18</td>
+<td style="text-align:center"><em>101.84.222.29</em></td>
+<td style="text-align:center"><em>25</em></td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:center"><em>130.96.237.6</em></td>
+<td style="text-align:center"><em>21</em></td>
+<td style="text-align:center">19</td>
+<td style="text-align:center"><em>100.86.224.27</em></td>
+<td style="text-align:center"><em>26</em></td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td style="text-align:center"><em>129.97.239.4</em></td>
+<td style="text-align:center"><em>22</em></td>
+<td style="text-align:center">20</td>
+<td style="text-align:center"><em>99.88.226.25</em></td>
+<td style="text-align:center"><em>27</em></td>
+</tr>
+<tr>
+<td style="text-align:center">6</td>
+<td style="text-align:center"><em>128.98.241.2</em></td>
+<td style="text-align:center"><em>23</em></td>
+<td style="text-align:center">21</td>
+<td style="text-align:center"><em>195.76.185.173</em></td>
+<td style="text-align:center"><em>18</em></td>
+</tr>
+<tr>
+<td style="text-align:center">7</td>
+<td style="text-align:center"><em>112.65.200.51</em></td>
+<td style="text-align:center"><em>24</em></td>
+<td style="text-align:center">22</td>
+<td style="text-align:center"><em>196.75.184.174</em></td>
+<td style="text-align:center"><em>19</em></td>
+</tr>
+<tr>
+<td style="text-align:center">8</td>
+<td style="text-align:center"><em>111.66.202.49</em></td>
+<td style="text-align:center"><em>25</em></td>
+<td style="text-align:center">23</td>
+<td style="text-align:center"><em>197.74.183.175</em></td>
+<td style="text-align:center"><em>20</em></td>
+</tr>
+<tr>
+<td style="text-align:center">9</td>
+<td style="text-align:center"><em>110.67.204.47</em></td>
+<td style="text-align:center"><em>26</em></td>
+<td style="text-align:center">24</td>
+<td style="text-align:center"><em>198.73.182.176</em></td>
+<td style="text-align:center"><em>21</em></td>
+</tr>
+<tr>
+<td style="text-align:center">10</td>
+<td style="text-align:center"><em>109.69.206.45</em></td>
+<td style="text-align:center"><em>27</em></td>
+<td style="text-align:center">25</td>
+<td style="text-align:center"><em>199.72.181.177</em></td>
+<td style="text-align:center"><em>22</em></td>
+</tr>
+<tr>
+<td style="text-align:center">11</td>
+<td style="text-align:center"><em>108.71.208.43</em></td>
+<td style="text-align:center"><em>18</em></td>
+<td style="text-align:center">26</td>
+<td style="text-align:center"><em>200.71.180.178</em></td>
+<td style="text-align:center"><em>23</em></td>
+</tr>
+<tr>
+<td style="text-align:center">12</td>
+<td style="text-align:center"><em>107.73.210.41</em></td>
+<td style="text-align:center"><em>19</em></td>
+<td style="text-align:center">27</td>
+<td style="text-align:center"><em>201.70.179.179</em></td>
+<td style="text-align:center"><em>24</em></td>
+</tr>
+<tr>
+<td style="text-align:center">13</td>
+<td style="text-align:center"><em>106.75.212.39</em></td>
+<td style="text-align:center"><em>20</em></td>
+<td style="text-align:center">28</td>
+<td style="text-align:center"><em>202.69.178.180</em></td>
+<td style="text-align:center"><em>25</em></td>
+</tr>
+<tr>
+<td style="text-align:center">14</td>
+<td style="text-align:center"><em>105.76.214.37</em></td>
+<td style="text-align:center"><em>21</em></td>
+<td style="text-align:center">29</td>
+<td style="text-align:center"><em>203.68.177.181</em></td>
+<td style="text-align:center"><em>26</em></td>
+</tr>
+<tr>
+<td style="text-align:center">15</td>
+<td style="text-align:center"><em>104.78.216.35</em></td>
+<td style="text-align:center"><em>22</em></td>
+<td style="text-align:center">30</td>
+<td style="text-align:center"><em>204.67.176.182</em></td>
+<td style="text-align:center"><em>27</em></td>
+</tr>
+</tbody>
+</table>
+<h2 id="2-питання-визначення-оптимальної-маски-мережі-в-залежності-від-необхідної-кількості-iр-адрес">2 питання. Визначення оптимальної маски мережі в залежності від необхідної кількості <em>iР</em>-адрес.</h2>
+<p><strong>Оптимальна маска мережі</strong> — це така маска, яка найкращим чином відповідає вимогам по кількості хостів і додатковим обмеженням (безпека, продуктивність, майбутній ріст, управління маршрутизацією), мінімізуючи втрати адресного простору та небажані побічні ефекти (великі broadcast-домени, велика кількість записів у маршрутизаторах тощо).</p>
+<p>Що враховувати при виборі «оптимальної» маски:</p>
+<ol>
+<li>Потрібна кількість робочих адрес (хостів) — включно з серверами, принтерами, IoT, запасом для росту.</li>
+<li>Ймовірність розширення мережі — рекомендується резерв ~10–30% (або більше, залежно від прогнозу).</li>
+<li>Управління та безпека — дрібніші підмережі полегшують сегментацію і обмежують вплив broadcast/ARP.</li>
+<li>Мережеві сервіси — потреба в VLAN, DMZ, point-to-point лінках (/30 або /31).</li>
+<li>Маршрутизована інфраструктура — занадто багато дрібних підмереж збільшує таблиці маршрутизації.</li>
+<li>Тип адресації (<em>IPv4</em>/<em>IPv6</em>) — в <em>IPv6</em> звична практика — /64 для більшості підмереж.</li>
+</ol>
+<p>Практичні рекомендації при виборі (розрахунку) оптимальної маски:</p>
+<ol>
+<li>Для дрібних робочих груп (≤50) вибирайте /26 або /27 залежно від запасу.</li>
+<li>Для великих офісів — використовувати /23 або /22, але розглянути логічну сегментацію VLAN.</li>
+<li>Для point-to-point з’єднань використовують /30 або /31.</li>
+<li>Використовуйте <em>VLSM</em> (<em>Variable Length Subnet Mask</em>) — щоб гнучко розподіляти адреси під різні потреби, зменшуючи марнотратство.</li>
+<li>Плануйте з урахуванням росту на 12–30% і політик безпеки (окремі <em>VLAN</em> для <em>IoT</em>/гостьових мереж).</li>
+</ol>
+<p><strong>Приклад розрахунку маски мережі в залежності від необхідної кількості <em>iР</em>-адрес.</strong></p>
+<p>Для мережі, у якій функціонує задана кількість вузлів 62 із застосуванням безкласового підходу:</p>
+<ul>
+<li>Розрахувати оптимальні (з точки зору економії адрес) маску і префікс мережі;</li>
+<li>Визначити (обрати) відповідну iP-адресу (номер) мережі (з діапазонів приватних iP-адрес);</li>
+<li>Записати узагальнені параметри iP-адресації;</li>
+<li>Розрахувати кількість вузлів (iP-адрес вузлів), які можуть входити в мережу.</li>
+</ul>
+<p><strong>Розв’язання</strong>. Для розв’язання даного виду задач слід скористатися такими залежностями, що описують довжини iP-адреси та префікса у загальному вигляді:</p>
+<p style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>N</mi><mo>+</mo><mi>H</mi><mo>=</mo><mn>32</mn></mrow><annotation encoding="application/x-tex">N + H = 32</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">32</span></span></span></span> біти,<br>
+<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo>=</mo><mi>N</mi></mrow><annotation encoding="application/x-tex">P = N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span></span></span></span>,</p>
+<p>де  <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>N</mi></mrow><annotation encoding="application/x-tex">N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span></span></span></span> – кількість бітів, які виділені для адресації мережі (номер мережі);<br>
+<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>H</mi></mrow><annotation encoding="application/x-tex">H</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span></span></span></span> – кількість бітів, які виділені для адресації вузлів мережі;<br>
+<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi></mrow><annotation encoding="application/x-tex">P</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span></span></span></span> – кількість бітів, які виділені для формування префікса мережі.<br>
+Кожному вузлу мережі ставиться у відповідність одна <em>iP</em>-адреса. Слід пам’ятати, що окрім <em>iP</em>-адрес вузлів, у мережі наявна і розраховуються широкомовна <em>iP</em>-адреса. Крім того, потрібно також зарезервувати ще одну iP-адресу для основного шлюзу мережі (<em>iP</em>-адреса маршрутизатора). Тому до заданої кількості <em>iP</em>-адрес вузлів необхідно додати ще дві адреси.<br>
+Таким чином порядок розрахунку оптимальної маски наступний:</p>
+<ol>
+<li>
+<p>До заданої в умові кількості вузлів необхідно додати число 2, тобто зарезервувати ще 2 <em>iP</em>-адреси - широкомовну та основного шлюзу:</p>
+<p style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo>=</mo><msub><mi>K</mi><mtext>вузлів</mtext></msub><mo>+</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">X=K_{\text{вузлів}}+2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.9694em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">K</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:-0.0715em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord cyrillic_fallback mtight">вузлів</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">2</span></span></span></span></p>
+<p>Для умов задачі число X дорівнює:</p>
+<p style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo>=</mo><mn>62</mn><mo>+</mo><mn>2</mn><mo>=</mo><mn>64</mn></mrow><annotation encoding="application/x-tex">X=62+2=64</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">62</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">64</span></span></span></span>.</p>
+</li>
+<li>
+<p>Далі необхідно отримане число <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi></mrow><annotation encoding="application/x-tex">X</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span></span></span> перевести з десяткової у двійкову систему числення та підрахувати, скільки бітів воно займає. Саме ця кількість бітів буде визначати кількість бітів, які виділені для адресації вузлів мережі, тобто <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>H</mi></mrow><annotation encoding="application/x-tex">H</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span></span></span></span>:</p>
+<p style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mn>64</mn><mn>10</mn></msub><mo>=</mo><msub><mn>1000000</mn><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">64_{10}=1000000_2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7944em;vertical-align:-0.15em;"></span><span class="mord">6</span><span class="mord"><span class="mord">4</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">10</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7944em;vertical-align:-0.15em;"></span><span class="mord">100000</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></p>
+<p>Отже, кількість бітів у даному числі <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>H</mi><mo>=</mo><mn>7</mn></mrow><annotation encoding="application/x-tex">H = 7</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">7</span></span></span></span>, і саме вони використовуються для нумерації вузлів.</p>
+</li>
+<li>
+<p>На наступному кроці за виразом <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo>=</mo><mn>32</mn><mtext>–</mtext><mi>H</mi></mrow><annotation encoding="application/x-tex">P = 32 – H</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord">32–</span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span></span></span></span> визначається префікс мережі. Таким чином отримаємо:</p>
+<p style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo>=</mo><mn>32</mn><mtext>–</mtext><mn>7</mn><mo>=</mo><mn>25</mn></mrow><annotation encoding="application/x-tex">P = 32 – 7 = 25</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">32–7</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">25</span></span></span></span> бітів.</p>
+<p>Отже, префікс відповідно буде мати вигляд – <strong>/25</strong></p>
+</li>
+<li>
+<p>У двійковій системі числення маска мережі записується як послідовність бітів, що визначають номер мережі (одиниці) та послідовність бітів, що визначають номера вузлів (нулі).
+Для нашого випадку маска мережі буде містити <strong>25 одиниць</strong> і у двійковій системі числення матиме вигляд:</p>
+<p style="text-align:center"><strong>11111111</strong>.<strong>11111111</strong>.<strong>11111111</strong>.<strong>1</strong>0000000</p>
+<p>Відповідно, перевівши отриманий результат в десяткову форму отримаємо маску мережі вигляду:</p>
+<p style="text-align:center"><strong>255.255.255.128</strong></p>
+</li>
+<li>
+<p>Для <em>iP</em>-адреси мережі (номеру мережі) обираємо довільну <em>iP</em>-адресу з діапазону приватних <em>iP</em>-адрес, наприклад, адресу <strong>192.168.1.0</strong></p>
+</li>
+<li>
+<p>Узагальнені параметри <em>iP</em>-адреси мережі мають вигляд:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Запис з маскою:</th>
+<th style="text-align:center"></th>
+<th style="text-align:center">Запис з префіксом:</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>192.168.1.0</strong></td>
+<td style="text-align:center">або</td>
+<td style="text-align:center"><strong>192.168.1.0/25</strong></td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>255.255.255.128</strong></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>Кількість вузлів (iP-адрес вузлів), які можуть входити в мережу, становить:</p>
+<p style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>K</mi><mtext>вузлів</mtext></msub><mo>=</mo><msup><mn>2</mn><mrow><mo stretchy="false">(</mo><mn>32</mn><mo>−</mo><mn>25</mn><mo stretchy="false">)</mo></mrow></msup><mo>−</mo><mn>2</mn><mo>=</mo><msup><mn>2</mn><mn>7</mn></msup><mo>−</mo><mn>2</mn><mo>=</mo><mn>128</mn><mo>−</mo><mn>2</mn><mo>=</mo><mn>126</mn></mrow><annotation encoding="application/x-tex">K_{\text{вузлів}} = 2^{(32-25)} - 2= 2^{7} - 2=128-2=126</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9694em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">K</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:-0.0715em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord cyrillic_fallback mtight">вузлів</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.9713em;vertical-align:-0.0833em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.888em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mtight">32</span><span class="mbin mtight">−</span><span class="mord mtight">25</span><span class="mclose mtight">)</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8974em;vertical-align:-0.0833em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">7</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">128</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">126</span></span></span></span></p>
+</li>
+</ol>
+<p>Для даного прикладу всі <em>iP</em>-адреси, що наявні у мережі (окрім iP-адреси мережі та широкомовної iP-адреси), призначаються вузлам мережі.</p>
+<h3 id="завдання-2-для-мережі-у-якій-функціонує-задана-кількість-вузлів-табл-21-із-застосуванням-безкласового-підходу"><em>Завдання 2. Для мережі, у якій функціонує задана кількість вузлів (табл. 2.1), із застосуванням безкласового підходу:</em></h3>
+<ol>
+<li>Визначити оптимальні (щодо економії адрес) маску і префікс мережі;</li>
+<li>Обрати відповідну <em>iP</em>-адресу для мережі, за умови, що третій октет <em>iP</em>-адреси мережі відповідає номеру варіанта та записати узагальнені її параметри;</li>
+<li>Визначити кількість вузлів (<em>iP</em>-адрес вузлів), які можуть входити в мережу.</li>
+</ol>
+<p>Таблиця 2.1</p>
+<p><strong>Параметри для розрахунку</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">№ варіанта</th>
+<th style="text-align:center">Кількість вузлів</th>
+<th style="text-align:center">№ варіанта</th>
+<th style="text-align:center">Кількість вузлів</th>
+<th style="text-align:center">№ варіанта</th>
+<th style="text-align:center">Кількість вузлів</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">125</td>
+<td style="text-align:center">11</td>
+<td style="text-align:center">23</td>
+<td style="text-align:center">21</td>
+<td style="text-align:center">15</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">252</td>
+<td style="text-align:center">12</td>
+<td style="text-align:center">10</td>
+<td style="text-align:center">22</td>
+<td style="text-align:center">143</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">137</td>
+<td style="text-align:center">13</td>
+<td style="text-align:center">42</td>
+<td style="text-align:center">23</td>
+<td style="text-align:center">126</td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:center">25</td>
+<td style="text-align:center">14</td>
+<td style="text-align:center">125</td>
+<td style="text-align:center">24</td>
+<td style="text-align:center">231</td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td style="text-align:center">200</td>
+<td style="text-align:center">15</td>
+<td style="text-align:center">251</td>
+<td style="text-align:center">25</td>
+<td style="text-align:center">147</td>
+</tr>
+<tr>
+<td style="text-align:center">6</td>
+<td style="text-align:center">100</td>
+<td style="text-align:center">16</td>
+<td style="text-align:center">98</td>
+<td style="text-align:center">26</td>
+<td style="text-align:center">64</td>
+</tr>
+<tr>
+<td style="text-align:center">7</td>
+<td style="text-align:center">65</td>
+<td style="text-align:center">17</td>
+<td style="text-align:center">87</td>
+<td style="text-align:center">27</td>
+<td style="text-align:center">73</td>
+</tr>
+<tr>
+<td style="text-align:center">8</td>
+<td style="text-align:center">64</td>
+<td style="text-align:center">18</td>
+<td style="text-align:center">35</td>
+<td style="text-align:center">28</td>
+<td style="text-align:center">184</td>
+</tr>
+<tr>
+<td style="text-align:center">9</td>
+<td style="text-align:center">127</td>
+<td style="text-align:center">19</td>
+<td style="text-align:center">55</td>
+<td style="text-align:center">29</td>
+<td style="text-align:center">36</td>
+</tr>
+<tr>
+<td style="text-align:center">10</td>
+<td style="text-align:center">250</td>
+<td style="text-align:center">20</td>
+<td style="text-align:center">129</td>
+<td style="text-align:center">30</td>
+<td style="text-align:center">63</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Критерії оцінювання курсантів в балах національної шкали за практичне заняття</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Вид діяльності</th>
+<th style="text-align:center">Оцінка за національною шкалою</th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">&quot;2&quot;</td>
+<td style="text-align:center">&quot;3&quot;</td>
+<td style="text-align:center">&quot;4&quot;</td>
+<td style="text-align:center">&quot;5&quot;</td>
+</tr>
+<tr>
+<td style="text-align:center">Тест</td>
+<td style="text-align:center">0 – 0,2</td>
+<td style="text-align:center">0,3 – 0,4</td>
+<td style="text-align:center">0,5 – 0,6</td>
+<td style="text-align:center">0,7</td>
+</tr>
+<tr>
+<td style="text-align:center"><p>Практичні</p><p>завдання</p></td>
+<td style="text-align:center">&lt; 50 % завдань</td>
+<td style="text-align:center">50 – 64 % завдань</td>
+<td style="text-align:center">65 – 89 % завдань</td>
+<td style="text-align:center">90 -100 % завдань</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">0 – 0,3</td>
+<td style="text-align:center">0,4</td>
+<td style="text-align:center">0,5 – 0,7</td>
+<td style="text-align:center">0,8</td>
+</tr>
+<tr>
+<td style="text-align:center">Всього</td>
+<td style="text-align:center"><strong>0 – 0,6</strong></td>
+<td style="text-align:center"><strong>0,7 – 0,9</strong></td>
+<td style="text-align:center"><strong>1,0 – 1,3</strong></td>
+<td style="text-align:center"><strong>1,4 – 1,5</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Висновок.</strong> Висновок. В ході практичного занятті було розглянуто ключові аспекти адресації в сучасних ІКС із застосуванням безкласового підходу (CIDR). Курсанти опанували методику розрахунку пулу іP-адрес за заданим префіксом, включаючи визначення прямої та інверсної маски мережі, іP-адреси мережі та вузла, мінімальної та максимальної іP -адрес діапазону, широкомовної адреси, а також кількості доступних вузлів. Було вивчено принципи вибору оптимальної маски мережі з урахуванням кількості необхідних вузлів, резерву для розширення та вимог безпеки. Практичні завдання дозволили закріпити навички переведення іP -адрес між двійковою та десятковою системами числення, виконання логічних операцій та обґрунтування вибору параметрів адресації. Виконання завдань сприяло формуванню розуміння ефективного використання адресного простору та дотримання правил безпеки при роботі з комп’ютерним обладнанням. Отримані знання та навички є основою для подальшого вивчення конфігурації та адміністрування мереж.</p>
+<p><strong>Завдання на самостійну підготовку:</strong></p>
+<ol>
+<li>
+<p><u>З теоретичної підготовки (закріплення знань):</u></p>
+<p>1.1 Повторити класифікацію iP-адрес та їх призначення.<br>
+1.2 Вивчити особливості використання масок мережі різної довжини.<br>
+1.3 Закріпити знання про діапазони приватних адрес</p>
+</li>
+<li>
+<p><u>З практичної підготовки (відпрацювання навичок):</u></p>
+<p>2.1 Для заданої iP-адреси 192.168.45.78 з префіксом мережі /26:</p>
+<ul>
+<li>Обчисліть пряму та інверсну маски мережі у двійковій та десятковій формах.</li>
+<li>Визначте iP-адресу мережі та iP-адресу вузла.</li>
+<li>Визначте мінімальну та максимальну iP-адреси діапазону, що може використовуватися для адресації вузлів.</li>
+<li>Визначте широкомовну iP-адресу мережі.</li>
+<li>Розрахуйте кількість вузлів, які можуть входити до мережі.</li>
+</ul>
+<p>2.2 Розрахуйте оптимальну маску мережі та префікс для мережі, у якій необхідно розмістити 30 вузлів.<br>
+2.3 Порівняйте кількість доступних iP-адрес для вузлів у мережах із префіксами /24, /25 та /26. Поясніть, як зміна префікса впливає на розмір адресного простору та доцільність використання для мереж із різною кількістю вузлів (наприклад, 50, 100 та 200 вузлів).<br>
+2.4. Проаналізуйте наведений приклад: задана IP-адреса 172.16.10.20/22, але помилково вказано маску мережі як 255.255.255.0.</p>
+<ul>
+<li>Визначте правильну маску мережі для префікса /22.</li>
+<li>Вкажіть, які параметри (IP-адреса мережі, кількість вузлів) зміняться через цю помилку.</li>
+<li>Поясніть, як це може вплинути на функціонування мережі.</li>
+</ul>
+</li>
+</ol>
+
+           
+
+        </body>
+        </html>
