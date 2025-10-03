@@ -38,3 +38,18 @@ code {
     padding: 4px 6px;          /* внутрішні відступи */
     border-radius: 4px;        /* трохи закруглені кути */
 }
+
+
+pre code {
+    background-color: #1e1e1e; /* темно-сірий фон (як у терміналі) */
+    color: #00ff00;       
+	font-family: "Courier New", Courier, monospace;
+    padding: 4px 6px;          /* внутрішні відступи */
+    border-radius: 4px;        /* трохи закруглені кути */
+}
+
+/* підсвічування синтаксису */
+pre code .command { color: #00ff00; }   /* зелені команди */
+pre code .arg     { color: #ffffff; }   /* білі аргументи */
+pre code .path    { color: #00bfff; }   /* блакитні шляхи */
+pre code .option  { color: #ffd700; }   /* жовті опції */
