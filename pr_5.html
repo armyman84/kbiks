@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>&ast;&ast;&Pcy;&rcy;&acy;&kcy;&tcy;&icy;&chcy;&ncy;&iecy; &zcy;&acy;&ncy;&yacy;&tcy;&tcy;&yacy; &numero; 5&ast;&ast;</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        <link href="style.css" rel="stylesheet" type="text/css" />
+        </head>
+        <body class="vscode-body vscode-light">
+            <span id="markdown-mermaid" aria-hidden="true"
+                    data-dark-mode-theme="dark"
+                    data-light-mode-theme="default"
+                    data-max-text-size="50000"></span>
+                <h2 id="практичне-заняття--5"><strong>Практичне заняття № 5</strong></h2>
+<h1 id="налагодження-параметрів-адресації-робочих-станцій-з-різними-ос"><strong>НАЛАГОДЖЕННЯ ПАРАМЕТРІВ АДРЕСАЦІЇ РОБОЧИХ СТАНЦІЙ З РІЗНИМИ ОС</strong></h1>
+<h2 id="навчальні-питання"><strong>Навчальні питання</strong></h2>
+<ol>
+<li>Налагодження параметрів <em>iР</em>-адресації вузлів з ОС <em>Windows</em> 10</li>
+<li>Налагодження параметрів <em>iР</em> -адресації вузлів з ОС <em>Linux</em></li>
+</ol>
+<h2 id="очікувані-результати-заняття"><strong>Очікувані результати заняття:</strong></h2>
+<ol>
+<li>Знати, вміти відтворити (вибрати) визначення та теоретичні відомості, що наведені в Л5-Л6.</li>
+<li>Визначити початкові параметри мережевих налаштувань у операційних системах <em>Windows</em> 10 та Linux за допомогою командного рядка та графічного інтерфейсу.</li>
+<li>Налаштувати параметри <em>iP</em>-адресації (<em>iP</em>-адреса, маска мережі, основний шлюз, <em>DNS</em>-сервери) на кінцевих пристроях під управлінням ОС <em>Windows</em> 10 та <em>Linux</em> відповідно до заданих значень.</li>
+<li>Порівняти результати визначення мережевих налаштувань, отриманих за допомогою командного рядка та графічної оболонки, для оцінки їх зручності та ефективності.</li>
+<li>Застосувати команди <em>ipconfig</em>, <em>ifconfig</em>, <em>ip addr</em>, <em>netstat -rn</em>, <em>routel</em> та <em>cat /etc/resolv.conf</em> для отримання інформації про мережеві параметри в ОС <em>Windows</em> 10 та <em>Linux</em>.</li>
+<li>Модифікувати конфігураційний файл <em>/etc/network/interfaces</em> в ОС <em>Linux</em> для встановлення статичної <em>iP</em>-адресації через термінал.</li>
+<li>Перевірити правильність налаштувань мережевих параметрів за допомогою відповідних команд або графічного інтерфейсу в обох операційних системах.</li>
+</ol>
+<h2 id="правила-техніки-безпеки-під-час-виконання-завдань-на-занятті-в-класах-пк"><strong>Правила техніки безпеки під час виконання завдань на занятті в класах ПК</strong></h2>
+<p>При обробці інформації чи вирішенні задач на ПК користувач <strong>повинен:</strong></p>
+<ol>
+<li>Одержати дозвіл на розв‘язування задачі і обробку інформації.</li>
+<li>Прийняти машину у відповідального ІОЦ.</li>
+<li>Зробити необхідні записи про початок роботи в журналі обліку роботи на ПК, а по закінченню роботи зробити відмітку про кінець роботи.</li>
+<li>Здати ПК відповідальному.</li>
+</ol>
+<p>При роботі на ПК <strong>забороняється:</strong></p>
+<ol>
+<li>Підключати до ПК нештатні блоки та пристрої.</li>
+<li>Застосовувати для з'єднання блоків ПК провідники з пошкодженою ізоляцією.</li>
+<li>Працювати на ПК, використовуючи незареєстровані магнітні носії інформації</li>
+<li>Проводити перекомутацію з‘єднувальних кабелів при підключеному електроживленні.</li>
+</ol>
+<p>Користувач несе <strong>особисту відповідальність</strong> за:</p>
+<ul>
+<li>дотримання правил експлуатації ПК;</li>
+<li>збереження комплекту ПК і носіїв інформації;</li>
+<li>дотримання правил і заходів електробезпеки на ПК.</li>
+</ul>
+<h2 id="1-питання-налагодження-параметрів-iр-адресації-вузлів-з-ос-windows-10"><strong>1 Питання. Налагодження параметрів <em>iР</em>-адресації вузлів з ОС <em>Windows</em> 10</strong></h2>
+<p>Настільки ж, як Вам потрібні номери телефонів ваших друзів, щоб надіслати їм текстові повідомлення або зателефонувати, кінцеві пристрої у вашій мережі потребують <em>iP</em>-адреси, щоб вони могли обмінюватися інформацією з іншими пристроями у вашій мережі.
+<em>iP</em>-адресу можна налаштувати на кінцевому пристрої вручну або отримати автоматично за допомогою протоколу <em>DHCP</em>.
+Проте, незалежно від способу налаштування першим етапом є визначення початкових параметрів мережевих налаштувань.</p>
+<div class="markdown-alert markdown-alert-warning"><p class="markdown-alert-title"><svg class="octicon octicon-alert mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg>Всі налаштування в даному практичному занятті здійснюються на віртуальних машинах Windows 10 та Kali Linux у програмі Virtual Box</p><p></p>
+</div>
+<h3 id="завдання-1-визначити-початкові-параметри-мережевих-налаштувань"><em>Завдання 1. Визначити початкові параметри мережевих налаштувань</em></h3>
+<p>Визначення початкових параметрів мережевих налаштувань можливо здійснити декількома способами: за допомогою командного рядка та за допомогою графічної оболонки системи <em>Windows</em>.</p>
+<p><em>1.1 Визначте початкові параметри налаштування за допомогою командного рядка.</em><br>
+При визначені початкових параметрів мережевих налаштувань за допомогою командного рядка слід скористатися команду <code>ipconfig</code>.</p>
+<ol>
+<li>
+<p>Для цього відкрийте оболонку командного рядка через меню <strong>Пуск</strong> – <strong>Система <em>Windows</em></strong> – <strong>Командний рядок</strong> (рис 1.1)</p>
+<p><img src="media\pr_5\pic1.jpg" alt="alt"></p>
+<p class="figure"><em>Рис. 1.1. Виклик Командного рядка через меню Пуск.</em></p>
+</li>
+<li>
+<p>В командному рядку введіть команду <code>ipconfig -?</code>. Дана команда виведе на екран довідку про параметри використання та синтаксис команди <em>ipconfig</em> (рис. 1.2). Ознайомтесь з довідкою.</p>
+<p><img src="media\pr_5\pic2.jpg" alt="alt"></p>
+<p class="figure"><em>Рис. 1.2. Результат виконання команди <em>ipconfig -?</em>.</em></p>
+</li>
+<li>
+<p>Введіть в командному рядку команду <code>ipconfig  /all</code>. Детально вивчіть результати виконання команди та знайдіть початкові мережеві налаштування Вашого кінцевого пристрою. Приклад виконання команди наведений на рис. 1.3</p>
+<p><img src="media\pr_5\pic3.jpg" alt="alt"></p>
+<p class="figure"><em>Рис. 1.3. Результат виконання команди <em>ipconfig /all</em>.</em></p>
+<p>Запишіть у звіт з практичного заняття наступні дані:</p>
+<ol>
+<li>Фізичну адресу мережевого адаптеру;</li>
+<li>Початкове значення <em>iР</em>-адреси;</li>
+<li>Початкове значення маски мережі;</li>
+<li>Початкове значення Основного шлюзу.</li>
+<li>Початкове значення <em>DNS</em>-сервера.</li>
+<li>Який вид налаштувань використовується? (ручний чи автоматичний)</li>
+</ol>
+</li>
+</ol>
+<p><em>1.2 Визначте початкові параметри налаштування за допомогою графічної оболонки системи Windows.</em></p>
+<p>Для визначення початкових параметрів мережевих налаштувань за допомогою графічної оболонки системи <em>Windows</em> слід виконати наступні дії:</p>
+<ol>
+<li>
+<p>Навести курсор на іконку мережевого з’єднання та натиснути праву кнопкою миші.</p>
+</li>
+<li>
+<p>У вікні, що з’явиться обрати пункт <strong>Відкрити налаштування мережі й Інтернету</strong> (рис. 1.4).</p>
+<p><img src="media\pr_5\pic4.jpg" alt="alt"></p>
+<p class="figure"><em>Рис. 1.4. Виклик меню налаштування.</em></p>
+</li>
+<li>
+<p>На екрані ПЕОМ з’явиться вікно <strong>Мережа і Інтернет</strong>, в якому необхідно обрати пункт <em><strong>Ethernet</strong></em>. (рис. 1.5)</p>
+<p><img src="media\pr_5\pic5.jpg" alt="alt"></p>
+<p class="figure"><em>Рис. 1.5. Вікно <strong>Мережа й Інтернет</strong>.</em></p>
+</li>
+<li>
+<p>Після обрання зазначеного пункту на екрані з’явиться вікно в якому необхідно буде обрати мережу, до якої Ви підключені (рис.1.6).</p>
+<p><img src="media\pr_5\pic6.jpg" alt="alt"></p>
+<p class="figure"><em>Рис. 1.6. Вікно налаштування <em><strong>Ethernet</strong></em></em>.</p>
+</li>
+<li>
+<p>Після того на екрані з’явиться вікно з властивостями мережі (рис. 1.7). Прогорнувши його до низу Ви отримаєте відомості про мережеві налаштування.</p>
+<p><img src="media\pr_5\pic7.jpg" alt="alt"></p>
+<p class="figure"><em>Рис. 1.7. Вікно з властивостями мережі.</em></p>
+</li>
+</ol>
+<p>Порівняйте отримані Вами результати при виконані пункту 1.1 та 1.2. Зробіть для себе висновок, який із варіантів визначення початкових параметрів мережевого налаштування Вам зручніший.</p>
+<h3 id="завдання-2-здійснити-налаштування-параметрів-ір-адресації-кінцевого-пристрою-від-управлінням-ос-windows-10"><em>Завдання 2. Здійснити налаштування параметрів ІР-адресації кінцевого пристрою від управлінням ОС Windows 10.</em></h3>
+<p>Встановіть для Вашої системи наступні мережеві параметри:</p>
+<ul>
+<li>іР-адреса хосту: 192.168.<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>G</mi></mrow><annotation encoding="application/x-tex">G</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">G</span></span></span></span>.<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>N</mi></mrow><annotation encoding="application/x-tex">N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span></span></span></span>,  де <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>G</mi></mrow><annotation encoding="application/x-tex">G</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">G</span></span></span></span> – номер Вашої групи, а <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>N</mi></mrow><annotation encoding="application/x-tex">N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span></span></span></span> – Ваш номер за журналом;</li>
+<li>Маска мережі: 255.255.255.0</li>
+<li>Основний шлюз: 192.168. G.1</li>
+<li>Основний <em>DNS</em>: 8.8.8.8</li>
+<li>Альтернативний <em>DNS</em>: 192.168.<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>G</mi></mrow><annotation encoding="application/x-tex">G</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">G</span></span></span></span>.1</li>
+</ul>
+<p>Для налаштування необхідних параметрів необхідно:</p>
+<ol>
+<li>
+<p>Навести курсор на іконку мережевого з’єднання та натиснути праву кнопкою миші.</p>
+</li>
+<li>
+<p>У вікні, що з’явиться обрати пункт <strong>Відкрити налаштування мережі й Інтернету</strong>.</p>
+</li>
+<li>
+<p>На екрані ПЕОМ з’явиться вікно <strong>Мережа і Інтернет</strong>, у якому оберіть пункт З<strong>мінити настройки адаптера</strong> (рис. 1.8)</p>
+<p><img src="media\pr_5\pic8.jpg" alt="alt"></p>
+<p class="figure"><em>Рис. 1.8. Вікно <strong>Мережа й Інтернет</strong>.</em></p>
+</li>
+<li>
+<p>Після виконання третього пункту на екрані з’явиться вікно <strong>Мережеві підключення</strong>, в якому необхідно обрати потрібний Вам адаптер та натиснути праву кнопку миші для виклику контекстного меню (рис. 1.8. позначка 1). В меню, що з’явиться оберіть пункт <strong>Властивості</strong> (рис. 1.9. позначка 2).</p>
+<p><img src="media\pr_5\pic9.jpg" alt="alt"></p>
+<p class="figure"><em>Рис. 1.9. Вікно <strong>Мережеві підключення</strong>.</em></p>
+</li>
+<li>
+<p>У вікні, що з’явиться знаходимо пункт <strong>Протокол Інтернету версії 6 (<em>TCP</em>/<em>IPv6</em>)</strong> і прибираємо у нього галочку вибору. Вибираємо пункт <strong>Протокол Інтернету версії 4 (<em>TCP</em>/<em>IPv4</em>)</strong> (не знімаючи з нього галочки) і далі натискаємо кнопку <strong>Властивості</strong> (рис. 1.10).</p>
+<p><img src="media\pr_5\pic10.jpg" alt="alt"></p>
+<p class="figure"><em>Рис. 1.10. Вікно з властивостями мережевого з’єднання.</em></p>
+</li>
+<li>
+<p>Далі, у вікні, що з’явиться потрібно обрати пункти <strong>Використовувати таку <em>ІР</em>-адресу</strong> та <strong>Використовувати такі адреси <em>DNS</em>-серверів</strong> і у відповідні поля ввести потрібні значення. Після закінчення введення значень натиснути кнопку <em><strong>ОК</strong></em> та закрити решту вікон (рис. 1.11).</p>
+<p><img src="media\pr_5\pic11.jpg" alt="alt"></p>
+<p class="figure"><em>Рис. 1.11. Вікно з властивостями мережевого з’єднання.</em></p>
+</li>
+<li>
+<p>У разі, якщо на шлюзі <strong>працює <em>DHCP</em>-сервер</strong> обираємо <strong>Отримати <em>iP</em>-адресу автоматично</strong> і <strong>Отримати адресу <em>DNS</em>-сервера автоматично</strong>.</p>
+</li>
+</ol>
+<p>Таким чином Ви здійснили налаштування мережевих параметрів Вашого хосту.
+Перевірте зручним для Вас способом (розглянуті в завданні 1) правильність налаштованих Вами параметрів.</p>
+<h2 id="2-питання-налагодження-параметрів-iр-адресації-вузлів-з-ос-linux"><strong>2 Питання. Налагодження параметрів <em>iР</em>-адресації вузлів з ОС <em>Linux</em></strong></h2>
+<p>У більшості випадків для того, щоб задати статичну <em>iP</em> адресу в <em>Linux</em>, необхідно правити конфігураційний файл <em>/etc/network/interfaces</em>. В дистрибутивах з графічним інтерфейсом, які розраховані на звичайних користувачів є спеціальні графічні інструменти для налагодження мережі, в тому числі функціонал зміни <em>iP</em> адреси. Аналогічно як і в ОС <em>Windows</em> так і в <em>Linux</em>  <em>iP</em>-адресу можна налаштувати на кінцевому пристрої вручну або отримати автоматично за допомогою протоколу <em>DHCP</em>.<br>
+Проте, незалежно від способу налаштування першим етапом є визначення початкових параметрів мережевих налаштувань.</p>
+<h3 id="завдання-3-визначити-початкові-параметри-мережевих-налаштувань"><em>Завдання 3. Визначити початкові параметри мережевих налаштувань.</em></h3>
+<p>Визначення початкових параметрів мережевих налаштувань в ОС <em>Linux</em> як правило відбувається за допомогою терміналу та виконання в ньому відповідних команд <em><strong>ifconfig</strong></em>, <em><strong>ip</strong></em>. Для визначення початкових параметрів необхідно:</p>
+<ol>
+<li>
+<p>Відкрити термінал <em>Linux</em> (аналог командного рядка в ОС Windows).<br>
+Для запуску термінала натисніть сполучення клавіш <em><strong>Ctrl+Alt+T</strong></em> або натиснути на відповідну піктограму у верхній правій частині екрану (рис. 2.1).</p>
+<p><img src="media\pr_5\pic12.jpg" alt="alt"></p>
+<p>*Рис. 2.1. Відкриття Терміналу <em>Linux.</em></p>
+</li>
+<li>
+<p>В терміналі введіть команду <code>ifconfig -h</code>. Дана команда виведе на екран довідку про параметри використання та синтаксис команди <em>ifconfig</em>. Ознайомтесь з довідкою (рис. 2.2).</p>
+<p><img src="media\pr_5\pic13.jpg" alt="alt"></p>
+<p class="figure"><em>Рис. 2.2. Результат виконання команди ifconfig -h</em></p>
+</li>
+<li>
+<p>Введіть в командному рядку команду <code>ifconfig  -a</code> . Детально вивчіть результати виконання команди та знайдіть початкові мережеві налаштування Вашого кінцевого пристрою. (рис. 2.3.)</p>
+<p><img src="media\pr_5\pic14.jpg" alt="alt"></p>
+<p class="figure"><em>Рис. 2.3. Результат виконання команди ifconfig -a</em></p>
+<p>Як Ви бачите за допомогою команди <em>ifconfig</em> можливо отримати наступну інформацію: <em>ім’я інтерфейсу, іР-адресу цього інтерфейсу, маску мережі, широкомовну адресу, МАС-адресу інтерфейсу</em> та інші службові відомості.</p>
+<p>Запишіть у звіт з практичного заняття наступні дані:</p>
+<ul>
+<li>Фізичну адресу мережевого адаптеру;</li>
+<li>Початкове значення iР-адреси;</li>
+<li>Початкове значення маски мережі;</li>
+</ul>
+</li>
+<li>
+<p>Спробуйте виконати в терміналі команду <code>ip addr</code>. Оцініть результат виконання цієї команди та порівняйте з попередньою командою.</p>
+</li>
+<li>
+<p>Для визначення <em>іР</em>-адреси основного шлюзу (<em>Gateway</em>) скористайтеся однією із наведених нижче команд:</p>
+<p style="text-align: center;"><code>netstat   -rn</code></p>
+<p style="text-align: center;">або</p>
+<p style="text-align: center;"><code>routel</code></p>
+<p>Запишіть у звіт з практичного заняття значення <em>іР</em>-адреси основного шлюзу.</p>
+</li>
+<li>
+<p>Для визначення DNS-серверу необхідно використати одну із наведених нижче команд:</p>
+<p style="text-align: center;"><code>cat   /etc/resolv.conf</code></p>
+<p style="text-align: center;"><code>less   /etc/resolv.conf</code></p>
+<p style="text-align: center;"><code>grep   &quot;nameserver&quot;   /etc/resolv.conf</code></p>
+<p>Запишіть у звіт з практичного заняття значення <em>іР</em>-адреси <em>DNS</em>-серверу.</p>
+</li>
+</ol>
+<p>Отже, Ви отримали усі початкові значення мережевих налаштувань.</p>
+<h3 id="завдання-4-здійснити-налаштування-параметрів-ір-адресації-кінцевого-пристрою-від-управлінням-ос-linux"><em>Завдання 4. Здійснити налаштування параметрів ІР-адресації кінцевого пристрою від управлінням ОС Linux.</em></h3>
+<p>Встановіть для Вашої системи наступні мережеві параметри:</p>
+<ul>
+<li>іР-адреса хосту: 192.168.<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>G</mi></mrow><annotation encoding="application/x-tex">G</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">G</span></span></span></span>.<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>N</mi></mrow><annotation encoding="application/x-tex">N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span></span></span></span>,  де <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>G</mi></mrow><annotation encoding="application/x-tex">G</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">G</span></span></span></span> – номер Вашої групи, а <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>N</mi></mrow><annotation encoding="application/x-tex">N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span></span></span></span> – Ваш номер за журналом;</li>
+<li>Маска мережі: 255.255.255.0</li>
+<li>Основний шлюз: 192.168. G.1</li>
+<li>Основний <em>DNS</em>: 8.8.8.8</li>
+<li>Альтернативний <em>DNS</em>: 192.168.<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>G</mi></mrow><annotation encoding="application/x-tex">G</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">G</span></span></span></span>.1</li>
+</ul>
+<p>Як зазначалося раніше в OC <em>Linux</em> налаштування мережевих параметрів можливо двома способами: за допомогою графічного інтерфейсу та правки відповідних файлів конфігурації через термінал. Розглянемо обидва способи.</p>
+<p><em>4.1 Налаштування мережевих параметрів за допомогою графічного інтерфейсу.</em></p>
+<p>Налаштування буде відбуватися на основі ОС <em>Kali Linux</em>. На решті дистрибутивів принцип налаштування аналогічний.<br>
+Для налаштування мережевих параметрів потрібно за допомогою графічного інтерфейсу скористатися інструментом <em><strong>Network Connections</strong></em> (Мережа, Сеть). Це можна зробити наступними способами:</p>
+<ol>
+<li>
+<p>Натиснути меню <strong>Пуск</strong> та обрати у розділі <strong>Налаштування</strong> обрати <strong>Додаткові налаштування мережі</strong> (рис. 2.4.)</p>
+<p><img src="media\pr_5\pic15.jpg" alt="alt"></p>
+<p class="figure"><em>Рис. 2.4. Виклик інструменту <strong>Додаткові налаштування мережі</strong></em></p>
+</li>
+<li>
+<p>Навести курсор на іконку мережевого з’єднання та правою кнопкою миші викликати контекстне меню. В ньому обрати пункт <strong>Змінити з’єднання…</strong> (рис. 2.5).</p>
+<p><img src="media\pr_5\pic16.jpg" alt="alt"></p>
+<p class="figure"><em>Рис. 2.5. Виклик інструменту <strong>Додаткові налаштування мережі</strong></em></p>
+</li>
+<li>
+<p>Після обрання необхідного інструменту на екрані з’явиться відповідне вікно (рис. 2.6), в якому необхідно обрати профіль, який буде налаштовуватися, а у разі його відсутності – створити новий, натиснувши кнопку «<strong>+</strong>». Після обрання необхідного профілю кнопка налаштувань (шестерня) стане активною. На неї потрібно натиснути.</p>
+<p><img src="media\pr_5\pic17.jpg" alt="alt"></p>
+<p class="figure"><em>Рис. 2.6. Виклик інструменту <strong>Додаткові налаштування мережі</strong></em></p>
+</li>
+<li>
+<p>Після натискання кнопки налаштувань на екрані з’явиться вікно редагування налаштувань. В ньому переходимо на вкладку <strong>Параметри iPv4</strong>.</p>
+</li>
+<li>
+<p>Якщо потрібно налаштувати статичну адресацію вручну, то потрібно в полі <strong>Метод</strong> змінити метод налаштувань на <strong>Вручну</strong>. Потім натисніть кнопку <strong>Додати</strong> та у відповідні поля занесіть налаштування <em>iP</em>-адреси та <em>DNS</em>-сервери (якщо використовується декілька <em>DNS</em>-серверів, їх <em>iP</em>-адреси слід розділити комою) та натисніть кнопку <strong>Зберегти</strong> (рис. 2.7).</p>
+<p><img src="media\pr_5\pic18.jpg" alt="alt"></p>
+<p class="figure"><em>Рис. 2.7. Вікно редагування налаштувань з відповідними параметрами</em></p>
+</li>
+<li>
+<p>За допомогою команди <code>ifconfig</code> перевірте чи застосувалися всі ваші налаштування. Якщо ні, то потрібно програмно від’єднатися, а потім приєднатися до мережі або в терміналі виконати команди відключення від мережі та підключення до неї:</p>
+<p style="text-align: center;"><code>sudo  nmcli  networking  off</code></p>
+<p style="text-align: center;"><code>sudo  nmcli  networking  on</code></p>
+<p>Пам’ятайте, що після використання команди sudo система буде вимагати від Вас пароль від облікового запису суперкористувача.</p>
+</li>
+</ol>
+<p><em>4.2 Налаштування мережевих параметрів за допомогою правки відповідних файлів конфігурації через термінал.</em></p>
+<p>У випадку, коли Ви маєте справу з ОС <em>Linux</em>, яка не має графічного інтерфейсу, або якщо він за якихось причин не запустився Ви можете здійснити мережеві налаштування за допомогою правки конфігураційного файлу <em><strong>/etc/network/interfaces</strong></em>.<br>
+Для цього необхідно:</p>
+<ol>
+<li>
+<p>Для коректного застосування подальших налаштувань привести пророблені Вами налаштування у вікні (рис. 2.7) до початкового стану. Для цього відкрийте зазначене вікно відповідно до алгоритму з попереднього завдання. В даному вікні оберіть метод підключення як <strong>Автоматично</strong> (<em><strong>DHCP</strong></em>), за допомогою кнопки <strong>Вилучити</strong> видаліть зроблені налаштування, та не забудьте видалити налаштування в полі <strong>Сервери DNS</strong>. Після чого натисніть кнопку <strong>Зберегти</strong> та відповідно до п. 6 попереднього завдання перепідключіться до мережі. За допомогою команди <em><strong>ifconfig</strong></em> перевірте чи відновилися налаштування.</p>
+</li>
+<li>
+<p>За допомогою консольному текстовому редакторі <em><strong>nano</strong></em> відкрити файл <em><strong>interfaces</strong></em> для правки за допомогою наступної команди (рис. 2.8):</p>
+<p style="text-align: center;"><code>sudo nano  /etc/network/interfaces</code></p>
+<p><img src="media\pr_5\pic19.jpg" alt="alt"></p>
+<p class="figure"><em>Рис. 2.8. Відкритий конфігураційний файл interfaces в консольному текстовому редакторі nano.</em></p>
+<p>Запишіть у звіт з практичного заняття початковий вміст файлу.</p>
+</li>
+<li>
+<p>Після відкриття зазначеного файлу в нього необхідно дописати наступні рядки:</p>
+<pre style="text-align: center;"><code> iface eth0 inet static
+ address 192.168.0.10 
+ netmask 255.255.255.0 
+ gateway 192.168.0.1
+ dns-nameservers 192.168.0.1 8.8.8.8
+ auto eth0
+</code></pre>
+<p>Де:<br>
+<em>iface eth0 inet static</em> - вказує, що інтерфейс (<em>iface</em> <em>eth0</em>) знаходиться в діапазоні адрес <em>iPv4</em> (inet) зі статичним <em>iP</em> (static);
+<em>eth0</em> - ім'я інтерфейсу, який налаштовується. Ім’я інтерфейсів можна подивитися виконавши в консолі наступні команди:</p>
+<p style="text-align: center;"><code>ifconfig</code></p>
+<p style="text-align: center;">або</p>
+<p style="text-align: center;"><code>ip addr</code></p>
+<p><strong><em>address</em> 192.168.0.10</strong> – вказує на те, що для мережевої карти комп’ютера буде встановлена <em>iP</em> адреса <strong>192.168.0.10</strong>;<br>
+<strong><em>netmask</em> 255.255.255.0</strong> – вказує, що буде встановлена маска мережі, яка має значення 255.255.255.0;<br>
+<strong><em>gateway</em> 192.168.0.1</strong> – здійснює налаштування <em>іР</em>-адреси основного шлюзу на наступну: 192.168.0.1;<br>
+<strong><em>dns-nameservers</em> 192.168.0.1  8.8.8.8</strong> – налаштування <em>іР</em>-адрес  <em>DNS</em> серверів;<br>
+<strong>auto eth0</strong>* - вказує системі, що інтерфейс <em>eth0</em> необхідно включати автоматично при завантаженні системи з вищевказаними параметрами.<br>
+<strong>Вам необхідно замінити значення параметрів, що наводяться в прикладі на власні.</strong></p>
+<p>Запишіть у звіт з практичного заняття, які відомості Ви внесли у файл <em>interfaces</em>.</p>
+</li>
+</ol>
+<p>Після введення необхідної інформації потрібно зберегти файл, натиснувши комбінацію клавіш <em><strong>Ctrl+O</strong></em>, а потім <em><strong>Enter</strong></em>. Потім закрити текстовий редактор <em>nano</em> натиснувши комбінацію клавіш <em><strong>Ctrl+Х</strong></em>.
+Для того, щоб ваші налаштування вступили в силу необхідно перезавантажити комп’ютер. Це можливо зробити за допомогою графічного інтерфейсу ОС, або виконати в терміналі наступну команду:</p>
+<p style="text-align: center;"><code>sudo reboot</code></p>
+<p><strong>Критерії оцінювання курсантів в балах національної шкали за практичне заняття</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Вид діяльності</th>
+<th style="text-align:center">Оцінка за національною шкалою</th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">&quot;2&quot;</td>
+<td style="text-align:center">&quot;3&quot;</td>
+<td style="text-align:center">&quot;4&quot;</td>
+<td style="text-align:center">&quot;5&quot;</td>
+</tr>
+<tr>
+<td style="text-align:center">Тест</td>
+<td style="text-align:center">0 – 0,2</td>
+<td style="text-align:center">0,3 – 0,4</td>
+<td style="text-align:center">0,5 – 0,6</td>
+<td style="text-align:center">0,7</td>
+</tr>
+<tr>
+<td style="text-align:center"><p>Практичні</p><p>завдання</p></td>
+<td style="text-align:center">1 завдання</td>
+<td style="text-align:center">2 завдання</td>
+<td style="text-align:center">3 завдання</td>
+<td style="text-align:center">4 завдання</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">0 – 0,3</td>
+<td style="text-align:center">0,4</td>
+<td style="text-align:center">0,5 – 0,7</td>
+<td style="text-align:center">0,8</td>
+</tr>
+<tr>
+<td style="text-align:center">Всього</td>
+<td style="text-align:center"><strong>0 – 0,6</strong></td>
+<td style="text-align:center"><strong>0,7 – 0,9</strong></td>
+<td style="text-align:center"><strong>1,0 – 1,3</strong></td>
+<td style="text-align:center"><strong>1,4 – 1,5</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Висновок.</strong> В ході практичного заняття курсанти ознайомилися з основами налаштування параметрів IP-адресації в операційних системах <em>Windows</em> 10 та <em>Linux</em> <em>(Kali Linux</em>) у середовищі віртуальних машин <em>VirtualBox</em>. Було виконано визначення початкових мережевих параметрів за допомогою командного рядка (ipconfig, ifconfig, ip addr, netstat -rn, routel, <em>cat /etc/resolv.conf</em>) та графічного інтерфейсу, а також здійснено налаштування статичної <em>IP</em>-адресації для кінцевих пристроїв. Курсанти порівняли зручність різних методів визначення мережевих параметрів, модифікували конфігураційний файл <em>/etc/network/interfaces</em> у <em>Linux</em> та перевірили правильність застосованих налаштувань. Під час виконання завдань було дотримано правил техніки безпеки при роботі з комп’ютерною технікою. Отримані навички дозволяють курсантам ефективно налаштовувати мережеві параметри в різних операційних системах, що є важливим для забезпечення функціонування інформаційно-комунікаційних систем.</p>
+<p><strong>Завдання на самостійну підготовку:</strong></p>
+<ol>
+<li>Визначити початкові параметри мережевого підключення власного ПК або ноутбука за допомогою командного рядка <em>Windows 10</em> та порівняти отримані результати з відомостями графічного інтерфейсу.</li>
+<li>Налаштувати вручну статичну <em>iP</em>-адресу на ПК з ОС <em>Windows</em> 10, перевірити працездатність з’єднання та зробити висновок щодо відмінностей між автоматичною та статичною адресацією.</li>
+<li>Виконати налаштування <em>iP</em>-адреси та <em>DNS</em>-серверів у віртуальній машині <em>Linux</em> двома способами:</li>
+</ol>
+<ul>
+<li>через графічний інтерфейс (N<em>etwork Connections</em>);</li>
+<li>через редагування конфігураційного файлу <em>/etc/network/interfaces</em>.</li>
+</ul>
+<ol start="4">
+<li>Продемонструвати перевірку правильності виконаних налаштувань у <em>Linux</em> за допомогою команд (<em>ifconfig, ip addr, ping, cat /etc/resolv.conf</em>).</li>
+<li>Підготувати звіт, у якому:</li>
+</ol>
+<ul>
+<li>навести скріншоти виконаних дій;</li>
+<li>описати алгоритм налаштування у <em>Windows</em> та <em>Linux</em>;</li>
+<li>зробити висновки про відмінності й зручність використання різних методів.</li>
+</ul>
+
+           
+
+        </body>
+        </html>
