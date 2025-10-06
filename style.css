@@ -26,6 +26,10 @@ img {
     margin-right: auto;   /* автоматичний відступ справа */
 }
 
+table {
+  margin: 0 auto;
+}
+
 ul, ol {
     list-style-position: outside;  /* маркер зліва */
     padding-left: 1.5ch;           /* відступ для коректного розташування */
@@ -48,8 +52,4 @@ pre code {
     border-radius: 4px;        /* трохи закруглені кути */
 }
 
-/* підсвічування синтаксису */
-pre code .command { color: #00ff00; }   /* зелені команди */
-pre code .arg     { color: #ffffff; }   /* білі аргументи */
-pre code .path    { color: #00bfff; }   /* блакитні шляхи */
-pre code .option  { color: #ffd700; }   /* жовті опції */
+

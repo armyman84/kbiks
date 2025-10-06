@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>&Lcy;&iecy;&kcy;&tscy;&iukcy;&yacy; 6</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        <link href="style.css" rel="stylesheet" type="text/css" />
+        </head>
+        <body class="vscode-body vscode-light">
+            <span id="markdown-mermaid" aria-hidden="true"
+                    data-dark-mode-theme="dark"
+                    data-light-mode-theme="default"
+                    data-max-text-size="50000"></span>
+                <h2 id="лекція-6">Лекція 6</h2>
+<h3 id="тема-2-основи-комутації-та-експлуатації-інформаційно-комунікаційних-систем">Тема 2: ОСНОВИ КОМУТАЦІЇ ТА ЕКСПЛУАТАЦІЇ ІНФОРМАЦІЙНО-КОМУНІКАЦІЙНИХ СИСТЕМ</h3>
+<h3 id="тема-лекції-основи-адресації-в-ікс">Тема лекції: <strong>Основи адресації в ІКС</strong></h3>
+<h2 id="навчальні-питання"><strong>Навчальні питання:</strong></h2>
+<ol>
+<li>Фізичні адреси.</li>
+<li><em>ІР</em>-адресація.</li>
+<li>Служби управління адресацією.</li>
+</ol>
+<h2 id="очікувані-результати-заняття"><strong>Очікувані результати заняття:</strong></h2>
+<ol>
+<li>Визначати основні типи адрес у комп’ютерних мережах (фізичні, <em>IP</em>-адреси, символьні <em>DNS</em>-імена).</li>
+<li>Описувати структуру та принципи формування <em>MAC</em>-адреси, <em>IP</em>-адрес IPv4 і IPv6.</li>
+<li>Класифікувати <em>IP</em>-адреси за класами та спеціальним призначенням, розпізнавати приватні та публічні адреси.</li>
+<li>Пояснювати принципи роботи масок підмереж і префіксів, встановлювати взаємозв’язки між <em>IP</em>-адресою та маскою.</li>
+<li>Інтерпретувати механізми роботи служб управління адресацією (<em>DHCP</em>, <em>NAT</em>, <em>DNS</em>), наводити приклади їх застосування на практиці.</li>
+<li>Підсумовувати переваги та недоліки використання <em>NAT</em> у мережах.</li>
+<li>Ідентифікувати роль <em>DNS</em> у забезпеченні зручності та ефективності мережної взаємодії, ілюструвати прикладами принцип роботи доменних імен.</li>
+</ol>
+<h3 id="вступ"><strong>ВСТУП</strong></h3>
+<p>Адресація в інформаційно-комунікаційних системах є фундаментальною основою функціонування будь-якої комп’ютерної мережі. Вона визначає спосіб ідентифікації та взаємодії між вузлами, забезпечує можливість ефективної маршрутизації даних, а також створює умови для стабільної роботи локальних і глобальних мереж. Без правильно організованої адресації неможливе повноцінне передавання інформації та взаємодія користувачів у сучасних інформаційних середовищах.<br>
+Актуальність вивчення даної теми різко зросла в умовах широкомасштабної збройної агресії російської федерації проти України, адже адресація безпосередньо впливає на ефективність функціонування військових інформаційно-комунікаційних систем. Вона забезпечує організацію захищених каналів зв’язку, координацію дій підрозділів, оперативний обмін даними та стійкість до кібератак, спрямованих на дезорганізацію управління військами і критичною інфраструктурою.<br>
+Необхідність опанування знань із цієї теми обумовлена тим, що сучасний фахівець повинен не лише ідентифікувати та пояснювати принципи побудови адресного простору, але й уміти класифікувати, інтерпретувати та застосовувати методи організації адресації для вирішення практичних завдань у реальних умовах.<br>
+У межах лекції будуть розглянуті:</p>
+<ul>
+<li>сутність і значення адресації у комп’ютерних мережах;</li>
+<li>структура та принципи формування MAC- та IP-адрес;</li>
+<li>класифікація адрес за класами та призначенням;</li>
+<li>принципи роботи масок підмереж і префіксів;</li>
+<li>роль служб управління адресацією (DHCP, NAT, DNS) у забезпеченні стабільної роботи ІКС.</li>
+</ul>
+<h3 id="основна-частина"><strong>ОСНОВНА ЧАСТИНА</strong></h3>
+<h3 id="навчальне-питання-1-фізичні-адреси"><strong>Навчальне питання 1. ФІЗИЧНІ АДРЕСИ</strong></h3>
+<p>Одним із ключових моментів у розслідуванні злочину є встановлення особи, яка його скоїла. Якщо інструментом злочину є комп’ютер, то для встановлення особи необхідно встановити ідентифікуючі ознаки цього комп’ютеру. Основною ідентифікуючою ознакою комп’ютера в мережі є його адреса. Дотепер не існує універсальних єдиних правил для формування адреси комп’ютерів в комп’ютерних мережах. Ці правила залежать від таких факторів як тип мережі (локальна чи глобальна), технологія aбо архітектура мережі (<em>IP</em>-мережі, <em>ATM</em>, <em>Frame</em> <em>Relay</em>) та ін.<br>
+Розглянемо принципи адресації комп’ютерів у <em>IP</em>-мережах, як у найбільш поширених.</p>
+<p>Кожний комп’ютер в <em>IP</em>-мережі має наступні типи адрес:</p>
+<ol>
+<li>фізичну (<em>MAC</em>-адресу),</li>
+<li>числову (логічну , <em>IP</em>-адресу);</li>
+<li>символьну (доменну, <em>DNS</em>-ім’я).</li>
+</ol>
+<p>Фізична або <em>MAC</em>-адреса адреса вузла є аналогом заводського номеру, але на відміну від, скажімо, заводського номеру двигуна автомобіля, вона не висікається на корпусі вузла, а «прошивається» у постійному запам’ятовуючому пристрої мережевого адаптера.<br>
+<strong><em>MAC</em>-адреса</strong> (від англ. <em>Media Access Control</em>  — управління доступом до посередників) — це унікальний ідентифікатор, що зіставляється з різними типами устаткування для комп'ютерних мереж.<br>
+Більшість мережевих протоколів <em>канального рівня</em> використовують один з трьох просторів <em>MAC</em>-адрес, керованих <em>IEEE</em>: <em>MAC</em>-48, <em>EUI</em>-48 і <em>EUI</em>-64. Адреси в кожному з просторів теоретично мають бути глобально унікальними.<br>
+<em>MAC</em>-адреси використовуються для ідентифікації мережевих інтерфейсів вузлів (пристроїв) в мережах, що працюють на основі протокуолу <em>Ethernet</em> (<em>IEEE</em> 802.3), тобто в локальних мережах, а також у <em>Wi-Fi</em> мережах (<em>IEEE</em> 802.11).<br>
+Стандарти <em>IEEE</em> визначають <strong>48-розрядну</strong> <em>MAC</em>-адресу, адресний простір при цьому налічує <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>2</mn><mn>48</mn></msup></mrow><annotation encoding="application/x-tex">2^{48}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">48</span></span></span></span></span></span></span></span></span></span></span></span> або 281 474 976 710 656 адрес. Згідно з підрахунками <em>IEEE</em>, цього запасу адрес вистачить щонайменше до 2100 року.<br>
+Форма запису - шість пар шістнадцяткових чисел:</p>
+<ul>
+<li>1C-75-08-D2-49-45</li>
+<li>C:75:08:D2:49:45</li>
+</ul>
+<p>Структура MAC-адреси виглядає наступним чином (рис. 1.1):</p>
+<p><img src="media\l_6\pic1.jpg" alt="alt"></p>
+<p class="figure"><em>Рис. 1.1. Структура MAC-адреси.</em></p>
+<p>Перший біт називається бітом I / G (individual (одиничний) / group (груповий)).<br>
+Другий біт визначає спосіб призначення адреси.<br>
+Три перші октети адреси називаються захисною адресою (<em>Burned In Address</em>, <em>BIA</em>) або унікальним ідентифікатором організації (<em><strong>Organizationally Unique Identifier, OUI</strong></em>).<br>
+За унікальність трьох останніх октетів адреси відповідає сам виробник.<br>
+Основною мимогою до <em>МАС</em>-адреси є її <strong>унікальність</strong>. Тобто в одному широкомовному середовище <em>Ethernet</em> або <em>Wi-Fi</em>, або в одній <em>VLAN</em> не можк бути двох пристоїв, що мають однакові <em>МАС</em>-адреси.</p>
+<p>Існують <strong>2 способи</strong> призначення <em>МАС</em>-адрес:</p>
+<ul>
+<li><u>Централізований (за замовчуванням)</u> - призначаються виробником обладнання.</li>
+<li><u>Локальний</u> - призначаються адміністратором мережі, причому він повинен забезпечити унікальність.</li>
+</ul>
+<p>Хоча фізичні адреси MAC є постійними, є кілька механізмів, що дозволяють модифікації, або «Зміну», <em>МАС</em>-адреси, яка повідомляється операційній системі. Це може бути корисно з причин конфіденційності, наприклад, при підключенні до точки доступу <em>Wi-Fi</em>, або для забезпечення сумісності. Деякі інтернет-провайдери пов'язують свої послуги на певну адресу <em>MAC</em>, якщо користувач потім змінює свою мережеву карту, або має намір встановити маршрутизатор, служба не буде працювати. Зміна адреси MAC нового інтерфейсу дозволить вирішити цю проблему. Крім того, деякі ліцензії прив'язані до конкретних <em>МАС</em>-адрес. Зміна MAC-адреси, таким чином, не є постійною: після перезавантаження вона повернеться до <em>МАС</em>-адреси, яка фізично зберігається у постійній пам'яті.<br>
+Визначити <em>МАС</em>-адресу мережевого інтерфейсу ПЕОМ, що працює під управлінням ОС <em>Window</em> можливо за допомогою команди командного рядка <code>ipconfig  /all</code>, під управлінням ОС <em>Linux</em> - <code>ifconfig</code> або <code>ip link</code>.</p>
+<h3 id="навчальне-питання-2-ір-адресація"><strong>Навчальне питання 2. <em>ІР</em>-АДРЕСАЦІЯ</strong></h3>
+<p><strong><em>IP</em>-адреса</strong> (<em>IP-Address, Internet Protocol Address</em>) – унікальний числовий ідентифікатор, який призначається мережному адаптеру/інтерфейсу і застосовується у процесі передачі даних у межах як окремої локальної мережі, так і між різними підмережами глобальних мереж. Стосовно моделі <em>OSI</em> <em>IP</em>-адреса – це адреса <em><strong>мережного рівня</strong></em>, стосовно стеку <em>TCP/IP</em> – адреса <em><strong>рівня міжмережної взаємодії</strong></em>. Система <em>IP</em>-адресації є однією з базових складових сучасної мережі Інтернет.<br>
+Загальне керування адресним простором <em>IP</em>-адрес здійснює <em>Адміністрація адресного простору Інтернет</em> (<em>IANA, Internet Assigned Numbers Authority</em>), яка є підрозділом неприбуткової Інтернет-корпорації з призначення імен та адрес (<em>ICANN, Internet Corporation for Assigned Names and Numbers</em>). <em>IANA</em> підпорядковуються регіональні Інтернет-реєстратори (<em>RIR, Regional Internet Registries</em>), яким, у свою чергу, підпорядковуються локальні Інтернет-реєстратори (<em>LIR, Local Internet Registries</em>) – провайдери послуг Інтернет. Регіональні Інтернет-реєстратори розподіляють <em>IP</em>-адреси як між кінцевими користувачами, так і між локальними Інтернет-провайдерами. Слід зазначити, що на <em>IANA/ICANN</em> також покладається керування основними зонами системи <em>DNS</em> – системи встановлення відповідностей між <em>IP</em>-адресами та доменними іменами вузлів мережі Інтернет.
+Перелік регіональних Інтернет-реєстраторів та території їх відповідальності наведено у табл. 1.</p>
+<p>Таблиця 1</p>
+<p>Перелік регіональних Інтернет-реєстраторів та території їх відповідальності</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">№ з/п</th>
+<th style="text-align:center">Регіональний Інтернет-реєстратор</th>
+<th style="text-align:center">Регіон</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">RIPE NCC, Réseaux IP Européens Network Coordination Centre</td>
+<td style="text-align:center">Європа, Близький Схід <br>та Центральна Азія</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">ARIN, American Registry for Internet Numbers</td>
+<td style="text-align:center">Північна Америка</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">LACNIC, Latin American and Caribbean Internet Addresses Registry</td>
+<td style="text-align:center">Південна Америка <br>та басейн Карибського моря</td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:center">APNIC, Asia-Pacific Network Information Centre</td>
+<td style="text-align:center">Азійсько-Тихоокеанський регіон</td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td style="text-align:center">AfriNIC, African Network Information Centre</td>
+<td style="text-align:center">Африка</td>
+</tr>
+</tbody>
+</table>
+<p>Існують дві версії <em>IP</em>-адресації – версії 4 та 6. Основним стандартом, у якому описуються вимоги до IP-адрес версії 4, є прийнятий у вересні 1981 року стандарт RFC-791 “<em>Internet Protocol. DARPA Internet Program Protocol Specification</em>”. Основним стандартом, у якому описуються вимоги до IP-адрес версії 6, є прийнятий у грудні 1998 року стандарт <em>RFC</em>-2460 “<em>Internet Protocol, Version 6 (<em>IPv6</em>) Specification</em>”. Пізніше ці стандарти були доповнені іншими стандартами RFC, що тією чи іншою мірою стосуються питань <em>IP</em>-адресації. Тексти стандартів RFC, зокрема і зазначених вище стандартів, можна отримати на <em>Web</em>-сайті стандартизуючої організації – Підрозділу інженерних розробок Інтернет (<em>IETF</em>, <em>Internet Engineering Task Force</em>) за адресою <a href="https://www.ietf.org/tools/">https://www.ietf.org/tools/</a>.<br>
+IP-адреса версії 4 має довжину <strong>32 біти</strong> (<strong>4</strong> байти). Як правило, запис IP-адреси версії 4 здійснюється <em>побайтово у десятковій формі числення</em>, і як <em>роздільник</em> байтів застосовується <em>крапка</em>. Такий запис називають <em>десятково-крапковим форматом запису</em> (<em>DDN, Dotted-Decimal Notation</em>). Іноді цей запис за кількістю байтів називають <em>Quad-Dotted Notation</em>. У деяких специфічних випадках запис <em>IP</em>-адреси версії 4 здійснюється у шістнадцятковій формі без роздільників.</p>
+<p>Діапазон можливих IP-адрес версії 4 має вигляд:<br>
+0.0.0.0 – 255.255.255.255</p>
+<p>У цьому діапазоні наявно 4294967296 <em>IP</em>-адрес. Фактично, за рахунок певних правил та винятків, застосовується менша кількість адрес. Насправді доступних <em>IP</em>-адрес ще менше, оскільки частина з адрес мають спеціальне призначення.</p>
+<p>Залежно від застосування <em>IP</em>-адреса версії 4 може бути ідентифікована як:</p>
+<ul>
+<li>унікальна <em>IP</em>-адреса (<em>Unicast IP-Address</em>);</li>
+<li>групова <em>IP</em>-адреса (<em>Multicast IP-Address</em>);</li>
+<li>широкомовна <em>IP</em>-адреса (Broadcast <em>IP</em>-Address), спрямована широкомовна <em>IP</em>-адреса (Directed Broadcast <em>IP</em>-Address).</li>
+</ul>
+<p>Структурно <em>IP</em>-адреса версії 4 складається <em>з двох частин</em> – одна частина (ліворуч) містить <strong><em>IP</em>-адресу</strong> (номер, ідентифікатор) <strong>мережі</strong>, до якої належить вузол, інша (праворуч) – <strong><em>IP</em>-адресу</strong> (номер, ідентифікатор) <strong>вузла</strong> в цій мережі (рис. 1.2).</p>
+<p><img src="media\l_6\pic2.jpg" alt="alt"></p>
+<p class="figure"><em>Рис. 1.2. Структура ІР-адреси.</em></p>
+<p>Поділ <em>IP</em>-адреси версії 4 на частини (визначення де зашифрований № мережі, а де - № вузла) здійснюється з використанням двох підходів:</p>
+<ul>
+<li>класовий, класова <em>IP</em>-адресація (<em>Classful IP-Addressing</em>);</li>
+<li>безкласовий, безкласова <em>IP</em>-адресація (<em>Classless IP-Addressing</em>).</li>
+</ul>
+<p><em><u>Класова IP-адресація</u></em> (класовий підхід) була розроблена як основна система адресації на початковому етапі розвитку мережі <em>Internet</em>. Інтенсивний розвиток мережі поставив перед фахівцями основну проблему класового підходу до <em>IP</em>-адресації – неефективне використання адресного простору, наслідком якого став дефіцит <em>IP</em>-адрес. Організації, що підключалися до мережі, у багатьох випадках отримували <em>IP</em>-адреси мереж, адресні діапазони яких використовувалися у межах 10 – 20%. Саме потреба економного використання адресного простору і призвела до необхідності розробки безкласового підходу до <em>IP</em>-адресації. Основне завдання, яке необхідно було вирішити фахівцям у ході розробки нової системи адресації – це збереження сумісності з класовою <em>IP</em>-адресацією. Тому базові принципи, що були покладені в основу класової адресації, збереглися і в безкласовій <em>IP</em>-адресації.</p>
+<p><em><u>Безкласова адресація</u></em> розв’язала проблему дефіциту IP-адрес на період, менший, ніж десять років. Подальше стрімке зростання мережі Інтернет зумовило потребу значного розширення адресного простору. Фахівцями було запропоновано йти двома шляхами. Перший із них – розробка механізмів та засобів розширення адресного простору існуючої системи IP-адресації версії 4, другий – перехід до нової системи IP-адресації.<br>
+Розширення адресного простору існуючої системи IP-адресації версії 4 було здійснено за рахунок упровадження спеціальної технології заміни адрес <em>NAT</em> (<em>Network Address Translation</em>). Дана технологія і нині широко застосовується і розвивається.<br>
+Перехід на нову систему <em>IP</em>-адресації, яка отримала назву <em>IP</em>-адресація версії 6, був здійснений у межах розробки нової, більш продуктивної та ефективної версії протоколу <em>ІР</em> – версії 6. Довжину IP-адреси версії 6 було збільшено до <strong>128 бітів</strong>, що надало можливість позбутися проблеми дефіциту <em>IP</em>-адрес на тривалий період.</p>
+<p><em><strong>Класова IP-адресація</strong></em></p>
+<p>У класовому підході діапазон можливих <em>IP</em>-адрес поділяється на п’ять класів. У кожному з класів формуються діапазони <em>IP</em>-адрес мереж за правилами, які визначають структуру адреси та структуру старшого її байта (табл. 2).
+Таблиця 2</p>
+<p>Правила формування класів IP-адрес</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Клас</th>
+<th style="text-align:center">Правило І (структура IP-адреси)</th>
+<th style="text-align:center">Правило ІІ (структура старшого байта)</th>
+<th style="text-align:left"></th>
+<th style="text-align:left">Правило ІІ (структура старшого байта)</th>
+<th style="text-align:left"></th>
+<th style="text-align:left"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">Значення двійкове</td>
+<td style="text-align:left">Значення двійкове</td>
+<td style="text-align:left">Значення двійкове</td>
+<td style="text-align:left">Значення десяткове</td>
+<td style="text-align:left">Значення десяткове</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">Загальний <br>вигляд</td>
+<td style="text-align:left">Мінімальне</td>
+<td style="text-align:left">Максимальне</td>
+<td style="text-align:left">Мінімальне</td>
+<td style="text-align:left">Максимальне</td>
+</tr>
+<tr>
+<td style="text-align:center"><em>A</em></td>
+<td style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>N</mi><mi mathvariant="normal">.</mi><mi>H</mi><mi mathvariant="normal">.</mi><mi>H</mi><mi mathvariant="normal">.</mi><mi>H</mi></mrow><annotation encoding="application/x-tex">N.H.H.H</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="mord">.</span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="mord">.</span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="mord">.</span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span></span></span></span></td>
+<td style="text-align:center">0xxxxxxx</td>
+<td style="text-align:left">00000000</td>
+<td style="text-align:left">01111111</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">127</td>
+</tr>
+<tr>
+<td style="text-align:center"><em>B</em></td>
+<td style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>N</mi><mi mathvariant="normal">.</mi><mi>N</mi><mi mathvariant="normal">.</mi><mi>H</mi><mi mathvariant="normal">.</mi><mi>H</mi></mrow><annotation encoding="application/x-tex">N.N.H.H</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="mord">.</span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="mord">.</span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="mord">.</span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span></span></span></span></td>
+<td style="text-align:center">10xxxxxx</td>
+<td style="text-align:left">10000000</td>
+<td style="text-align:left">10111111</td>
+<td style="text-align:left">128</td>
+<td style="text-align:left">191</td>
+</tr>
+<tr>
+<td style="text-align:center"><em>C</em></td>
+<td style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>N</mi><mi mathvariant="normal">.</mi><mi>N</mi><mi mathvariant="normal">.</mi><mi>N</mi><mi mathvariant="normal">.</mi><mi>H</mi></mrow><annotation encoding="application/x-tex">N.N.N.H</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="mord">.</span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="mord">.</span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="mord">.</span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span></span></span></span></td>
+<td style="text-align:center">110xxxxx</td>
+<td style="text-align:left">11000000</td>
+<td style="text-align:left">11011111</td>
+<td style="text-align:left">192</td>
+<td style="text-align:left">223</td>
+</tr>
+<tr>
+<td style="text-align:center"><em>D</em></td>
+<td style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi><mi mathvariant="normal">.</mi><mi>M</mi><mi mathvariant="normal">.</mi><mi>M</mi><mi mathvariant="normal">.</mi><mi>M</mi></mrow><annotation encoding="application/x-tex">M.M.M.M</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="mord">.</span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="mord">.</span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="mord">.</span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span></span></span></span></td>
+<td style="text-align:center">1110xxxx</td>
+<td style="text-align:left">11100000</td>
+<td style="text-align:left">11101111</td>
+<td style="text-align:left">224</td>
+<td style="text-align:left">239</td>
+</tr>
+<tr>
+<td style="text-align:center"><em>E</em></td>
+<td style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mi mathvariant="normal">.</mi><mi>R</mi><mi mathvariant="normal">.</mi><mi>R</mi><mi mathvariant="normal">.</mi><mi>R</mi></mrow><annotation encoding="application/x-tex">R.R.R.R</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="mord">.</span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="mord">.</span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="mord">.</span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span></span></span></span></td>
+<td style="text-align:center">11110xxx</td>
+<td style="text-align:left">11110000</td>
+<td style="text-align:left">11110111</td>
+<td style="text-align:left">240</td>
+<td style="text-align:left">247</td>
+</tr>
+</tbody>
+</table>
+<p><u>Примітка:</u> <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>N</mi></mrow><annotation encoding="application/x-tex">N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span></span></span></span>, <em>Network</em> – байт(и) <em>IP</em>-адреси мережі; <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>H</mi></mrow><annotation encoding="application/x-tex">H</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span></span></span></span>, <em>Host</em> – байт(и) <em>IP</em>-адреси вузла; <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi></mrow><annotation encoding="application/x-tex">M</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span></span></span></span>, <em>Multicast</em> – байти (групової) <em>ІР</em>-адреси; <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi></mrow><annotation encoding="application/x-tex">R</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span></span></span></span>, <em>Reserved</em> – байти зарезервованої (експериментальної) адреси.</p>
+<p><em>Правило І визначає</em> структуру адреси, тобто показує, яка частина <em>IP</em>-адреси є <em>IP</em>-адресою (номером) мережі та яка частина – <em>IP</em>-адресою (номером) вузла. У класі А на <em>IP</em>-адресу мережі виді¬ляється один байт, а на IP-адресу вузла – три байти. У класі B як на <em>IP</em>-адресу мережі, так і на <em>IP</em>-адресу вузла виділяється по два байти. У класі С на <em>IP</em>-адресу мережі виділяється три байти, а на <em>IP</em>-адресу вузла – один байт.<br>
+<em>IP</em>-адреси класу <em>D</em> застосовуються як <strong>групові</strong>.<br>
+<em>IP</em>-адреси класу <em>E</em> зарезервовані для експериментального використання. На практиці застосовуються адреси всіх класів, крім класу <em>Е</em>.<br>
+<em>Правило ІІ стосується</em> лише старшого байта. За його допомогою формується і відображається структура цього байта у двійковій формі для кожного класу. Правило ІІ дає змогу сформувати різні за розміром діапазони <em>IP</em>-адрес мереж, що належать певним класам.<br>
+Інформацію про діапазони <em>IP</em>-адрес мереж відповідних класів та їх кількісні параметри наведено у табл. 4. Слід зазначити, що у ході формування діапазону класу <em>А</em> дві IP-адреси мереж були вилучені. Під час формування класу <em>Е</em> було вилучено діапазон 248.0.0.0 – 255.255.255.255. Інформацію про згадані <em>IP</em>-адреси вилучення та їх призначення наведено у табл.4.
+Таблиця 3</p>
+<p>Класи IP-адрес</p>
+<table>
+<thead>
+<tr>
+<th>Клас</th>
+<th>Мінімальна <br>IP-адреса мережі/діапазону класу</th>
+<th>Максимальна <br>IP-адреса мережі/діапазону класу</th>
+<th>Кількість <br>IP-мереж класу</th>
+<th>Кількість IP-адрес вузлів у  мережі класу</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>A</em></td>
+<td>1.0.0.0</td>
+<td>126.0.0.0</td>
+<td>126 (27–2)*</td>
+<td>16777214 (224–2)**</td>
+</tr>
+<tr>
+<td><em>B</em></td>
+<td>128.0.0.0</td>
+<td>191.255.0.0</td>
+<td>16384 (214)</td>
+<td>65534 (216–2)**</td>
+</tr>
+<tr>
+<td><em>C</em></td>
+<td>192.0.0.0</td>
+<td>223.255.255.0</td>
+<td>2097152 (221)</td>
+<td>254 (28–2)**</td>
+</tr>
+<tr>
+<td><em>D</em></td>
+<td>224.0.0.0***</td>
+<td>239.255.255.255***</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr>
+<td><em>E</em></td>
+<td>240.0.0.0***</td>
+<td>247.255.255.255***</td>
+<td>–</td>
+<td>–</td>
+</tr>
+</tbody>
+</table>
+<p><u>Примітка:</u>  * – дві <em>IP</em>-адреси мереж класу А (0.0.0.0 та 127.0.0.0) вилучено із звичайного застосування; ** – дві <em>IP</em>-адреси з діапазону окремої мережі (нульова й остання) зарезервовані для спеціальних цілей і не можуть бути призначені вузлам: нульова <em>IP</em>-адреса – це <em>IP</em>-адреса мережі; остання <em>IP</em>-адреса – це широкомовна <em>IP</em>-адреса мережі; *** – для класів <em>D</em> та <em>E</em> поняття мережі та вузла не існує.</p>
+<p>Таблиця 4</p>
+<p><em>IP</em>-адреси вилучення та їх призначення</p>
+<table>
+<thead>
+<tr>
+<th>№ з/п</th>
+<th><em>IP</em>-адреса <br>вилучення</th>
+<th>Назва</th>
+<th>Застосування</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>0.0.0.0</td>
+<td>Невизначена <em>IP</em>-адреса <br>(<em>Unknown IP-Address</em>)</td>
+<td>Позначення поточного вузла. Адреса відправника повідомлення у випадку, коли вузол не має адресної інформації</td>
+</tr>
+<tr>
+<td>2</td>
+<td>127.0.0.1 (127.x.x.x)</td>
+<td><em>IP</em>-адреса зворотної петлі (<em>Loopback, Localhost IP-Address</em>)</td>
+<td>Тестування роботи стеку TCP/IP, а також організація роботи клієнтської і серверної частин додатка, які функціонують на одному вузлі</td>
+</tr>
+<tr>
+<td>3</td>
+<td>255.255.255.255</td>
+<td>Обмежена широкомовна <em>IP</em>-адреса (<em>Limited Broadcast IP-Address</em>)</td>
+<td>Пересилання повідомлення всім вузлам поточної мережі, без пересилання через маршрутизатори</td>
+</tr>
+</tbody>
+</table>
+<p>На початковому етапі впровадження класової <em>IP</em>-адресації передбачалося, що всі <em>IP</em>-адреси класів <em>A, B</em> та <em>C</em> будуть застосовуватися для адресації вузлів у глобальній мережі Інтернет, однак із часом деякі <em>IP</em>-адреси мереж були вилучені для спеціального застосування. Серед них слід згадати так звані приватні <em>IP</em>-адреси (<em>Private</em> <em>IP</em>-<em>Addresses</em>), які були виділені для застосування у локальних мережах, що взагалі не мають підключення до глобальної мережі Інтернет або підключаються за допомогою технології заміни адрес <em>NAT</em>. Інформацію про приватні <em>IP</em>-адреси (відповідно до першого стандарту <em>RFC</em>-1918 “<em>Address Allocation for Private Internets</em>”) наведено у табл. 5.</p>
+<p>Таблиця 5</p>
+<p>Діапазони приватних <em>IP</em>-адрес</p>
+<table>
+<thead>
+<tr>
+<th>Клас</th>
+<th>Діапазон</th>
+<th style="text-align:center">Кількість <em>IP</em>-мереж</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>A</em></td>
+<td><strong>10</strong>.0.0.0 – <strong>10</strong>.255.255.255</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td><em>B</em></td>
+<td><strong>172.16</strong>.0.0 – <strong>172.31</strong>.255.255</td>
+<td style="text-align:center">16</td>
+</tr>
+<tr>
+<td><em>C</em></td>
+<td><strong>192.168.0</strong>.0 – <strong>192.168.255</strong>.255</td>
+<td style="text-align:center">256</td>
+</tr>
+</tbody>
+</table>
+<p>Найбільш актуальну і повну інформацію стосовно <em>IP</em>-адрес, вилучень та <em>IP</em>-адрес мереж спеціального призначення наведено в останньому на сьогодні стандарті, що стосується <em>IP</em>-адресації – стандарті <em>RFC</em>-6890,“<em>Special-Purpose IP Address Registries</em>”.<br>
+<em>Класовий підхід до IP-адреації передбачає</em>, що <em>IP</em>-адреси цілком достатньо для однозначної адресації вузла чи мережі. Але подальший перехід до безкласового підходу зумовив уведення нового параметра адресації – <strong>спеціальної <em>IP</em>-адреси</strong>, відомої як <strong>маска мережі/підмережі</strong>.
+<strong>Маска мережі/підмережі</strong> (<em>Network</em>/<em>Subnet Mask</em>) – додаткова спеціальним чином сформована <em>IP</em>-адреса, <em>перша частина</em> якого складається з <strong>одиниць</strong>, а <em>друга</em> – з <strong>нулів</strong>. <em>Кількість одиниць</em> маски визначає <em>кількість</em> і порядок розташування двійкових <em>розрядів поля номера мережі</em> іР-адреси, а <em>кількість</em> і порядок розташування <em>нулів</em> маски визначають <em>кількість</em> і порядок розташування двійкових <em>розрядів номера вузла</em> іР-адреси.<br>
+У сучасній практиці маски застосовуються як у класовій, так і у безкласовій адресації. Для класової адресації маска мережі фактично є записом правила І.
+Виділяють три види масок:</p>
+<ul>
+<li>пряма маска (<em>Subnet Mask</em>);</li>
+<li>інверсна маска (<em>Inverse Mask</em>);</li>
+<li>шаблонна маска (<em>Wildcard Mask</em>).</li>
+</ul>
+<p><strong>Пряма маска</strong> у першу чергу застосовується для налагодження параметрів <em>IP</em>-адресації мережних адаптерів/інтерфейсів. Також може використовуватися для налагодження статичної маршрутизації та протоколів динамічної маршрутизації <em>RIP</em>, <em>IGRP</em>. У класовій прямій масці байтам, що співвідносяться з байтами <em>IP</em>-адреси мережі, відповідають значення 255, а байтам, що співвідносяться з байтами <em>IP</em>-адреси вузла, відповідають значення 0.</p>
+<p><strong>Інверсна маска</strong> застосовується для налагодження параметрів протоколів динамічної маршрутизації <em>OSPF</em>, <em>EIGRP</em>. У класовій інверсній масці байтам, що співвідносяться з байтами <em>IP</em>-адреси мережі, відповідають значення 0, а байтам, що співвідносяться з байтами <em>IP</em>-адреси вузла, відповідають значення 255.</p>
+<p><strong>Шаблонні маски</strong> застосовуються для формування списків доступу (<em>ACLs</em>, <em>Access Control Lists</em>), за допомогою яких здійснюється фільтрація трафіка між різними <em>IP</em>-мережами. Списки доступу є невід’ємними складовими сучасних програмних та апаратних міжмережних екранів. Слід зазначити, що поняття класового чи безкласового підходів до шаблонних масок не застосовується.<br>
+Досить часто поняття ,“шаблонна маска” та ,“інверсна маска” не розрізняють. Такий підхід є некоректним. Відмітності у принципах формування інверсних і шаблонних масок стають зрозумілими саме під час детального аналізу роботи списків доступу.<br>
+Поряд з терміном ,“маска” (пряма маска) у практиці набув значного поширення термін “<strong>префікс мережі</strong>” (<em>Network Prefix</em>). <strong>Префікс мережі</strong> – це число, яке зазначає кількість бітів, що виділені у певній <em>IP</em>-адресі на номер мережі. Функціонально префікс і маска є повними аналогами. Фактично <em>префікс мережі – це інша, коротша форма запису маски мережі</em>. Прямі та інверсні класові маски і класові префікси наведено у табл. 6.</p>
+<p>Таблиця 6</p>
+<p>Класові маски/префікси</p>
+<table>
+<thead>
+<tr>
+<th>Клас</th>
+<th>Класова маска</th>
+<th>Інверсна класова маска</th>
+<th>Класовий префікс</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>A</em></td>
+<td>255.0.0.0</td>
+<td>0.255.255.255.</td>
+<td>/8</td>
+</tr>
+<tr>
+<td><em>B</em></td>
+<td>255.255.0.0</td>
+<td>0.0.255.255</td>
+<td>/16</td>
+</tr>
+<tr>
+<td><em>C</em></td>
+<td>255.255.255.0</td>
+<td>0.0.0.255</td>
+<td>/24</td>
+</tr>
+</tbody>
+</table>
+<p>На основі <em>IP</em>-адреси та маски мережного адаптера/інтерфейсу можна визначити, до якої <em>IP</em>-мережі належить вузол/пристрій, а також детальні параметри <em>IP</em>-адресації цієї мережі.</p>
+<p><em><strong>Класова IP-адресація</strong></em>
+<strong>Безкласова IP-адресація</strong>, також відома як механізм використання масок підмереж <em>змінної довжини</em> (<em><strong>VLSM</strong></em>, <em>Variable-Length Subnet Masking</em>), передбачає, що ідентифікація мережного адаптера/інтерфейсу або мережі здійснюється за допомогою <strong>двох параметрів</strong> – <em>IP</em>-адреси та мережної маски/префікса мережі. <em>VLSM</em> є складовою безкласової маршрутизації (<em>CIDR</em>, <em>Classless Inter-Domain Routing</em>) – методу <em>ІР</em>-адресації та <em>ІР</em>-маршрутизації різних за розмірами <em>ІР</em>-мереж.<br>
+На відміну від класової <em>IP</em>-адресації у безкласовій <em>IP</em>-адресації поділ <em>IP</em>-адреси на частини – <em>IP</em>-адресу (номер) мережі та <em>IP</em>-адресу (номер) вузла – здійснюється не побайтово, а <strong>побітово</strong>. Побітовий поділ надає можливість збільшити кількість варіантів формування <em>IP</em>-адрес мереж та можливість більш економно використовувати загальний адресний простір.
+Для аналізу та розрахунку параметрів <em>IP</em>-мережі за умови застосування безкласової <em>IP</em>-адресації користуються залежностями, що описують довжини <em>IP</em>-адреси та префікса у загальному вигляді:</p>
+<p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>N</mi><mo>+</mo><mi>H</mi><mo>=</mo><mn>32</mn></mrow><annotation encoding="application/x-tex">N + H = 32</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">32</span></span></span></span> біта,<br>
+<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo>=</mo><mi>N</mi></mrow><annotation encoding="application/x-tex">P = N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span></span></span></span>,<br>
+<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn><mo>≤</mo><mi>N</mi><mo>≤</mo><mn>32</mn></mrow><annotation encoding="application/x-tex">0 ≤ N ≤ 32</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7804em;vertical-align:-0.136em;"></span><span class="mord">0</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8193em;vertical-align:-0.136em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">32</span></span></span></span>,<br>
+<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn><mo>≤</mo><mi>H</mi><mo>≤</mo><mn>32</mn></mrow><annotation encoding="application/x-tex">0 ≤ H ≤ 32</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7804em;vertical-align:-0.136em;"></span><span class="mord">0</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8193em;vertical-align:-0.136em;"></span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">32</span></span></span></span> ,
+<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn><mo>≤</mo><mi>P</mi><mo>≤</mo><mn>32</mn></mrow><annotation encoding="application/x-tex">0 ≤ P ≤ 32</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7804em;vertical-align:-0.136em;"></span><span class="mord">0</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8193em;vertical-align:-0.136em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">32</span></span></span></span> ,</p>
+<p>де  <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>N</mi></mrow><annotation encoding="application/x-tex">N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span></span></span></span> – кількість бітів, які виділені для адресації мережі (номер мережі);<br>
+<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>H</mi></mrow><annotation encoding="application/x-tex">H</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span></span></span></span> – кількість бітів, які виділені для адресації вузлів мережі;<br>
+<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi></mrow><annotation encoding="application/x-tex">P</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span></span></span></span> – кількість бітів, які виділені для формування префікса мережі.<br>
+Граничні значення параметрів <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>N</mi></mrow><annotation encoding="application/x-tex">N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span></span></span></span>, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>H</mi></mrow><annotation encoding="application/x-tex">H</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span></span></span></span>, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi></mrow><annotation encoding="application/x-tex">P</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span></span></span></span> мають спеціальне тлумачення. Зокрема це стосується значень 0, 31, 32.<br>
+Відповідно <strong>кількість <em>iP</em>-адрес</strong> однієї мережі, що можуть призначатися вузлам, розраховується за формулою:</p>
+<p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>K</mi><mtext>вузлів</mtext></msub><mo>=</mo><msup><mn>2</mn><mrow><mo stretchy="false">(</mo><mn>32</mn><mo>−</mo><mi>P</mi><mo stretchy="false">)</mo></mrow></msup><mo>−</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">K_{\text{вузлів}} = 2^{(32-P)} - 2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9694em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">K</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:-0.0715em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord cyrillic_fallback mtight">вузлів</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.9713em;vertical-align:-0.0833em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.888em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mtight">32</span><span class="mbin mtight">−</span><span class="mord mathnormal mtight" style="margin-right:0.13889em;">P</span><span class="mclose mtight">)</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">2</span></span></span></span></p>
+<p>Дана формула має сенс для значень префіксів в діапазоні <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo>=</mo><mo stretchy="false">[</mo><mn>0</mn><mo separator="true">;</mo><mn>30</mn><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">P = [0 ; 30]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord">0</span><span class="mpunct">;</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">30</span><span class="mclose">]</span></span></span></span>.<br>
+Граничні значення префікса <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo>=</mo><mn>31</mn></mrow><annotation encoding="application/x-tex">P = 31</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">31</span></span></span></span> та <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo>=</mo><mn>32</mn></mrow><annotation encoding="application/x-tex">P = 32</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">32</span></span></span></span> мають специфіку трактування і у вказаній формулі не застосовуються.<br>
+Очевидно, що збільшення значення префікса дає змогу зменшити кількість <em>iР</em>-адрес вузлів мережі, і навпаки, зменшення значення префікса дає змогу збільшити кількість <em>iР</em>-адрес вузлів мережі.</p>
+<p>Повний перелік мережних префіксів, прямих та інверсних безкласових масок, а також кількість можливих IP-адрес вузлів для кожного префікса наведено у табл. 7.</p>
+<p>Таблиця 7</p>
+<p>Мережні префікси/маски</p>
+<table>
+<thead>
+<tr>
+<th>Префікс</th>
+<th>Маска мережі</th>
+<th>Інверсна маска мережі</th>
+<th>Кількість IP-адрес вузлів в IP-мережі</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/0</td>
+<td>0.0.0.0</td>
+<td>255.255.255.255</td>
+<td>4294967294</td>
+</tr>
+<tr>
+<td>/1</td>
+<td>128.0.0.0</td>
+<td>127.255.255.255</td>
+<td>2147483646</td>
+</tr>
+<tr>
+<td>/2</td>
+<td>192.0.0.0</td>
+<td>63.255.255.255</td>
+<td>1073741822</td>
+</tr>
+<tr>
+<td>/3</td>
+<td>224.0.0.0</td>
+<td>31.255.255.255</td>
+<td>536870910</td>
+</tr>
+<tr>
+<td>/4</td>
+<td>240.0.0.0</td>
+<td>15.255.255.255</td>
+<td>268435454</td>
+</tr>
+<tr>
+<td>/5</td>
+<td>248.0.0.0</td>
+<td>7.255.255.255</td>
+<td>134217726</td>
+</tr>
+<tr>
+<td>/6</td>
+<td>252.0.0.0</td>
+<td>3.255.255.255</td>
+<td>67108862</td>
+</tr>
+<tr>
+<td>/7</td>
+<td>254 0 0.0</td>
+<td>1.255.255.255</td>
+<td>33554430</td>
+</tr>
+<tr>
+<td>/8</td>
+<td>255.0.0.0</td>
+<td>0.255.255.255</td>
+<td>16777214</td>
+</tr>
+<tr>
+<td>/9</td>
+<td>255.128.0.0</td>
+<td>0.127.255.255</td>
+<td>8388606</td>
+</tr>
+<tr>
+<td>/10</td>
+<td>255.192.0.0</td>
+<td>0.63.255.255.</td>
+<td>4194302</td>
+</tr>
+<tr>
+<td>/11</td>
+<td>255.224.0.0</td>
+<td>0.31.255.255</td>
+<td>2097150</td>
+</tr>
+<tr>
+<td>/12</td>
+<td>255.240.0.0</td>
+<td>0.15.255.255</td>
+<td>1048574</td>
+</tr>
+<tr>
+<td>/13</td>
+<td>255.248.0.0</td>
+<td>0.7.255.255</td>
+<td>524286</td>
+</tr>
+<tr>
+<td>/14</td>
+<td>255.252.0.0</td>
+<td>0.3.255.255</td>
+<td>262142</td>
+</tr>
+<tr>
+<td>/15</td>
+<td>255.254.0.0</td>
+<td>0.1.255.255</td>
+<td>131070</td>
+</tr>
+<tr>
+<td>/16</td>
+<td>255.255.0.0</td>
+<td>0.0.255.255</td>
+<td>65534</td>
+</tr>
+<tr>
+<td>/17</td>
+<td>255.255.128.0</td>
+<td>0.0.127.255</td>
+<td>32766</td>
+</tr>
+<tr>
+<td>/18</td>
+<td>255.255.192.0</td>
+<td>0.0.63.255</td>
+<td>16382</td>
+</tr>
+<tr>
+<td>/19</td>
+<td>255.255.224.0</td>
+<td>0.0.31.255</td>
+<td>8190</td>
+</tr>
+<tr>
+<td>/20</td>
+<td>255.255.240.0</td>
+<td>0.0.15.255</td>
+<td>4094</td>
+</tr>
+<tr>
+<td>/21</td>
+<td>255.255.248.0</td>
+<td>0.0.7.255</td>
+<td>2046</td>
+</tr>
+<tr>
+<td>/22</td>
+<td>255.255.252.0</td>
+<td>0.0.3.255</td>
+<td>1022</td>
+</tr>
+<tr>
+<td>/23</td>
+<td>255.255.254.0</td>
+<td>0.0.1.255</td>
+<td>510</td>
+</tr>
+<tr>
+<td>/24</td>
+<td>255.255.255.0</td>
+<td>0.0.0.255</td>
+<td>254</td>
+</tr>
+<tr>
+<td>/25</td>
+<td>255.255.255.128</td>
+<td>0.0.0.127</td>
+<td>126</td>
+</tr>
+<tr>
+<td>/26</td>
+<td>255.255.255.192</td>
+<td>0.0.0.63</td>
+<td>62</td>
+</tr>
+<tr>
+<td>/27</td>
+<td>255.255.255.224</td>
+<td>0.0.0.31</td>
+<td>30</td>
+</tr>
+<tr>
+<td>/28</td>
+<td>255.255.255.240</td>
+<td>0.0.0.15</td>
+<td>14</td>
+</tr>
+<tr>
+<td>/29</td>
+<td>255.255.255.248</td>
+<td>0.0.0.7</td>
+<td>6</td>
+</tr>
+<tr>
+<td>/30</td>
+<td>255.255.255.252</td>
+<td>0.0.0.3</td>
+<td>2</td>
+</tr>
+<tr>
+<td>/31</td>
+<td>255.255.255.254</td>
+<td>0.0.0.1</td>
+<td>2*</td>
+</tr>
+<tr>
+<td>/32</td>
+<td>255.255.255.255</td>
+<td>0.0.0.0</td>
+<td>1*</td>
+</tr>
+</tbody>
+</table>
+<p>Примітка: * – для адресації вузлів із такими префіксами зроблено виняток щодо загальних правил адресації.</p>
+<h3 id="навчальне-питання-3-служби-управління-адресацією"><strong>Навчальне питання 3. СЛУЖБИ УПРАВЛІННЯ АДРЕСАЦІЄЮ</strong></h3>
+<p><em><strong>DHCP</strong></em></p>
+<p><em><strong>DHCP</strong></em> (англ. <em>Dynamic Host Configuration Protocol</em> — протокол динамічної конфігурації вузла) — це стандартний протокол прикладного рівня, який дозволяє комп'ютерам <em>автоматично отримувати IP-адресу та інші параметри</em>, необхідні для роботи в мережі. Для цього комп'ютер звертається відповідно — до <em>DHCP</em>-сервера. Мережевий адміністратор може задати діапазон адрес, які будуть розподілені між комп'ютерами. Це дозволяє уникнути ручного налаштування комп'ютерів мережі й зменшує кількість помилок. Протокол <em>DHCP</em> використовується в більшості великих мереж <em>TCP/IP</em>.<br>
+В архітектурі <em>DHCP</em> є <strong>три компоненти</strong>: клієнт <em>DHCP</em>, сервер <em>DHCP</em> і агенти ретрансляції.
+<strong>Клієнт <em>DHCP</em></strong> — це будь-який пристрій, який може підключатися до мережі та взаємодіяти з <em>DHCP</em>-сервером. Це включає телефони та комп’ютери, а також мережеві принтери та сервери.<br>
+<strong><em>DHCP</em>-сервер</strong> – це пристрій, який призначає <em>IP</em>-адреси.
+Запити агентів ретрансляції <em>DHCP</em> між клієнтами <em>DHCP</em> і серверами. Вони не є важливою частиною мережі, однак при роботі з великими складними мережами вони стають необхідністю.</p>
+<p><em><strong>Оренда DHCP</strong></em></p>
+<p><em>IP</em>-адреса, якщо вона призначена пристрою, має обмежений термін служби. <em>IP</em>-адреса, яку ваш комп’ютер, наприклад, має один день, може не збігатися наступного дня. Якщо система залишиться або повернеться до мережі до закінчення терміну оренди, їй буде призначено ту саму <em>IP</em>-адресу. Однак, якщо термін оренди закінчився, пристрою, тобто вашому комп’ютеру, призначається нова <em>IP</em>-адреса в мережі.<br>
+Пристрій також може подати запит на поновлення оренди <em>DHCP</em>. Це фактично отримує нову <em>IP</em>-адресу для пристрою. Налаштування для цього можна знайти в налаштуваннях мережі на вашому комп’ютері або в налаштуваннях <em>WiFi</em> на вашому телефоні.</p>
+<p><em><strong>NAT</strong></em></p>
+<p><em><strong>NAT</strong></em> (від англ. <em>Network Address Translation</em> — «перетворення мережевих адрес») — це механізм у мережах <em>TCP/IP</em>, котрий дозволяє змінювати <em>IP</em>-адресу у заголовку пакунку, котрий проходить через пристрій маршрутизації трафіку. Також має назви <em>IP Masquerading, Network Masquerading і Native Address Translation</em>.<br>
+Перетворення адреси методом <em>NAT</em> може відбуватися майже будь-яким маршрутизуючим пристроєм — маршрутизатором, сервером доступу, міжмережевим екраном (фаєрволом). Найбільш популярним є <em>SNAT</em>, суть механізму якого складається у заміні адреси джерела (англ. <em>source</em>) при проходженні пакету в одну сторону і зворотній заміні адреси призначення (англ. <em>destination</em>) у зворотному пакеті. Поряд з адресами джерело/призначення можуть також замінюватися номера портів джерела і призначення.<br>
+Приймаючи пакет від локального комп'ютера, роутер визначає <em>IP</em>-адресу призначення. Якщо це локальна адреса, то пакет пересилається іншому локальному комп'ютерові. Якщо нi, то пакет слід переслати назовні до інтернету. Але зворотною адресою у пакеті вказана локальна адреса комп'ютера, котра з інтернету буде недоступна. Тому роутер «на льоту» транслює (підміняє) зворотню <em>IP</em>-адресу пакету на свою зовнішню (видиму з інтернету) <em>IP</em>-адресу, а також міняє номер порту (щоб розрізняти зворотні пакети, адресовані різним локальним комп'ютерам). Комбінацію, потрібну для зворотної підстановки, роутер зберігає у себе у тимчасовій таблиці. Через деякий час після того, як клієнт і сервер закінчать обмінюватися пакетами, роутер зітре у себе в таблиці запис про n-м порт за строком давнини.<br>
+Окрім source <em>NAT</em> (надання користувачам локальної мережі з внутрішніми адресами доступу до мережі Інтернет) часто застосовуєтся також destination <em>NAT</em>, коли трафік ззовні транслюється міжмережевим екраном на комп'ютер користувача у локальній мережі, котрий має внутрішню адресу і тому недоступний ззовні мережі безпосередньо (без <em>NAT</em>).<br>
+Існує <strong>3 базових концепції</strong> трансляції адрес: <strong>статична</strong> (<em>Static Network Address Translation</em>), <strong>динамічна</strong> (<em>Dynamic Address Translation</em>), <strong>перевантажена</strong> (<em>NAPT, NAT Overload, PAT</em>).</p>
+<p><strong>Статичний <em>NAT</em></strong> — відображення незареєстрованої <em>IP</em>-адреси на зареєстровану <em>IP</em>-адресу на основі один до одного. Особливо корисно, коли пристрій повинен бути доступним зовні мережі.</p>
+<p><strong>Динамічний <em>NAT</em></strong> — відображує незареєстровану <em>IP</em>-адресу на зареєстровану адресу з групи зареєстрованих <em>IP</em>-адрес. Динамічний <em>NAT</em> також встановлює безпосереднє відображення між незареєстрованими і зареєстрованими адресами, але відображення може мінятись в залежності від зареєстрованої адреси, доступної у купі адрес, під час комунікації.</p>
+<p><strong>Перевантажений <em>NAT</em></strong> (<em>NAPT, NAT Overload, PAT</em>, маскарадинг) — форма динамічного <em>NAT</em>, котрий перетворює декілька незареєстрованих адрес у єдину зареєстровану <em>IP</em>-адресу, використовуючи різноманітні порти. Відомий також як <em>PAT</em> (<em>Port Address Translation</em>). При перевантаженні кожен комп'ютер у приватній мережі транслюється у ту ж саму адресу, але з різним номером порту.</p>
+<p>Механізм <em>NAT</em> визначений у <em>RFC</em> 1631, <em>RFC</em> 3022.</p>
+<p><em><strong>Типи NAT</strong></em>
+Класифікація <em>NAT</em>, часто зустрічається у зв'язку з <em>VoIP</em>. Термін «сполука» використаний у значенні «послідовний обмін пакунками <em>UDP</em>».</p>
+<p><strong>Симетричний <em>NAT</em></strong> (<em>Symmetric NAT</em>) — трансляція, при якій кожне сполучення, ініційоване парою «внутрішня адреса: внутрішній порт» перетворюється у вільну унікальну, випадково вибрану пару «публічну адресу: публічний порт». При цьому, ініціація сполуки з публічної мережі неможлива.</p>
+<p><em><strong>Cone NAT, Full Cone NAT</strong></em> — однозначна (взаємна) трансляція між парами «внутрішня адреса: внутрішній порт» і «публічна адреса: публічний порт». Кожен зовнішній хост може ініціювати сполуку з внутрішнім хостом (якщо це дозволене у правилах міжмережевого екрана (брандмауера)).</p>
+<p><em><strong>Address-Restricted cone NAT, Restricted cone NAT</strong></em> — постійна трансляція між парою «внутрішня адреса: внутрішній порт» і «публічна адреса: публічний порт». Кожна сполука, ініційована з внутрішньої адреси, дозволяє надалі отримувати йому пакунки з будь-якого порту того публічного хоста, до якого він відправляв пакунок(ки) раніше.</p>
+<p><em><strong>Port-Restricted cone NAT</strong></em>— трансляція між парою «внутрішня адреса: внутрішній порт» і «публічна адреса: публічний порт», при котрої пакунки що надходять до внутрішнього хосту тільки з одного порту публічного хоста — того, на котрий внутрішній хост вже відправляв пакунок.</p>
+<p><em>Переваги</em><br>
+NAT виконує три важливі функції.<br>
+Дозволяє заощаджувати <em>IP</em>-адреси (тільки у разі використання NAT у режимі PAT), транслюючи декілька внутрішніх <em>IP</em>-адрес в одну зовнішню публічну <em>IP</em>-адресу (або у декілька, але все ж в меншу кількість, ніж внутрішніх). За таким принципом побудована більшість мереж у світі: на невеликий район домашньої мережі місцевого провайдера або на офіс виділяється одна публічна (зовнішня) <em>IP</em>-адреса, за котрою працюють і отримують доступ інтерфейси з приватними (внутрішніми) <em>IP</em>-адресами.<br>
+Дозволяє запобігти або обмежити обіг ззовні до внутрішніх хостів, залишаючи можливість обігу зсередини назовні. При ініціації з'єднання зсередини мережі створюється трансляція. Відповідні пакунки, які надходять зовні, відповідають створеної трансляції і тому пропускаються. Якщо для пакунків, які надходять ззовні, відповідної трансляції не існує (а вона може бути створеною при ініціації з'єднання або статичною), вони не пропускаються.<br>
+Дозволяє приховати визначені внутрішні сервіси внутрішніх хостів/серверів. По суті, виконується та ж, вказана вище, трансляція на визначений порт, але можна підмінити внутрішній порт офіційно зареєстрованої служби (наприклад, 80-й порт <em>TCP</em> (<em>HTTP</em>-сервер) на зовнішній 54055-й). Тим самим, зовні, на зовнішній <em>IP</em>-адресі після трансляції адрес на сайт (або форум) для обізнаних відвідувачів можна буде потрапити за адресою <a href="http://example.org:54055">http://example.org:54055</a>, але на внутрішньому сервері, який знаходиться за <em>NAT</em>, він буде працювати на звичайному 80-му порту. Підвищення безпеки і приховування «непублічних» ресурсів.</p>
+<p><em>Недоліки</em><br>
+Старі протоколи. Протоколи, розроблені до масового впровадження <em>NAT</em>, не в змозі працювати, якщо на шляху між взаємодіючими хостами є трансляція адрес. Деякі міжмережеві екрани, які здійснюють трансляцію <em>IP</em>-адрес, можуть виправити цей недолік, відповідним чином замінюючи <em>IP</em>-адреси не тільки в заголовках <em>IP</em>, але і на більш високих рівнях (наприклад, в командах протоколу <em>FTP</em>).<br>
+Ідентифікація користувачів. Через трансляції адрес «багато в один» з'являються додаткові складнощі з ідентифікацією користувачів і необхідність зберігати повні логи трансляцій.<br>
+Ілюзія <em>DoS</em>-атаки. Якщо <em>NAT</em> використовується для підключення багатьох користувачів до одного і того ж сервісу, це може викликати ілюзію DoS-атаки на сервіс (безліч успішних і неуспішних спроб). Наприклад, надмірна кількість користувачів ICQ за <em>NAT</em> приводить до проблеми з підключенням до сервера деяких користувачів через перевищення допустимої швидкості підключень. Частковим вирішенням проблеми є використання пулу адрес (групи адрес), для яких здійснюється трансляція.<br>
+Пірингові мережі. У <em>NAT</em>-пристроях, які не підтримують <em>Universal Plug &amp; Play</em>, в деяких випадках, необхідна додаткова настройка при роботі з піринговими мережами і деякими іншими програмами, в яких необхідно не тільки ініціювати вихідні з'єднання, але також приймати вхідні.</p>
+<p><em><strong>Система доменних імен</strong></em>
+<strong>Система доменних імен</strong> (англ. <em>Domain Name System, DNS</em>) — ієрархічна розподілена система перетворення імені хоста (комп'ютера або іншого мережевого пристрою) в <em>IP</em>-адресу.<br>
+Кожен комп'ютер в Інтернеті має свою власну унікальну адресу — число, яке складається з чотирьох (у протоколі IPv4) або шістнадцяти (у протоколі IPv6) байтів. Оскільки запам'ятати десятки чи навіть сотні номерів — важка процедура, то всі (чи майже всі) машини мають імена, запам'ятати які (особливо якщо знати правила утворення імен) значно легше.<br>
+<strong>Повноцінне доменне ім'я</strong> (англ. <em>FQDN - Fully Qualified Domain Name</em>) машини можна розбити на дві частини — ім'я області-домену та власне ім'я машини. Наприклад, <em><a href="http://m30.ziet.zhitomir.ua">m30.ziet.zhitomir.ua</a></em> — повне доменне ім'я машини m30, яка перебуває у домені <em><a href="http://ziet.zhitomir.ua">ziet.zhitomir.ua</a></em>.<br>
+За порядок у доменах, як правило, відповідає певний комп'ютер, користувачі-адміністратори якого слідкують за тим, щоб не було, наприклад, різних машин з однаковими <em>ІР</em>-адресами. Наприклад, відповідальність за область-домен <em><a href="http://ziet.zhitomir.ua">ziet.zhitomir.ua</a></em> покладається на машину <em><a href="http://alpha.ziet.zhitomir.ua">alpha.ziet.zhitomir.ua</a></em> Ця влада делегується зверху вниз від машини <em><a href="http://ns.lucky.net">ns.lucky.net</a></em>, яка відповідає за домен <em><a href="http://zhitomir.ua">zhitomir.ua</a></em>. В свою чергу, відповідальність за область <em>ua</em> делегована машині зверху від так званих кореневих серверів (<em>root server</em>).<br>
+Всю цю систему можна уявити у вигляді перевернутого дерева. Список імен доменів верхнього рівня на сайті <em>IANA</em>. Повний список географічних областей, в основному, відповідає двобуквеним <em>ISO</em>-кодам країн і його можна знайти, наприклад, на <em>WWW</em>-сервері <em>ISOC</em> (<em><a href="http://www.isoc.org">http://www.isoc.org</a></em>).<br>
+Необхідно розрізняти доменне ім'я, та поштову адресу. В поштовій адресі повинен бути знак «<strong>@</strong>», який в економіці має назву «<strong>комерційне <em>at</em></strong>», а в електронній пошті — «<strong>равлик</strong>». Цей знак у поштовій адресі відокремлює ім'я поштової скриньки від доменного імені. Знак «@» вперше у 1971 році використав Рей Томлінсон, щоб відокремити імена користувача і комп'ютера, коли він відправив повідомлення з одного ДЕК-10 (<em>Digital Equipment Corporation</em>) комп'ютера на інший ДЕК-10. Обидва комп'ютери були розміщені поруч один з одним.<br>
+Коли мережа Інтернет була молода та невелика, таблиці відповідності імен та адрес зберігалися у звичайному текстовому файлі, який періодично просто розсилався всім учасникам електронною поштою. Після того, які кількість машин значно збільшилася, така схема перестала ефективно працювати і програмісти університету штату Каліфорнія в Берклі спроектували і написали програму <em>BIND</em> (<em>Berkeley Internet Name Domain</em>), яка відповідає на запити машин користувачів, які стосувалися імен та <em>ІР</em>-адресу.</p>
+<p><strong>Служба імен <em>DNS</em></strong> (<em>Domain Name System</em>) — ієрархічна розподілена система перетворення імені хоста (комп'ютера або іншого мережевого пристрою) в <em>IP</em>-адресу. <strong><em>DNS</em>-сервери</strong> зберігають інформацію про вузли, імена яких належать домену і виконують трансляцію їх імен в адреси.</p>
+<h3 id="заключна-частина"><strong>ЗАКЛЮЧНА ЧАСТИНА</strong></h3>
+<p>Отже, на лекції було розглянуто основні принципи адресації в інформаційно-комунікаційних системах, зокрема:</p>
+<ul>
+<li>типи адресації (унікальні, групові, широкомовні);</li>
+<li>структуру мережевих адрес і їх призначення;</li>
+<li>методи визначення оптимальної маски мережі;</li>
+<li>практичні приклади формування <em>IP</em>-адрес.</li>
+</ul>
+<p>Було встановлено, що правильне розуміння механізмів адресації є ключовим для побудови надійних і ефективних мереж, адже воно визначає можливість коректної взаємодії між пристроями та забезпечує захищеність інформації під час передавання.<br>
+Ключові моменти, на які слід звернути увагу:</p>
+<ul>
+<li>Типи адрес і їх роль – знання різниці між унікальними та груповими адресами дозволяє ефективно проектувати мережі.</li>
+<li>Оптимальна маска мережі – правильний вибір маски забезпечує ефективне використання адресного простору та мінімізує конфлікти.</li>
+<li>Практичні навички – формування і планування <em>IP</em>-адрес, визначення підмереж та маршрутизація є базовими навичками спеціаліста з ІКС.</li>
+</ul>
+<p>Таким чином, засвоєння цих знань дає змогу не лише розуміти теоретичні аспекти мережевої адресації, але й практично застосовувати їх для організації безпечних та ефективних мережевих структур.</p>
+<p><em><strong>Контрольні запитання і завдання</strong></em></p>
+<ol>
+<li>Що таке адресація в інформаційно-комунікаційних системах і яка її основна мета?</li>
+<li>Які існують основні типи адрес у мережах і чим вони відрізняються?</li>
+<li>Що таке унікальна адреса і які пристрої її використовують?</li>
+<li>Які особливості групової та широкомовної адресації?</li>
+<li>Що таке IP-адреса і з яких частин вона складається?</li>
+<li>Як визначається оптимальна маска мережі і яка її роль у плануванні підмереж?</li>
+<li>Яким чином неправильний вибір маски мережі може вплинути на роботу мережі?</li>
+<li>Як здійснюється розподіл адрес у підмережах і для чого це потрібно?</li>
+<li>Які практичні навички з адресації є критично важливими для фахівця з ІКС?</li>
+<li>Наведіть приклад ситуації, коли використання групової або широкомовної адреси є доцільним.</li>
+</ol>
+<p><em>Завдання на самостійну підготовку:</em></p>
+<ol>
+<li>Відпрацювати матеріал лекції та навести приклади використання унікальних, групових та широкомовних адрес.</li>
+<li>Описати структуру IPv4-адреси та пояснити роль кожного її сегмента.</li>
+<li>Порівняти IPv4 та IPv6 за принципами адресації та кількістю доступних адрес.</li>
+<li>Пояснити, що таке маска мережі, і навести приклади її використання у різних підмережах.</li>
+</ol>
+
+        </body>
+        </html>
