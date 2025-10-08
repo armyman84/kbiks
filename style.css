@@ -9,7 +9,15 @@ p {
   text-indent: 2ch;
 
 }
+li {
+  text-align: justify;
+  line-height: 1.5;
+}
 
+ul, ol {
+    list-style-position: outside;  /* маркер зліва */
+    padding-left: 1.5ch;           /* відступ для коректного розташування */
+}
 br + * {
     display: inline-block;
     text-indent: 2ch;  /* відступ у 2 символи */
@@ -30,10 +38,7 @@ table {
   margin: 0 auto;
 }
 
-ul, ol {
-    list-style-position: outside;  /* маркер зліва */
-    padding-left: 1.5ch;           /* відступ для коректного розташування */
-}
+
 
 code {
     background-color: #1e1e1e; /* темно-сірий фон (як у терміналі) */
