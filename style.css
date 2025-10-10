@@ -11,12 +11,12 @@ p {
 }
 li {
   text-align: justify;
-  line-height: 1.5;
+  line-height: 1.4;
 }
 
 ul, ol {
     list-style-position: outside;  /* маркер зліва */
-    padding-left: 1.5ch;           /* відступ для коректного розташування */
+    padding-left: 1.4ch;           /* відступ для коректного розташування */
 }
 br + * {
     display: inline-block;
@@ -56,5 +56,6 @@ pre code {
     padding: 4px 6px;          /* внутрішні відступи */
     border-radius: 4px;        /* трохи закруглені кути */
 }
+
 
 
