@@ -28,11 +28,6 @@ p.figure {
 	font-style: italic;
 }
 
-img {
-    display: block;       /* робимо зображення блоковим елементом */
-    margin-left: auto;    /* автоматичний відступ зліва */
-    margin-right: auto;   /* автоматичний відступ справа */
-}
 
 table {
   margin: 0 auto;
@@ -56,6 +51,7 @@ pre code {
     padding: 4px 6px;          /* внутрішні відступи */
     border-radius: 4px;        /* трохи закруглені кути */
 }
+
 
 
 
