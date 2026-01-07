@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>&ast;&ast;&Lcy;&acy;&bcy;&ocy;&rcy;&acy;&tcy;&ocy;&rcy;&ncy;&acy; &rcy;&ocy;&bcy;&ocy;&tcy;&acy; 8&ast;&ast;</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        <link href="style.css" rel="stylesheet" type="text/css" />
+        </head>
+        <body class="vscode-body vscode-light">
+            <span id="markdown-mermaid" aria-hidden="true"
+                    data-dark-mode-theme="dark"
+                    data-light-mode-theme="default"
+                    data-max-text-size="50000"></span>
+                <h2 id="лабораторна-робота-8"><strong>Лабораторна робота 8</strong></h2>
+<h1 id="дослідження-сервісів-безпеки-сучасних-месенджерів-та-соціальних-мереж"><strong>ДОСЛІДЖЕННЯ СЕРВІСІВ БЕЗПЕКИ СУЧАСНИХ МЕСЕНДЖЕРІВ ТА СОЦІАЛЬНИХ МЕРЕЖ.</strong></h1>
+<p><strong>Мета заняття</strong>: дослідження впливу сучасних месенджерів на безпеку інформації та приватність користувачів шляхом практичного аналізу метаданих цифрових зображень під час їх пересилання, а також вивчення й практичного застосування механізмів захисту та налаштувань приватності персональних акаунтів у месенджерах <em>Telegram, WhatsApp</em> і <em>Signal</em>.</p>
+<h2 id="навчальні-питання"><strong>Навчальні питання</strong></h2>
+<ol>
+<li>Дослідження впливу використання месенджерів на метадані зображень.</li>
+<li>Дослідження засобів реалізації приватності персональних акаунтів в месенджерах.</li>
+</ol>
+<h2 id="очікувані-результати-заняття"><strong>Очікувані результати заняття:</strong></h2>
+<ol>
+<li>Знати, вміти відтворити (вибрати) визначення та теоретичні відомості, що наведені в Л14.</li>
+<li>Визначати, ідентифікувати та відтворювати основні поняття і теоретичні відомості щодо метаданих цифрових зображень та механізмів приватності сучасних месенджерів.</li>
+<li>Досліджувати, виявляти та інтерпретувати склад і значення метаданих графічних файлів, створених за різних умов геоприв’язки та використання <em>GPS</em>.</li>
+<li>Застосовувати та використовувати на практиці утиліту <em>exiftool</em> для аналізу, перегляду та інтерпретації метаданих цифрових зображень.</li>
+<li>Порівнювати, встановлювати співвідношення та класифікувати зміни метаданих зображень при пересиланні через різні месенджери в різних режимах (як зображення, як файл, у складі архіву).</li>
+<li>Виявляти, ілюструвати та пояснювати вплив способу пересилання даних у месенджерах на збереження або втрату геоданих та інших службових атрибутів файлів.</li>
+<li>Використовувати, застосовувати та модифікувати налаштування приватності персональних акаунтів у месенджерах <em>Telegram, WhatsApp</em> та <em>Signal</em> відповідно до заданих вимог безпеки.</li>
+<li>Адмініструвати, керувати та контролювати активні сесії й підключені пристрої до персональних акаунтів у месенджерах з метою підвищення рівня захисту.</li>
+<li>Ідентифікувати, розпізнавати та оцінювати наявні ризики для приватності користувача, пов’язані з особливостями автентифікації та обробки метаданих у месенджерах.</li>
+<li>Порівнювати, узагальнювати та ранжувати месенджери за рівнем безпеки та захищеності персональних даних на основі визначених критеріїв.</li>
+<li>Пояснювати, робити висновок та підсумувати результати проведених досліджень щодо безпечності використання сучасних месенджерів у контексті кібербезпеки.</li>
+<li>Оформлювати, впорядковувати та презентувати результати досліджень у вигляді структурованого звіту з таблицями, скріншотами та обґрунтованими висновками.</li>
+</ol>
+<h2 id="правила-техніки-безпеки-при-проведенні-занять-в-лабораторіях-обчислювальної-техніки"><strong>Правила техніки безпеки при проведенні занять в лабораторіях обчислювальної техніки</strong></h2>
+<p>Перед початком роботи користувач повинен:</p>
+<ol>
+<li>Ознайомитися з інструкцією з техніки безпеки та правилами користування обладнанням.</li>
+<li>Перевірити справність електроживлення, кабелів, розеток, монітора, клавіатури, миші.</li>
+<li>Переконатися, що робоче місце чисте, сухе і добре освітлене.</li>
+<li>Увімкнути комп’ютер лише після дозволу викладача або лаборанта.</li>
+</ol>
+<p>Під час виконання практичних завдань на ПЕОМ користувач повинен:</p>
+<ol>
+<li>Виконувати тільки дозволені завдання відповідно до теми заняття.</li>
+<li>Працювати акуратно, не торкатися кабелів і роз’ємів електроживлення.</li>
+<li>Дотримуватися правильної посадки за комп’ютером (спина пряма, відстань до монітора 50–70 см).</li>
+<li>Робити перерви для відпочинку очей та рук (1–2 хв кожні 15–20 хв роботи).</li>
+<li>Повідомляти викладача про будь-які несправності або незвичайну роботу ПЕОМ.</li>
+</ol>
+<p>По завершенню заняття користувач повинен:</p>
+<ol>
+<li>Зберегти результати роботи та правильно завершити сеанс операційної системи.</li>
+<li>Вимкнути комп’ютер у встановленій послідовності.</li>
+<li>Привести робоче місце в порядок: прибрати зайві матеріали, вимкнути освітлення при необхідності.</li>
+<li>Повідомити викладача про завершення роботи.</li>
+</ol>
+<p>При роботі на ПЕОМ <strong><em>забороняється</em>:</strong></p>
+<ol>
+<li>Вмикати або вимикати обладнання без дозволу викладача.</li>
+<li>Торкатися електричних розеток, проводів, інших з’єднань.</li>
+<li>Підключати сторонні пристрої (флешки, телефони, зарядні тощо) без дозволу.</li>
+<li>Їсти, пити, ставити рідини або особисті речі на робочий стіл біля комп’ютера.</li>
+<li>Використовувати обладнання не за призначенням, змінювати налаштування системи чи програм.</li>
+<li>Без дозволу викладача залишати робоче місце, бігати, голосно розмовляти, жартувати або створювати небезпечні ситуації в приміщенні.</li>
+</ol>
+<p>Користувач <em><strong>несе особисту відповідальність</strong></em> за:</p>
+<ul>
+<li>дотримання правил техніки безпеки та внутрішнього розпорядку лабораторії;</li>
+<li>збереження обладнання, програмного забезпечення та матеріальних цінностей;</li>
+<li>наслідки дій, що призвели до пошкодження техніки або порушення безпеки інших осіб;</li>
+<li>виконання розпоряджень, команд викладача чи відповідального за лабораторію.</li>
+</ul>
+<p><strong>Завантажити бланк звіту</strong> з лабораторної роботи можливо за <a href="reports/report9.docx" download> посиланням</a></p>
+<p style="text-align:center;"><strong>Хід виконання лабораторної роботи</strong></p>
+<h2 id="1-питання-дослідження-впливу-використання-месенджерів-на-метадані-зображень"><strong>1 Питання. Дослідження впливу використання месенджерів на метадані зображень.</strong></h2>
+<p>Цифрові зображення, окрім візуального вмісту, містять приховану службову інформацію — метадані, які формуються під час створення та обробки файлів. До таких даних належать відомості про пристрій зйомки, дату й час створення, технічні параметри зображення, а також географічні координати місця знімання. У контексті кібербезпеки саме метадані можуть становити підвищену загрозу для конфіденційності користувача, оскільки здатні розкривати його місцеперебування, модель пристрою та особливості поведінки.<br>
+Сучасні месенджери широко використовуються для обміну зображеннями як у повсякденному спілкуванні, так і в професійному або службовому середовищі. При цьому механізми обробки медіафайлів у різних месенджерах суттєво відрізняються: під час пересилання зображення можуть стискатися, перетворюватися або передаватися без змін. Такі процеси безпосередньо впливають на збереження або втрату метаданих, що, у свою чергу, визначає рівень потенційних ризиків витоку інформації.<br>
+У зв’язку з цим дослідження впливу месенджерів на метадані зображень є важливим елементом формування практичних навичок оцінювання інформаційних загроз. Аналіз змін метаданих під час пересилання файлів дозволяє наочно продемонструвати, як вибір способу передавання та конкретного сервісу обміну повідомленнями може впливати на рівень приватності та безпеки інформації користувача.</p>
+<p>Для проведення досліджень в каталозі <em><strong>lab.support.files</strong></em> зберігаються три файли з зображеннями:</p>
+<ul>
+<li><em><strong>GPS.jpg</strong></em> – файл створений за умови використання в мобільному телефоні функції геоприв’язки та з увімкненим <em>GPS</em>.</li>
+<li><em><strong>No GPS.jpg</strong></em> – файл створений за умови використання в мобільному телефоні функції геоприв’язки та з вимкненим <em>GPS</em>.</li>
+<li><em><strong>No Geo.jpg</strong></em> – файл створений без функції геоприв’язки та з вимкненим <em>GPS</em>.</li>
+</ul>
+<h3 id="завдання-11-дослідіть-значення-метаданих-вихідних-зображень"><em>Завдання 1.1. Дослідіть значення метаданих вихідних зображень.</em></h3>
+<p>Для цього:</p>
+<ol>
+<li>
+<p>За допомогою <strong>Провідника <em>Windows</em></strong> відкрийте каталог <em><strong>lab.support.files</strong></em>.</p>
+</li>
+<li>
+<p>Для відображення та дослідження розширених властивостей (метаданих) зображення <em><strong>GPS.jpg</strong></em> перетягніть його у виконавчий файл утиліти <em><strong>exiftool(-k)</strong></em> (рис. 1).</p>
+<p style="text-align:center;"><img src="media\lr_9\pic1.jpg"></p>
+<p style="text-align:center;"><em>Рис. 1. Передача файлу методом перетягування для аналізу утилітою exiftool(-k).</em></p>
+</li>
+<li>
+<p>Після цього в командному рядку відкриється утиліта <em><strong>exiftool(-k)</strong></em>, а через деякий час у даному вікні відобразяться метадані переданого для аналізу зображення.</p>
+</li>
+<li>
+<p>Уважно проаналізуйте отриманий результат та <strong>заповніть</strong> для файлу <em><strong>GPS.jpg</strong></em> відповідні поля у табл. 1.</p>
+</li>
+<li>
+<p>Аналогічним чином визначте метадані для файлів <em><strong>No GPS.jpg</strong></em> та <em><strong>No Geo.jpg</strong></em> та <strong>заповніть</strong> в табл. 1 відповідні поля для цих файлів.</p>
+<p>Таблиця 1</p>
+<table border=1>
+<thead>
+<tr>
+<th style="text-align:center">Параметри</th>
+<th style="text-align:center"><em><strong>GPS.jpg</strong></em></th>
+<th style="text-align:center"><em><strong>No GPS.jpg</strong></em></th>
+<th style="text-align:center"><em><strong>No Geo.jpg</strong></em></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><em>File Size</em></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:left"><em>Make</em></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:left"><em>Camera Model Name</em></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:left">Дата і час створення</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:left">Дата і час модифікації (зміни)</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:left"><em>Image Width</em></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:left"><em>Image Height</em></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:left"><em>Геодані (координати місця)</em></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>За отриманими координатами, використовуючи сервіс <em>Google Maps</em> визначте місце отримання зображення. <strong>Зробіть скріншот</strong> визначеного місцеположення та вставте його у звіт з лабораторної роботи.</p>
+</li>
+</ol>
+<h3 id="завдання-12-дослідіть-вплив-месенджерів-на-значення-метаданих-при--пересиланні-зображень"><em>Завдання 1.2. Дослідіть вплив месенджерів на значення метаданих при  пересиланні зображень.</em></h3>
+<p>Для дослідження цього питання виконайте наступні кроки:</p>
+<ol>
+<li>
+<p>Розподіліться на пари адже при дослідження даного питання та необхідно буде здійснювати пересилку файлів один одному за допомогою месенджерів.</p>
+</li>
+<li>
+<p>Якщо Ви будете використовувати месенджери на телефоні – за допомогою кабелю чи флеш-накопичувача та <em>OTG</em>-перехідника скопіюйте файли <em><strong>GPS.jpg, No GPS.jpg</strong></em> та <em><strong>No Geo.jpg</strong></em> собі на телефон. Якщо будите використовувати месенджери на комп’ютері то пропустіть цей крок.</p>
+</li>
+<li>
+<p>Почергово використовуючи месенджери <em>WhatsApp</em>, <em>Telegram</em> та <em>Signal</em> здійсніть пересилання вихідних зображень один одному. При цьому при пересиланні використовуйте опцію пересилати як зображення (завантаження з Галереї). Збережіть отримані зображення на власні пристрої.</p>
+<div class="markdown-alert markdown-alert-tip"><p class="markdown-alert-title"><svg class="octicon octicon-light-bulb mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"></path></svg>При збережені отриманих файлів на власні пристрої (телефон, комп’ютер) зберігайте їх з додаванням в кінці імені файлу латинської великої літери, яка буде відповідати першій літері назви месенджера. Наприклад, файл GPS.jpg, що був пересланий за допомогою месенджеру WhatsApp збережіть під ім’ям GPS_W.jpg</p><p></p>
+</div>
+</li>
+<li>
+<p>Аналогічно до Завдання 1.1 визначте та проаналізуйте метадані отриманих зображень. На основі отриманих результатів <strong>заповніть</strong> відповідні поля відповідних таблиць: для <em>WhatsApp</em> табл. 2, для <em>Telegram</em> табл. 3, для <em>Signal</em> табл. 4.</p>
+<div class="markdown-alert markdown-alert-tip"><p class="markdown-alert-title"><svg class="octicon octicon-light-bulb mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"></path></svg>Якщо якісь метадані при пересиланні не зберіглися то у відповідному полі поставити відмінку “інформація відсутня”.</p><p></p>
+</div>
+</li>
+<li>
+<p>Порівняйте отримані результати із результатами, що були отримані у Завданні 1.1. <strong>Зробіть висновки</strong> про вплив месенджерів на значення метаданих при пересиланні зображень.</p>
+</li>
+</ol>
+<h3 id="завдання-13-дослідіть-вплив-месенджерів-на-значення-метаданих-при--пересиланні-зображень-як-файлів"><em>Завдання 1.3. Дослідіть вплив месенджерів на значення метаданих при  пересиланні зображень як файлів.</em></h3>
+<p>Для цього:</p>
+<ol>
+<li>
+<p>Почергово використовуючи месенджери <em>WhatsApp</em>, <em>Telegram</em> та <em>Signal</em> здійсніть пересилання зображень <em><strong>GPS.jpg, No GPS.jpg</strong></em> та <em><strong>No Geo.jpg</strong></em> один одному. При цьому при пересиланні використовуйте опцію пересилати зображення як файл. Збережіть отримані файли на власні пристрої.</p>
+<div class="markdown-alert markdown-alert-tip"><p class="markdown-alert-title"><svg class="octicon octicon-light-bulb mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"></path></svg>При збережені отриманих файлів на власні пристрої (телефон, комп’ютер) зберігайте їх з додаванням в кінці імені файлу латинської великої літери, яка буде відповідати першій літері назви месенджера та літери F. Наприклад, зображення  GPS.jpg, що було переслане як файл за допомогою месенджеру WhatsApp збережіть під ім’ям GPS_WF.jpg</p><p></p>
+</div>
+</li>
+<li>
+<p>Аналогічно до Завдання 1.1 визначте та проаналізуйте метадані отриманих файлів. На основі отриманих результатів <strong>заповніть</strong> відповідні поля відповідних таблиць: для <em>WhatsApp</em> табл. 2, для <em>Telegram</em> табл. 3, для <em>Signal</em> табл. 4.</p>
+<div class="markdown-alert markdown-alert-tip"><p class="markdown-alert-title"><svg class="octicon octicon-light-bulb mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"></path></svg>Якщо якісь метадані при пересиланні не зберіглися то у відповідному полі поставити відмінку “інформація відсутня”.</p><p></p>
+</div>
+</li>
+<li>
+<p>Порівняйте отримані результати із результатами, що були отримані у Завданні 1.1. <strong>Зробіть висновки</strong> про вплив месенджерів на значення метаданих при пересиланні зображень як файлів.</p>
+</li>
+</ol>
+<h3 id="завдання-14-дослідіть-вплив-месенджерів-на-значення-метаданих-при--пересиланні-заархівованих-зображень"><em>Завдання 1.4: Дослідіть вплив месенджерів на значення метаданих при  пересиланні заархівованих зображень.</em></h3>
+<p>Для цього:</p>
+<ol>
+<li>
+<p>Заархівуйте вихідні зображення <em><strong>GPS.jpg, No GPS.jpg</strong></em> та <em><strong>No Geo.jpg</strong></em> створивши три архіви <em><strong>GPS.zip, No GPS.zip</strong></em> та <em><strong>No Geo.zip</strong></em>.</p>
+</li>
+<li>
+<p>Почергово використовуючи месенджери <em>WhatsApp</em>, <em>Telegram</em> та <em>Signal</em> здійсніть пересилання архівів <em><strong>GPS.zip, No GPS.</strong></em> <em><strong>zip</strong></em> та <em><strong>No Geo.</strong></em> <em><strong>zip</strong></em> один одному. Збережіть отримані файли на власні пристрої та розташуйте їх в довільне місце.</p>
+<div class="markdown-alert markdown-alert-tip"><p class="markdown-alert-title"><svg class="octicon octicon-light-bulb mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"></path></svg>При розархівуванні отриманих файлів зберігайте їх з додаванням в кінці імені файлу латинської великої літери, яка буде відповідати першій літері назви месенджера та літери А. Наприклад, при вилученні файлу з отриманого архіву GPS.zip, що був пересланий за допомогою месенджеру WhatsApp збережіть розархівований файл під ім’ям GPS_WА.jpg.</p><p></p>
+</div>
+</li>
+<li>
+<p>Аналогічно до Завдання 1.1 визначте та проаналізуйте метадані отриманих файлів. На основі отриманих результатів <strong>заповніть</strong> відповідні поля відповідних таблиць: для <em>WhatsApp</em> табл. 2, для <em>Telegram</em> табл. 3, для <em>Signal</em> табл. 4.</p>
+<div class="markdown-alert markdown-alert-tip"><p class="markdown-alert-title"><svg class="octicon octicon-light-bulb mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"></path></svg>Якщо якісь метадані при пересиланні не зберіглися то у відповідному полі поставити відмінку “інформація відсутня”.</p><p></p>
+</div>
+</li>
+<li>
+<p>Порівняйте отримані результати із результатами, що були отримані у Завданні 1.1. <strong>Зробіть висновки</strong> про вплив месенджерів на значення метаданих при пересиланні заархівованих зображень.</p>
+<p>Таблиця 2</p>
+<table border=1>
+<thead>
+<tr>
+<th style="text-align:center"><p style="text-align:right">Месенджер</p><p></p><p style="text-align:left">Параметри</p></th>
+<th style="text-align:center", colspan="9"><em><strong>WhatsApp</strong></em></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right"></td>
+<td style="text-align:center"><em><strong>GPS_W.jpg</strong></em></td>
+<td style="text-align:center"><em><strong>No GPS_W.jpg</strong></em></td>
+<td style="text-align:center"><em><strong>No Geo_W.jpg</strong></em></td>
+<td style="text-align:center"><em><strong>GPS_WF.jpg</strong></em></td>
+<td style="text-align:center"><em><strong>No GPS_WF.jpg</strong></em></td>
+<td style="text-align:center"><em><strong>No Geo_WF.jpg</strong></em></td>
+<td style="text-align:center"><em><strong>GPS_WA.jpg</strong></em></td>
+<td style="text-align:center"><em><strong>No GPS_WA.jpg</strong></em></td>
+<td style="text-align:center"><em><strong>No Geo_WA.jpg</strong></em></td>
+</tr>
+<tr>
+<td style="text-align:left"><em>File Size</em></td>
+<td style="text-align:center"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left"><em>Make</em></td>
+<td style="text-align:center"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left"><em>Camera Model Name</em></td>
+<td style="text-align:center"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">Дата і час створення</td>
+<td style="text-align:center"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">Дата і час модифікації (зміни)</td>
+<td style="text-align:center"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left"><em>Image Width</em></td>
+<td style="text-align:center"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left"><em>Image Height</em></td>
+<td style="text-align:center"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left"><em>Геодані (координати місця)</em></td>
+<td style="text-align:center"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+</tbody>
+</table>
+<p>Таблиця 3</p>
+<table border=1>
+<thead>
+<tr>
+<th style="text-align:center"><p style="text-align:right">Месенджер</p><p></p><p style="text-align:left">Параметри</p></th>
+<th style="text-align:center", colspan="9"><em><strong>Telegram</strong></em></em></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right"></td>
+<td style="text-align:center"><em><strong>GPS_T.jpg</strong></em></td>
+<td style="text-align:center"><em><strong>No GPS_T.jpg</strong></em></td>
+<td style="text-align:center"><em><strong>No Geo_T.jpg</strong></em></td>
+<td style="text-align:center"><em><strong>GPS_TF.jpg</strong></em></td>
+<td style="text-align:center"><em><strong>No GPS_TF.jpg</strong></em></td>
+<td style="text-align:center"><em><strong>No Geo_TF.jpg</strong></em></td>
+<td style="text-align:center"><em><strong>GPS_TA.jpg</strong></em></td>
+<td style="text-align:center"><em><strong>No GPS_TA.jpg</strong></em></td>
+<td style="text-align:center"><em><strong>No Geo_TA.jpg</strong></em></td>
+</tr>
+<tr>
+<td style="text-align:left"><em>File Size</em></td>
+<td style="text-align:center"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left"><em>Make</em></td>
+<td style="text-align:center"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left"><em>Camera Model Name</em></td>
+<td style="text-align:center"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">Дата і час створення</td>
+<td style="text-align:center"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">Дата і час модифікації (зміни)</td>
+<td style="text-align:center"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left"><em>Image Width</em></td>
+<td style="text-align:center"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left"><em>Image Height</em></td>
+<td style="text-align:center"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left"><em>Геодані (координати місця)</em></td>
+<td style="text-align:center"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+</tbody>
+</table>
+
+
+<p>Таблиця 4</p>
+<table border=1>
+<thead>
+<tr>
+<th style="text-align:center"><p style="text-align:right">Месенджер</p><p></p><p style="text-align:left">Параметри</p></th>
+<th style="text-align:center", colspan="9"><em><strong>Signal</strong></em></em></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right"></td>
+<td style="text-align:center"><em><strong>GPS_S.jpg</strong></em></td>
+<td style="text-align:center"><em><strong>No GPS_S.jpg</strong></em></td>
+<td style="text-align:center"><em><strong>No Geo_S.jpg</strong></em></td>
+<td style="text-align:center"><em><strong>GPS_SF.jpg</strong></em></td>
+<td style="text-align:center"><em><strong>No GPS_SF.jpg</strong></em></td>
+<td style="text-align:center"><em><strong>No Geo_SF.jpg</strong></em></td>
+<td style="text-align:center"><em><strong>GPS_SA.jpg</strong></em></td>
+<td style="text-align:center"><em><strong>No GPS_SA.jpg</strong></em></td>
+<td style="text-align:center"><em><strong>No Geo_SA.jpg</strong></em></td>
+</tr>
+<tr>
+<td style="text-align:left"><em>File Size</em></td>
+<td style="text-align:center"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left"><em>Make</em></td>
+<td style="text-align:center"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left"><em>Camera Model Name</em></td>
+<td style="text-align:center"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">Дата і час створення</td>
+<td style="text-align:center"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">Дата і час модифікації (зміни)</td>
+<td style="text-align:center"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left"><em>Image Width</em></td>
+<td style="text-align:center"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left"><em>Image Height</em></td>
+<td style="text-align:center"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left"><em>Геодані (координати місця)</em></td>
+<td style="text-align:center"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ol>
+<h2 id="2-питання-дослідження-засобів-реалізації-приватності-персональних-акаунтів-в-месенджерах"><strong>2 Питання. Дослідження засобів реалізації приватності персональних акаунтів в месенджерах.</strong></h2>
+<h3 id="завдання-21завдання-21-дослідіть-засоби-реалізації-приватності-персонального-акаунту-в-месенджері-telegram"><em>Завдання 2.1.Завдання 2.1: Дослідіть засоби реалізації приватності персонального акаунту в месенджері Telegram.</em></h3>
+<p><em><strong>Telegram</strong></em> є кросплатформним месенджером, орієнтованим на швидкий обмін повідомленнями, файлами великого розміру, голосові та відеодзвінки, а також публічну комунікацію через канали й чати. Завдяки функціональності та високій швидкодії <em>Telegram</em> широко використовується як у повсякденному спілкуванні, так і в професійному та службовому середовищі, що зумовлює підвищену увагу до питань безпеки та приватності.<br>
+З точки зору захисту інформації, важливою особливістю <em>Telegram</em> є те, що наскрізне шифрування використовується лише в «секретних чатах». Звичайні чати зберігаються у хмарі <em>Telegram</em> та шифруються за моделлю <em>client–server–server–client</em>, що дозволяє сервісу синхронізувати повідомлення між пристроями, але водночас створює потенційні ризики доступу до даних у разі компрометації облікового запису або інфраструктури. Крім того, значна частина метаданих (контакти, взаємодії, активність) залишається доступною сервісу.<br>
+Суттєвими загрозами для користувачів Telegram є атаки на автентифікацію, зокрема перехоплення <em>SMS</em>-кодів, атаки <em>SIM-swap</em> та соціальна інженерія. У практиці поширені випадки викрадення акаунтів через виманювання коду входу або використання фальшивих повідомлень від імені «служби підтримки». Окремим фактором ризику є те, що користувачі часто помилково вважають усі чати в <em>Telegram</em> повністю захищеними наскрізним шифруванням, що не відповідає реальній моделі безпеки платформи.<br>
+У зв’язку з цим захист акаунту <em>Telegram</em> є критично необхідним елементом цифрової гігієни. Обов’язковими заходами є увімкнення двоетапної перевірки (пароль + <em>email</em>), використання коду блокування застосунку, контроль активних сесій і налаштувань приватності, а також усвідомлений вибір режиму спілкування (звичайні або секретні чати). Без реалізації цих заходів <em>Telegram</em> не може розглядатися як безпечний інструмент для передавання чутливої або службової інформації, особливо в умовах підвищених вимог до інформаційної та операційної безпеки.</p>
+<p>Отже, для дослідження цього питання необхідно виконати наступні кроки:</p>
+<ol>
+<li>
+<p>Відкрийте на телефоні месенджер <em>Telegram</em>.</p>
+</li>
+<li>
+<p>Далі натисніть на значок <img src="media\lr_9\pic2.jpg"> у верхній лівій частині екрану. При цьому відкриється меню <strong>Налаштування</strong> месенджера (рис. 2). Для дослідження та налаштування функцій безпеки перейдіть до підменю <strong>Приватність і безпека</strong>.</p>
+<p style="text-align:center;"><img src="media\lr_9\pic3.jpg"></p>
+<p style="text-align:center;"><em>Рис. 2. Меню Налаштування Telegram.</em></p>
+</li>
+<li>
+<p>Після переходу в зазначене підменю відкриються можливості щодо налаштування функцій безпеки (рис. 3).</p>
+<p style="text-align:center;"><img src="media\lr_9\pic4.jpg"></p>
+<p style="text-align:center;"><em>Рис. 3. Налаштування в меню Приватність та безпека.</em></p>
+<p><strong>Зробіть скріншот</strong> початкового стану налаштування функцій безпеки та вставте його у звіт з лабораторної  роботи.</p>
+</li>
+<li>
+<p>Найважливіший елемент для підвищення безпеки Вашого облікового запису, це активація двофакторної аутентифікації. Тому якщо вона у Вас не активована оберіть пункт <strong>Двоетапна перевірка</strong> в групі <strong>Безпека</strong> та виконуючи інструкції <strong>Майстра</strong> встановлення двофакторної автентифікації активуйте її.</p>
+</li>
+<li>
+<p>Наступним кроком є встановлення <strong>Коду блокування</strong>. <strong>Код блокування</strong> в <em>Telegram</em> – це механізм локального контролю доступу, призначений для захисту конфіденційних даних користувача на рівні пристрою. Тому якщо даний код у Вас не встановлений оберіть пункт <strong>Коду блокування</strong> в групі <strong>Безпека</strong> та виконуючи інструкції <strong>Майстра</strong> встановлення його. При цьому оберіть функцію <strong>автоматичного блокування акаунту</strong> у разі відсутності активності більше <strong>1 хвилини</strong>.</p>
+</li>
+<li>
+<p>Далі перейдіть до пункту <strong>Пристрої</strong> та перегляньте активні сесії, тобто на які пристрої в даний час використовують Ваш аккаунт. В цьому пункті будуть також відображатися пристрої, які отримали несанкціонований доступ до Вашого акаунту. <strong>Зробіть скріншот</strong> пристроїв, що в даний момент мають активну сесію та вставте його у звіт з лабораторної  роботи. За потреби закрийте усі сесії, що Ви не використовуєте.</p>
+</li>
+<li>
+<p>На завершальному етапі налаштування функцій безпеки відбувається налаштування приватності аккаунту. Усі необхідні інструменти знаходяться в блоці <strong>Приватність</strong> підменю <strong>Приватність і безпека.</strong> Отже, встановіть наступні параметри приватності:</p>
+<ul>
+<li>Номер телефону <a name="_hlk218596265"></a>→ Хто може бачити номер телефону → Ніхто.</li>
+<li>Номер телефону → Хто може знайти за номером → Мої контакти.</li>
+<li>Остання активність → Хто може бачити час моєї останньої активності → Мої контакти (або Ніхто, якщо хочете).</li>
+<li>Фотографії профілю → Хто може бачити фото та відео мого профілю → Мої контакти.</li>
+<li>Дзвінки → Хто може мені телефонувати → Мої контакти (або Ніхто, якщо хочете).</li>
+<li>Пересилання повідомлень→ Хто може пересилати мої повідомлення із посиланням на мій акаунт → Мої контакти (або Ніхто, якщо хочете).</li>
+<li>Виклики<a name="_hlk218605785"></a>→ Хто може мені телефонувати → Мої контакти (або Ніхто, якщо хочете).</li>
+<li>День народження → Хто може бачити мій день народження → Мої контакти (або Ніхто, якщо хочете).</li>
+<li>Запрошення → Хто може додавати мене → Мої контакти (або Ніхто, якщо хочете).</li>
+</ul>
+</li>
+<li>
+<p>Якщо при виконанні даного завдання Ви змінювали будь-які налаштування в підменю <strong>Приватність і безпека</strong> <strong>зробіть скріншот</strong>, на якому будуть видні ці зміни (в порівнянні зі скріншотом, що Ви робили у п.2 цього завдання) та вставте його у звіт з лабораторної роботи.</p>
+</li>
+</ol>
+<h3 id="завдання-22--дослідіть-засоби-реалізації-приватності-персонального-акаунту-в-месенджері-whatsapp"><em>Завдання 2.2.  Дослідіть засоби реалізації приватності персонального акаунту в месенджері WhatsApp.</em></h3>
+<p><em><strong>WhatsApp</strong></em> – є одним із найпоширеніших кросплатформних месенджерів, що забезпечує обмін текстовими повідомленнями, голосовими та відеодзвінками і файлами. Він активно використовується як у повсякденному, так і в службовому спілкуванні, що зумовлює підвищені вимоги до безпеки та захисту персональних даних користувачів.<br>
+Месенджер застосовує наскрізне шифрування (<em>end-to-end encryption</em>), яке захищає вміст повідомлень під час передавання мережею. Водночас метадані — інформація про контакти, час та інтенсивність комунікації — залишаються доступними сервісу. Додатковим фактором ризику є жорстка прив’язка акаунту до номера мобільного телефону, що робить користувача вразливим до атак типу <em>SIM-swap</em>, перехоплення <em>SMS</em>-кодів підтвердження та несанкціонованого відновлення доступу до облікового запису.<br>
+Серйозною загрозою для конфіденційності є резервне копіювання чатів у хмарні сервіси, які за замовчуванням можуть не мати наскрізного шифрування. Крім того, поширеними залишаються атаки соціальної інженерії: фішингові повідомлення, підроблені звернення від «служби підтримки» та запити на передачу кодів входу. У таких випадках основною вразливістю стає людський фактор.<br>
+Таким чином, безпечне використання <em>WhatsApp</em> потребує обов’язкового впровадження базових заходів захисту: увімкнення двоетапної перевірки, захисту SIM-картки, контролю резервних копій і налаштувань приватності. За відсутності цих заходів навіть наявність наскрізного шифрування не гарантує належного рівня безпеки, що є критичним при роботі з чутливою або службовою інформацією.</p>
+<p>Отже, для дослідження цього питання необхідно виконати наступні кроки:</p>
+<ol>
+<li>
+<p>Відкрийте на телефоні месенджер <em>WhatsApp</em>.</p>
+</li>
+<li>
+<p>Далі натисніть <strong>на три крапки</strong> у верхньому правому куті екрану та у вікні, що з’явиться оберіть пункт <strong>Налаштування</strong>.</p>
+</li>
+<li>
+<p>Один із методів захисту акаунту від несанкціонованого доступу це активація двофакторної аутентифікації. Тому якщо вона у Вас не активована оберіть пункт <strong>Двоетапна перевірка</strong> в групі <strong>Обліковий запис</strong> та виконуючи інструкції <strong>Майстра</strong> встановлення двофакторної автентифікації активуйте її. <strong>Зробіть скріншот</strong> вікна <strong>Двофакторна перевірка</strong> після її активації.</p>
+</li>
+<li>
+<p>Далі поверніться до вікна <strong>Налаштування</strong> та оберіть пункт <strong>Конфіденційність</strong> та встановіть наступні параметри конфіденційності:</p>
+<ul>
+<li>Востаннє в мережі й У мережі → Хто може бачити мій статус «Востаннє в мережі» → Мої контакти (або Ніхто, якщо хочете).</li>
+<li>Востаннє в мережі й У мережі → Хто може бачити коли я в мережі → Ті ж користувачі, які бачать «Востаннє в мережі».</li>
+<li>Зображення профілю → Хто може бачити фото та відео мого профілю → (або Ніхто, якщо хочете).</li>
+<li>Інформація → Хто може бачити мою звістку → Мої контакти (або Ніхто, якщо хочете).</li>
+<li>Посилання → Хто може бачити посилання в моєму профілі → Мої контакти (або Ніхто, якщо хочете).</li>
+<li>Статус → Хто може бачити мої статуси → Мої контакти (або Ніхто, якщо хочете).</li>
+<li>Групи → Хто може додавати мене до груп → Мої контакти (або Ніхто, якщо хочете).</li>
+<li>Дзвінки → Ігнорувати дзвінки з незнайомих номерів → Увімкнути.</li>
+<li>Додаткові → Заблокувати повідомлення від невідомих облікових записів → Увімкнути.</li>
+<li>Додаткові → Захистити іР-адресу під час дзвінка → Увімкнути.</li>
+</ul>
+<p><strong>Зробіть скріншот</strong> вкладки <strong>Конфіденційність</strong> після здійснених налаштувань та вставте його у звіт з лабораторної  роботи.</p>
+</li>
+<li>
+<p>Поверніться до головного екрану й повторно натисніть <strong>на три крапки</strong> у верхньому правому куті екрану та у вікні, що з’явиться оберіть пункт <strong>Підключені пристрої</strong>. В цьому пункті будуть також відображатися пристрої, які отримали несанкціонований доступ до Вашого акаунту. <strong>Зробіть скріншот</strong> пристроїв, що в даний момент мають активну сесію та вставте його у звіт з лабораторної  роботи. За потреби закрийте усі сесії, що Ви не використовуєте.</p>
+</li>
+</ol>
+<h3 id="завдання-23-дослідіть-засоби-реалізації-приватності-персонального-акаунту-в-месенджері-signal"><em>Завдання 2.3. Дослідіть засоби реалізації приватності персонального акаунту в месенджері Signal.</em></h3>
+<p><em><strong>Signal</strong></em> є месенджером, спроєктованим із пріоритетом на конфіденційність та інформаційну безпеку. Він забезпечує обмін текстовими повідомленнями, голосові та відеодзвінки, а також передавання файлів і використовується переважно тими користувачами, для яких питання захисту приватності мають критичне значення. <em>Signal</em> часто розглядається як еталон безпечної комунікації в порівнянні з масовими месенджерами.<br>
+Ключовою особливістю <em>Signal</em> є повсюдне наскрізне шифрування за замовчуванням для всіх типів повідомлень і дзвінків без винятків. Сервіс використовує сучасні криптографічні протоколи, а архітектура побудована таким чином, щоб мінімізувати збирання метаданих. <em>Signal</em> практично не зберігає інформацію про контакти, історію листування чи соціальні зв’язки користувачів, що суттєво знижує ризики масового аналізу комунікацій або деанонімізації.<br>
+Водночас певні загрози залишаються. Акаунт <em>Signal</em>, як і в <em>WhatsApp</em>, прив’язаний до номера телефону, що створює ризики атак типу <em>SIM-swap</em> або компрометації <em>SMS</em>-коду підтвердження. Крім того, безпека значною мірою залежить від захищеності самого пристрою користувача: у разі фізичного доступу або зараження шкідливим ПЗ можливий доступ до локально збережених даних. Соціальна інженерія також залишається універсальним вектором атак, незалежно від рівня криптографічного захисту.<br>
+Таким чином, <em>Signal</em> можна розглядати як один із найбільш захищених месенджерів із точки зору архітектури та приватності, однак його безпечне використання потребує дотримання базових заходів цифрової гігієни. Увімкнення <em>PIN</em>-коду <em>Signal</em>, захист <em>SIM</em>-картки, блокування застосунку, контроль контактів і перевірка ключів безпеки співрозмовників є обов’язковими умовами для зниження ризиків. Лише за поєднання технічних механізмів і усвідомленої поведінки користувача <em>Signal</em> може повною мірою виконувати роль інструмента захищеної комунікації.</p>
+<p>Отже, для дослідження цього питання необхідно виконати наступні кроки:</p>
+<ol>
+<li>Відкрийте на телефоні месенджер <em>Signal</em>.</li>
+<li>Далі натисніть <strong>на три крапки</strong> у верхньому правому куті екрану та у вікні, що з’явиться оберіть пункт <strong>Налаштування</strong>.</li>
+<li>Класичної двофакторної автентифікації (<em>2FA</em>) у звичному розумінні в <em>Signal</em> немає, але реалізовано альтернативний механізм захисту акаунту, який частково виконує її функції. У <em>Signal</em> використовується <em><strong>Signal PIN</strong></em> – це не другий фактор входу, а механізм захисту реєстрації та повторної активації акаунту. <em>PIN</em> застосовується під час повторної реєстрації номера або перенесення акаунту на новий пристрій і запобігає несанкціонованому захопленню облікового запису навіть у разі перехоплення <em>SMS</em>-коду підтвердження. Таким чином, <em>Signal PIN</em> ефективно знижує ризики атак типу <em>SIM-swap</em>, хоча формально не є повноцінною <em>2FA</em>. Отже для встановлення PIN (якщо раніше він не був у Вас встановлений) в меню <strong>Налаштування</strong> оберіть опцію <strong>Акаунт</strong>. Після чого оберіть функцію <strong>Створити <em>PIN</em>-код</strong> (наявна, якщо <em>PIN</em>-код не створений) та виконуючи інструкції на екрані створіть <em>PIN</em>-код. <strong>Зробіть скріншот</strong> вікна Акаунт зі створеним <em>PIN</em>-код та вставте його у звіт з лабораторної роботи.</li>
+<li>Далі поверніться до вікна <strong>Налаштування</strong> та оберіть пункт <strong>Конфіденційність</strong> та встановіть наступні параметри конфіденційності:
+<ul>
+<li>Номер телефону → Хто може бачити мій номер → Ніхто.</li>
+<li>Номер телефону → Хто може знайти мене за номером → Ніхто.</li>
+</ul>
+</li>
+<li>Знову поверніться до вікна <strong>Налаштування</strong> та оберіть пункт <strong>Зв’язані пристрої</strong>. В цьому пункті будуть також відображатися пристрої, які отримали несанкціонований доступ до Вашого акаунту. <strong>Зробіть скріншот</strong> пристроїв, що в даний момент мають активну сесію та вставте його у звіт з лабораторної  роботи. За потреби закрийте усі сесії, що Ви не використовуєте.</li>
+</ol>
+<h3 id="завдання-24-за-результатами-проведених-досліджень-заповніть-порівняльну-таблицю-для-месенджерів"><em>Завдання 2.4. За результатами проведених досліджень заповніть порівняльну таблицю для месенджерів.</em></h3>
+<p>Таблиця 5 – Порівняння функцій безпеки месенджерів</p>
+<table border=1>
+<thead>
+<tr>
+<th style="text-align:left">Критерій порівняння</th>
+<th style="text-align:center"><em>Telegram</em></th>
+<th style="text-align:center"><em>WhatsApp</em></th>
+<th style="text-align:center"><em>Signal</em></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Тип ідентифікатора акаунту</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:left">Можливість приховати номер телефону</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:left">Наскрізне шифрування (<em>E2EE</em>)</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:left">Наявність двофакторної автентифікації</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:left">Керування активними сесіями та пристроями</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+<p>За результатами порівняння функцій безпеки <strong>зробіть висновок</strong> про безпечність використання месенджерів. Ранжуйте месенджери за рівнем безпеки. Поясніть запропонований порядок.</p>
+<p><strong>Зробіть загальний висновок</strong> за результатами виконання лабораторної роботи.</p>
+<p style="text-align:center;"><strong>ЗМІСТ ЗВІТУ</strong></p>
+<ul>
+<li>Прізвище та ініціали курсанта.</li>
+<li>Номер навчальної групи.</li>
+<li>Тема, мета та очікувані результати заняття.</li>
+<li>Хід виконання роботи:
+<ul>
+<li>Завдання 1.1: Дослідіть значення метаданих вихідних зображень.</li>
+<li>Завдання 1.2: Дослідіть вплив месенджерів на значення метаданих при пересиланні зображень.</li>
+<li>Завдання 1.3: Дослідіть вплив месенджерів на значення метаданих при пересиланні зображень як файлів.</li>
+<li>Завдання 1.4: Дослідіть вплив месенджерів на значення метаданих при  пересиланні заархівованих зображень.</li>
+<li>Завдання 2.1: Дослідіть засоби реалізації приватності персонального акаунту в месенджері <em>Telegram</em>.</li>
+<li>Завдання 2.2: Дослідіть засоби реалізації приватності персонального акаунту в месенджері <em>WhatsApp</em>.</li>
+<li>Завдання 2.3: Дослідіть засоби реалізації приватності персонального акаунту в месенджері <em>Signal</em>.</li>
+<li>Завдання 2.4: За результатами проведених досліджень заповніть порівняльну таблицю для месенджерів.</li>
+</ul>
+</li>
+<li>Результати дослідження.</li>
+<li>Заповнені таблиці.</li>
+<li>Скріншоти результатів виконання інструкцій завдання.</li>
+<li>Пояснення отриманих результатів.</li>
+<li>Висновки.</li>
+</ul>
+<table border="1">
+<caption><strong>Поточний контроль закріплення теоретичних знань та практичних навичок.</strong></caption>
+<thead>
+<tr>
+<th style="text-align:center">Вид заняття</th>
+<th style="text-align:center", colspan="4">Оцінка за національною шкалою</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center">&quot;2&quot;</th>
+<th style="text-align:center">&quot;3&quot;</th>
+<th style="text-align:center">&quot;4&quot;</th>
+<th style="text-align:center">&quot;5&quot;</th>
+</tr>
+<tr>
+<td style="text-align:center">Вхідний контроль</td>
+<td style="text-align:center">0 – 0,4</td>
+<td style="text-align:center">0,5</td>
+<td style="text-align:center">0,6 – 0,8</td>
+<td style="text-align:center">0,9-1,0</td>
+</tr>
+<tr>
+<td style="text-align:center", rowspan="2">Практичні завдання</td>
+<td style="text-align:center">&lt;50% завдань</td>
+<td style="text-align:center">50%-64% завдань</td>
+<td style="text-align:center">65%-89% завдань</td>
+<td style="text-align:center">&gt;90% завдань</td>
+</tr>
+<tr>
+<td style="text-align:center">0 – 0,4</td>
+<td style="text-align:center">0,5</td>
+<td style="text-align:center">0,6 – 0,8</td>
+<td style="text-align:center">0,9-1,0</td>
+</tr>
+<tr>
+<td style="text-align:center">Всього</td>
+<td style="text-align:center"><strong>0 - 0,9</strong></td>
+<td style="text-align:center"><strong>1,0 - 1,2</strong></td>
+<td style="text-align:center"><strong>1,3 – 1,7</strong></td>
+<td style="text-align:center"><strong>1,8 – 2,0</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>3. Заключна частина</strong></p>
+<p>У ході виконання лабораторної роботи було досліджено та проаналізовано вплив сучасних месенджерів на збереження метаданих цифрових зображень під час їх пересилання різними способами, виявили та інтерпретували відмінності у поведінці месенджерів при передаванні зображень як мультимедійного контенту, файлів та заархівованих об’єктів. Отримані результати дозволили пояснити та узагальнити ризики витоку геоданих і службової інформації, пов’язані з необережним використанням засобів обміну повідомленнями.<br>
+Крім того, у процесі роботи було використано на практиці та продемонстровано механізми забезпечення приватності персональних акаунтів у месенджерах <em>Telegram, WhatsApp</em> і <em>Signal</em>, зокрема засоби автентифікації, керування активними сесіями та налаштування параметрів конфіденційності. На основі порівняльного аналізу функцій безпеки здобувачі освіти оцінили, співвіднесли та ранжували месенджери за рівнем захищеності, сформувавши обґрунтовані висновки щодо доцільності їх використання для передавання чутливої інформації.<br>
+Таким чином, виконання лабораторної роботи сприяло закріпленню теоретичних знань, формуванню практичних навичок аналізу інформаційної безпеки та усвідомленню важливості впровадження заходів цифрової гігієни при роботі з сучасними інформаційно-комунікаційними сервісами, що є необхідним для підготовки фахівців у сфері кібербезпеки.</p>
+<p><em><strong>Контрольні запитання і завдання</strong></em></p>
+<ol>
+<li>Що таке метадані цифрового зображення та які основні групи <em>EXIF</em>-параметрів використовуються під час їх аналізу?</li>
+<li>Яку інформацію містять геодані (<em>GPS</em>-метадані) зображення та які ризики для приватності користувача вони створюють?</li>
+<li>У чому полягає різниця між зображеннями, створеними з увімкненою та вимкненою функцією геоприв’язки?</li>
+<li>Яким чином утиліта <em>exiftool</em> використовується для аналізу метаданих цифрових зображень і які ключові параметри вона дозволяє визначити?</li>
+<li>Як змінюються метадані зображень під час пересилання через месенджери <em>WhatsApp, Telegram</em> і <em>Signal</em> як зображень?</li>
+<li>Чим відрізняється вплив месенджерів на метадані при пересиланні зображень як файлів та у складі архівів?</li>
+<li>Які способи пересилання зображень забезпечують максимальне збереження метаданих і чому?</li>
+<li>Які основні механізми захисту персонального акаунту реалізовані в месенджерах <em>Telegram, WhatsApp</em> і <em>Signal</em>?</li>
+<li>За якими критеріями здійснюється порівняння месенджерів у контексті безпеки та приватності персональних даних?</li>
+<li>Який месенджер можна вважати найбільш безпечним за результатами виконаної лабораторної роботи та чим обґрунтовується такий висновок?</li>
+</ol>
+<p><strong>Завдання на самостійну підготовку:</strong></p>
+<ol>
+<li>Повторити теоретичний матеріал лекції 14, присвячений соціальним мережам та месенджерам, а також їх безпечному використанню.</li>
+<li>Доопрацювати звіт з лабораторної роботи та підготуватися до його захисту, перевіривши правильність заповнення, повноту скріншотів, таблиць і обґрунтованість висновків.</li>
+<li>Систематизувати відомості про механізми захисту та налаштування приватності персональних акаунтів у <em>Telegram, WhatsApp</em> і <em>Signal</em>.</li>
+<li>Розібратися у впливі месенджерів <em>Telegram, WhatsApp</em> і <em>Signal</em> на збереження або зміну метаданих під час пересилання зображень різними способами.</li>
+</ol>
+
+            
+         
+        </body>
+        </html>
