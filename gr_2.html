@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>&ast;&ast;&Gcy;&rcy;&ucy;&pcy;&ocy;&vcy;&iecy; &zcy;&acy;&ncy;&yacy;&tcy;&tcy;&yacy; &numero; 2&ast;&ast;</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        <link href="style.css" rel="stylesheet" type="text/css"/>
+        </head>
+        <body class="vscode-body vscode-light">
+            <span id="markdown-mermaid" aria-hidden="true"
+                    data-dark-mode-theme="dark"
+                    data-light-mode-theme="default"
+                    data-max-text-size="50000"></span>
+                <h2 id="групове-заняття--2"><strong>Групове заняття № 2</strong></h2>
+<h1 id="використання-парольних-методів-автентифікації-та-оцінка-їх-стійкості-парольним-атакам"><strong>ВИКОРИСТАННЯ ПАРОЛЬНИХ МЕТОДІВ АВТЕНТИФІКАЦІЇ ТА ОЦІНКА ЇХ СТІЙКОСТІ ПАРОЛЬНИМ АТАКАМ</strong></h1>
+<h2 id="навчальні-питання"><strong>Навчальні питання</strong></h2>
+<ol>
+<li>Особливості використання парольних методів автентифікації та оцінка їх стійкості парольним атакам.</li>
+<li>Аналіз методів парольних атак та особливості їх реалізації.</li>
+</ol>
+<h2 id="очікувані-результати-заняття"><strong>Очікувані результати заняття:</strong></h2>
+<ol>
+<li>Визначати, пояснювати та інтерпретувати вимоги парольної політики ЗС України та розрізняти безпечні й небезпечні підходи до використання паролів під час автентифікації.</li>
+<li>Обчислювати, підраховувати та оцінювати стійкість паролів до перебору за заданими параметрами алфавіту, довжини та швидкості атак, а також робити висновок щодо впливу довжини пароля на час і ймовірність підбору.</li>
+<li>Класифікувати, розпізнавати та порівнювати основні методи парольних атак (<em>brute-force</em>, словникові, фішинг, соціальна інженерія, кейлогінг) та встановлювати взаємозв’язки між типом атаки й уразливістю системи.</li>
+<li>Застосовувати, виконувати та використовувати на практиці програму <em>Hashcat</em> для підбору хешів <em>MD5</em> із використанням словникової атаки, а також документувати отримані результати.</li>
+<li>Застосовувати, адмініструвати та аналізувати процес підбору <em>WPA2</em>-пароля точки доступу <em>Wi-Fi</em> за допомогою <em>aircrack-ng</em>, оцінюючи затрачений час і швидкість атаки.</li>
+<li>Використовувати, демонструвати та експлуатувати програму <em>ZIP Password Recover</em> для підбору пароля до захищеного архіву методом словникової атаки та ідентифікувати отриманий пароль і вміст архіву.</li>
+<li>Узагальнювати, пояснювати та доповідати результати виконання практичних завдань, оцінюючи реальні ризики використання слабких паролів у інформаційно-комунікаційних системах.</li>
+</ol>
+<h2 id="правила-техніки-безпеки-при-проведенні-занять-в-лабораторіях-обчислювальної-техніки"><strong>Правила техніки безпеки при проведенні занять в лабораторіях обчислювальної техніки</strong></h2>
+<p>Перед початком роботи користувач повинен:</p>
+<ol>
+<li>Ознайомитися з інструкцією з техніки безпеки та правилами користування обладнанням.</li>
+<li>Перевірити справність електроживлення, кабелів, розеток, монітора, клавіатури, миші.</li>
+<li>Переконатися, що робоче місце чисте, сухе і добре освітлене.</li>
+<li>Увімкнути комп’ютер лише після дозволу викладача або лаборанта.</li>
+</ol>
+<p>Під час виконання практичних завдань на ПЕОМ користувач повинен:</p>
+<ol>
+<li>Виконувати тільки дозволені завдання відповідно до теми заняття.</li>
+<li>Працювати акуратно, не торкатися кабелів і роз’ємів електроживлення.</li>
+<li>Дотримуватися правильної посадки за комп’ютером (спина пряма, відстань до монітора 50–70 см).</li>
+<li>Робити перерви для відпочинку очей та рук (1–2 хв кожні 15–20 хв роботи).</li>
+<li>Повідомляти викладача про будь-які несправності або незвичайну роботу ПЕОМ.</li>
+</ol>
+<p>По завершенню заняття користувач повинен:</p>
+<ol>
+<li>Зберегти результати роботи та правильно завершити сеанс операційної системи.</li>
+<li>Вимкнути комп’ютер у встановленій послідовності.</li>
+<li>Привести робоче місце в порядок: прибрати зайві матеріали, вимкнути освітлення при необхідності.</li>
+<li>Повідомити викладача про завершення роботи.</li>
+</ol>
+<p>При роботі на ПЕОМ <strong><em>забороняється</em>:</strong></p>
+<ol>
+<li>Вмикати або вимикати обладнання без дозволу викладача.</li>
+<li>Торкатися електричних розеток, проводів, інших з’єднань.</li>
+<li>Підключати сторонні пристрої (флешки, телефони, зарядні тощо) без дозволу.</li>
+<li>Їсти, пити, ставити рідини або особисті речі на робочий стіл біля комп’ютера.</li>
+<li>Використовувати обладнання не за призначенням, змінювати налаштування системи чи програм.</li>
+<li>Без дозволу викладача залишати робоче місце, бігати, голосно розмовляти, жартувати або створювати небезпечні ситуації в приміщенні.</li>
+</ol>
+<p>Користувач <em><strong>несе особисту відповідальність</strong></em> за:</p>
+<ul>
+<li>дотримання правил техніки безпеки та внутрішнього розпорядку лабораторії;</li>
+<li>збереження обладнання, програмного забезпечення та матеріальних цінностей;</li>
+<li>наслідки дій, що призвели до пошкодження техніки або порушення безпеки інших осіб;</li>
+<li>виконання розпоряджень, команд викладача чи відповідального за лабораторію.</li>
+</ul>
+<p style="text-align:center;"><strong>Теоретичні частина</strong></p>
+<h2 id="1-питання-особливості-використання-парольних-методів-автентифікації"><strong>1 Питання. Особливості використання парольних методів автентифікації.</strong></h2>
+<p>За результатами опитування, проведеного компанією <em>Sophos</em> 41% користувачів використовують однаковий пароль у всіх випадках. З них 75% використовують простий пароль, тобто володіють обліковими записами з надійно захищеними паролями доступу.</p>
+<p>Результати опитування щодо використання паролів для захисту власних акаунтів наведені на рис.1-3</p>
+<p style="text-align:center;"><img src="media\gr_2\pic1.jpg"></p>
+<p style="text-align:center;"><em>Рис. 1 Статистика використання паролів для різних акаунтів</em></p>
+<p style="text-align:center;"><img src="media\gr_2\pic2.jpg"></p>
+<p style="text-align:center;"><em>Рис. 2 Статистичні дані про алфавіт паролів</em></p>
+<p style="text-align:center;"><img src="media\gr_2\pic3.jpg"></p>
+<p style="text-align:center;"><em>Рис. 3 Статистика використання двофакторної автентифікації</em></p>
+<p>В результаті опитування встановлено, що незважаючи на усвідомлення ризику втрати інформації до 20% опитаних нехтують правилами безпеки використання парольного захисту. В масштабах ЗС України цей відсоток може бути більшим.</p>
+<p>З метою зменшення ризиків використання слабкого парольного захисту у ЗС України розроблено та затверджено начальником Генерального штабу від 05.07.2021 № 15296/С Інструкція щодо парольної політики ЗС України.<br>
+Ця Інструкція визначає вимоги щодо безпеки (складності) паролів облікових записів користувачів автоматизованих систем Збройних Сил України, порядок їх застосування та поводження з ними, відповідальність посадових осіб за порушення вимог парольної політики.<br>
+Доступ до ресурсів автоматизованої системи, в тому числі до інформації, що обробляється, надається користувачу за умови успішного проходження ним процедури автентифікації, під час якої користувач підтверджує, що йому відомий пароль облікового запису.<br>
+Пароль облікового запису має бути відомим тільки його власнику.</p>
+<p><strong>ЗАБОРОНЕНО</strong> спільне використання облікових записів (коли одним обліковим записом користується декілька осіб). Виняток можуть становити облікові записи посадових осіб чергової служби, які змінюють один одного за відповідними наказами.</p>
+<p>Пароль має регулярно змінюватися. <strong>Максимальний термін</strong> дії пароля не повинен перевищувати <strong>42 доби</strong>.</p>
+<p>Використання паролів, що не відповідають вимогам безпеки, та/або недотримання порядку поводження з ними ставить під загрозу захищеність автоматизованої системи. Пароль має відповідати вимогам безпеки (складності).</p>
+<p>Довжина пароля має бути не менш ніж <strong>10 (десять)</strong> символів.</p>
+<p>До складу пароля мають входити символи чотирьох категорій, а саме: цифри, прописні літери алфавіту, малі літери алфавіту, неалфавітні символи (1, $, #, * тощо).</p>
+<p><strong>Заборонено</strong> використовувати стандартні паролі виробників телекомунікаційного обладнання, які можна знайти у відкритому доступі (123, <em>admin, cisco, SU12345</em> тощо), та паролі, то мають у своєму складі:</p>
+<ul>
+<li>послідовність символів в алфавітному порядку або в порядку їх розміщення на клавіатурі (<em>QWErtyu, qaxswEDC</em>), словникові слова, сленгові вирази, скорочення, у тому числі набрані в іншомовній клавіатурній розклади! (<em>gFhjkm</em> (пАроль), <em>Svitlofor, P@ssword</em>);</li>
+<li>послідовність із трьох і більше символів, що повторюються (<em>QQQAAAL23, ad1111C</em>);</li>
+<li>послідовність символів, утворених із доступної інформації про користувача (ім'я, прізвище, дата народження, телефон, номер військової частини тощо).</li>
+</ul>
+<p>Крім того, для забезпечення надійного захисту від НСД користувачу автоматизовано система <strong>ЗАБОРОНЕНО</strong>:</p>
+<ul>
+<li>залишати без нагляду автоматизовану систему, в якій користувач був авторизований, до моменту виходу з облікового запису або його блокування;</li>
+<li>використовувати один пароль для різних облікових записів;</li>
+<li>повідомляти пароль іншим користувачам, у тому числі й адміністратору безпеки;</li>
+<li>зберігати пароль записаним на будь-яких носіях у відкритому (не захищеному) вигляд, за винятком Журналу закріплення імен та обліку адміністративних паролів;</li>
+<li>використовувати функцію збереження паролів в інтернет-браузері.</li>
+</ul>
+<p style="text-align:center;"><strong><em>Оцінка стійкості паролів парольним атакам.</em></strong></p>
+<p>Кожен пароль володіє <strong>стійкістю (надійністю)</strong> – мірою оцінки часу, необхідного для вгадування пароля або його підбору будь-яким методом (повного перебору, словникова атака тощо).</p>
+<p>Нехай <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi></mrow><annotation encoding="application/x-tex">A</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span></span></span></span> – потужність алфавіту, що використовується для створення паролю, тобто кількість символів (для цифр <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>А</mtext><mo>=</mo><mn>10</mn></mrow><annotation encoding="application/x-tex">А=10</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord cyrillic_fallback">А</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">10</span></span></span></span>), <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>L</mi></mrow><annotation encoding="application/x-tex">L</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">L</span></span></span></span> – довжина паролю (кількість символів, з яких складається пароль).</p>
+<p>Тоді максимальна кількість всіх можливих паролів довжиною <em>L</em> можна визначити за формулою:</p>
+<p style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><mo>=</mo><msup><mi>A</mi><mi>L</mi></msup></mrow><annotation encoding="application/x-tex">S = A^L</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8413em;"></span><span class="mord"><span class="mord mathnormal">A</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8413em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">L</span></span></span></span></span></span></span></span></span></span></span></p>
+<p>Ймовірність підбору пароля зловмисником за час <em>t</em> складає:</p>
+<p style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo>=</mo><mo stretchy="false">(</mo><mi>v</mi><mo>∗</mo><mi>t</mi><mo stretchy="false">)</mo><mi mathvariant="normal">/</mi><mi>S</mi></mrow><annotation encoding="application/x-tex">P = (v*t)/S</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">t</span><span class="mclose">)</span><span class="mord">/</span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span></span></span></span></p>
+<p>де: <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ν</mi></mrow><annotation encoding="application/x-tex">ν</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.06366em;">ν</span></span></span></span> – швидкість, з якою здійснюється підбір паролю, вимірюється в кількості паролів за одиницю часу (наприклад паролів в сек.). Станом на 2024–2025 роки максимальна практично зафіксована швидкість підбору паролів для швидких хеш-алгоритмів (<em>MD5, SHA-1, SHA-256</em>) на високопродуктивних GPU-кластерах становить 10¹³–10¹⁴ хешів за секунду, тоді як для алгоритмів з криптографічним уповільненням (<em>bcrypt, Argon2, PBKDF2</em>) вона знижується до діапазону від десятків тисяч до одиниць хешів за секунду.</p>
+<p>Загальний час, необхідний для перебору усієї множини паролів <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi></mrow><annotation encoding="application/x-tex">S</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span></span></span></span> за умови, що <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo>&gt;</mo><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">P&gt;=1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7224em;vertical-align:-0.0391em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&gt;=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span> (зловмисник розкриє пароль) визначається за формулою:</p>
+<p style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi><mo>=</mo><mi>S</mi><mi mathvariant="normal">/</mi><mi>v</mi></mrow><annotation encoding="application/x-tex">t = S/v</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6151em;"></span><span class="mord mathnormal">t</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mord">/</span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span></span></span></span></p>
+<p>Для закріплення теоретичних знань з розрахунку стійкості пароля виконайте практичні завдання 1-2, що наводяться в практичній частині групового заняття.</p>
+<h2 id="2-питання-аналіз-методів-парольних-атак-та-особливості-їх-реалізації"><strong>2 Питання. Аналіз методів парольних атак та особливості їх реалізації.</strong></h2>
+<p><em><strong>Аналіз методів парольних атак</strong></em></p>
+<p>Для злому парольного захисту (підбору/вгадування пароля) використовуються низку методів. Розглянемо де-які з них.</p>
+<p><strong>Підглядування або розпізнавання пароля</strong>. Найпростіший спосіб отримати пароль – дізнатися його під час введення користувачем.</p>
+<p><strong>Соціальний інжиніринг</strong>. Це вид маніпулювання людьми з метою проникнення в захищені системи користувача або організації.</p>
+<p><strong>Вгадування пароля</strong>. У багатьох випадках в якості пароля використовуються імена, прізвища, номери телефонів та інші персональні дані користувача. Така інформація може бути відома зловмисникам, що дозволяє використовувати її для вгадування та/або підбору пароля.</p>
+<p><strong>Фішинг</strong>. Процедура “вивудження” паролів випадкових користувачів Інтернету. Зазвичай полягає в створенні “підставних” сайтів, які обманом змушують користувача ввести свій пароль.</p>
+<p><strong>Словникова атака або атака за словником</strong>. Найбільш поширеним варіантом при виборі пароля є задання в якості пароля деякого слова, що обумовлено легкістю його запам’ятовування. У цьому випадку пароль може бути виявлений за допомогою спеціальних програм-зломщиків паролів, що реалізують такий вид атаки, що полягає у послідовному переборі всіх слів, що містяться в електронному словнику програми.</p>
+<p><strong>Метод прямого перебору</strong> (<em><strong>brute-force attack</strong></em> – метод грубої сили). Цей метод передбачає прямий перебір всіх можливих комбінацій усіх допустимих в паролі символів. Перебір символів здійснюється до тих пір, поки не буде знайдена потрібна комбінація.<br>
+Прийняті в більшості операційних систем заходи захисту від підбору пароля передбачають обмеження числа неправильних спроб введення пароля, аудит спроб входження в систему, можливість задання правил, які визначають політику безпеки тощо.</p>
+<p><strong>Використання програмних закладок</strong>. Для отримання паролів, які зберігаються у пам’яті ПК, можуть використовуватися спеціальні програми – програмні закладки, які таємно встановлюються на ПК-жертву з метою отримання інформації про паролі користувача.<br>
+До найбільш небезпечних видів таких шкідливих програм відносяться: клавіатурні кейлогери (записують до лог-файлу натискання клавіш клавіатури з їх подальшим передаванням мережею, наприклад, на адресу електронної пошти).</p>
+<p><strong>Віддалений доступ до хоста</strong>. Отримання парольної інформації зловмисником можливе при успішному проведенні мережевих атак і отриманні можливості віддаленого управління ПК.</p>
+<p><strong>Безпосередній доступ до хоста</strong>. Якщо зловмисник отримає безпосередній доступ до захищеного ПК, то він зможе отримати дані про паролі, користувацькі облікові записи та системні паролі.</p>
+<p><strong>Перехоплення паролів з використанням технічних засобів</strong>. Використання технічних каналів витоку для отримання конфіденційної, в тому числі приватної інформації є досить непростим завданням, але таким, що вирішується. Переважно використовуються електромагнітний електричний канали витоку ПЕМВН, рідше – візуальний, який передбачає можливість візуального спостереження за процесом введення інформації.</p>
+<p>Усі перераховані вище методи можуть бути реалізовані за допомогою автономної чи інтерактивної атаки.</p>
+<p><strong>Автономна атака</strong>. Використовуючи цей метод, зловмисник отримує хеш-файл з цільового хоста та копіює його на свій. Потім використовується інструмент для злому пароля. Перевага цього методу полягає в тому, що зловмиснику не потрібно знати механізм блокування паролів, доступних на цільовому ПК, оскільки процес виконується локально.</p>
+<p><strong>Інтерактивна атака</strong>. Зловмисник намагається увійти до віддаленого хоста, вгадавши облікові дані. Після декількох невдалих спроб віддалений хост може заблокувати ПК зловмисника.</p>
+<p style="text-align:center;"><strong>Практична частина</strong></p>
+<h2 id="1-питання-особливості-використання-парольних-методів-автентифікації-1"><strong>1 Питання. Особливості використання парольних методів автентифікації.</strong></h2>
+<h3 id="практичне-завдання-1-здійсніть-розрахунок-стійкості-пароля"><em>Практичне завдання 1. Здійсніть розрахунок стійкості пароля.</em></h3>
+<ol>
+<li>
+<p>Розрахуйте час, необхідний для підбору пароля, з параметрами, поданими у І частині табл. 1 (за списком у журналі) та за умови, що швидкість підбору паролю складає 10000 паролів за секунду. <strong>Результат занесіть до зошитів</strong>.</p>
+<p>Таблиця 1 - Розрахунок часу підбору пароля</p>
+<table border="1">
+<thead>
+<tr>
+<th style="text-align:center">Варіант</th>
+<th style="text-align:center">Алфавіт паролю</th>
+<th style="text-align:center" colspan="2">Довжина паролю</th>
+<th style="text-align:center"colspan="2">Результат</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">І част.</td>
+<td style="text-align:center">ІІ част.</td>
+<td style="text-align:left">І част.</td>
+<td style="text-align:left">ІІ част.</td>
+</tr>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">цифри</td>
+<td style="text-align:center">8</td>
+<td style="text-align:center">12</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">цифри та 4 спец.символа</td>
+<td style="text-align:center">5</td>
+<td style="text-align:center">8</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">літери англійського алфавіту</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">10</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:center">5 спец.символів</td>
+<td style="text-align:center">6</td>
+<td style="text-align:center">8</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td style="text-align:center">цифри та літери англійського алфавіту</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">8</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">6</td>
+<td style="text-align:center">літери англійського алфавіту, 2 спец.символи</td>
+<td style="text-align:center">6</td>
+<td style="text-align:center">10</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">7</td>
+<td style="text-align:center">цифри, 10 спец.символів</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">8</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">8</td>
+<td style="text-align:center">10 спец.символів</td>
+<td style="text-align:center">5</td>
+<td style="text-align:center">10</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">9</td>
+<td style="text-align:center">5 спец.символів та літери англійського алфавіту</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">8</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">10</td>
+<td style="text-align:center">2 спец.символи та 3 цифри</td>
+<td style="text-align:center">8</td>
+<td style="text-align:center">10</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">11</td>
+<td style="text-align:center">цифри та 5 літер англійського алфавіту</td>
+<td style="text-align:center">8</td>
+<td style="text-align:center">10</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">12</td>
+<td style="text-align:center">5 спец.символів та цифра</td>
+<td style="text-align:center">5</td>
+<td style="text-align:center">10</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">13</td>
+<td style="text-align:center">літери англійського алфавіту</td>
+<td style="text-align:center">5</td>
+<td style="text-align:center">8</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">14</td>
+<td style="text-align:center">цифри</td>
+<td style="text-align:center">7</td>
+<td style="text-align:center">10</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">15</td>
+<td style="text-align:center">15 спец.символів</td>
+<td style="text-align:center">6</td>
+<td style="text-align:center">8</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>Розрахуйте час, необхідний для підбору пароля, з параметрами, поданими у ІІ частині табл. 1 (за списком у журналі) та за умови, що швидкість підбору паролю складає 1000000 паролів за секунду. <strong>Результат занесіть до зошитів</strong>.</p>
+</li>
+</ol>
+<p><strong>Зробіть висновок</strong> як впливає довжина паролю на час його підбору?</p>
+<h3 id="практичне-завдання-2-здійсніть-розрахунок-стійкості-пароля"><em>Практичне завдання 2. Здійсніть розрахунок стійкості пароля.</em></h3>
+<ol>
+<li>Визначте ймовірність підбору пароля зловмисником за час 1 год 30 хв з параметрами, поданими у І частині табл. 1 (за списком у журналі) та умови, що підбір здійснюється зі швидкістю 100000 паролів за секунду. <strong>Результат занесіть до зошитів</strong>.</li>
+<li>Визначте ймовірність підбору пароля зловмисником за час 1 год 30 хв з параметрами, поданими у ІІ частині табл. 1 (за списком у журналі) та умови, що підбір здійснюється зі швидкістю 100000 паролів за секунду. <strong>Результат занесіть до зошитів</strong>.</li>
+</ol>
+<p><strong>Зробіть висновок</strong> як впливає довжина паролю на ймовірність його підбору?</p>
+<h2 id="2-питання-аналіз-методів-парольних-атак-та-особливості-їх-реалізації-1"><strong>2 Питання. Аналіз методів парольних атак та особливості їх реалізації.</strong></h2>
+<p>Раніше більшість паролів зберігалося у відкритому вигляді, але розробники зрозуміли, що це досить небезпечно. Краще зберігати не сам пароль, а його хеш.</p>
+<p>Для перебору хешів існують різні програми, одна з них – <em>Hashcat</em>.<br>
+Вона підтримує роботу з відомими алгоритмами хешування. У <em>Hashcat</em> доступна низка режимів атаки, серед яких атака грубої сили та словникова.</p>
+<h3 id="практичне-завдання-3-ознайомтесь-з-функціональними-можливостями-програми-підбору--хешів-hashcat"><em>Практичне завдання 3. Ознайомтесь з функціональними можливостями програми підбору  хешів Hashcat.</em></h3>
+<p>Для цього:</p>
+<ol>
+<li>
+<p>Завантажте віртуальну машину <em>Kali Linux</em>, у якій відкрийте термінал та виконайте команду <em><strong>hashcat -h</strong></em>.</p>
+</li>
+<li>
+<p>Проаналізуйте довідкою програми та <strong>занесіть до зошитів</strong>:</p>
+<ul>
+<li>синтаксис написання команд;</li>
+<li>опцію (літеру), яка відповідає за вибір типу хешу, що зламується;</li>
+<li>опцію (літеру), яка визначає тип атаки;</li>
+<li>опцію (літеру), яка визначає, що результат підбору потрібно зберегти до вихідного файлу;</li>
+<li>цифру, яка буде визначати хеш md5, що зламується;</li>
+<li>цифри та їх значення, що визначають типи атак;</li>
+<li>один приклад написання команди, що в якому використовується підбір по словнику (<em>Wordlist</em>).</li>
+</ul>
+</li>
+<li>
+<p><strong>Визначте та занесіть до зошитів</strong> який в даному прикладі використовується вид хешу?</p>
+</li>
+</ol>
+<h3 id="практичне-завдання-4-за-допомогою-програми-hashcat-підберіть-пароль"><em>Практичне завдання 4. За допомогою програми Hashcat підберіть пароль.</em></h3>
+<p>Для виконання цього завдання виконайте наступні дії:</p>
+<ol>
+<li>
+<p>Створіть хеш-значення паролю, який відповідає Вашій даті народження алгоритмом <em>md</em>5, Для цього у вікні терміналу виконайте команду:</p>
+<p style="text-align:center"><code>echo  -n  “пароль” |md5sum</code>,</p>
+</li>
+</ol>
+<p>де: <strong>пароль</strong> – Ваша дата народження.</p>
+<div class="markdown-alert markdown-alert-tip"><p class="markdown-alert-title"><svg class="octicon octicon-light-bulb mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"></path></svg>Пароль можна створювати як з різними розділювачами (/, -, _ тощо) так і без їх використання, наприклад 15081984.</p><p></p>
+</div>
+<p>Результатом виконання команди є хеш-значення пароля (дати народження) (рис. 4).</p>
+<div class="markdown-alert markdown-alert-note"><p class="markdown-alert-title"><svg class="octicon octicon-info mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>У такому вигляді система зазвичай зберігає більшість паролів аутентифікації.</p><p></p>
+</div>
+   <p style="text-align:center;"><img src="media\gr_2\pic4.jpg"></p>
+   <p style="text-align:center;"><em>Рис. 4. Результат перетворення тексту в хеш</em></p>
+<ol start="2">
+<li>
+<p>Відкрийте ще один термінал та для підбору паролю за словником використайте <em>hashcat</em> з наступними опціями (рис. 5):</p>
+<p style="text-align:center"><code>hashcat -m 0  -a 0  хеш пароля  директорія словника</code></p>
+<div class="markdown-alert markdown-alert-tip"><p class="markdown-alert-title"><svg class="octicon octicon-light-bulb mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"></path></svg>Словник з датами народження dic_date.txt знаходиться в каталозі lab.support.files/dictionaries.</p><p></p>
+</div>
+<p style="text-align:center;"><img src="media\gr_2\pic5.jpg"></p>
+<p style="text-align:center;"><em>Рис. 5. Результат підбору пароля</em></p>
+<p><strong>Занесіть отриманий результат</strong> (хеш та дешифрований пароль) <strong>до</strong> <strong>зошитів</strong>.</p>
+<div class="markdown-alert markdown-alert-warning"><p class="markdown-alert-title"><svg class="octicon octicon-alert mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg>Результат роботи програми зберігається у кеш-файлі. При повторній спробі підбору паролю з уже дешифрованим хешем підбір паролю не буде виконуватися. Саме тому потрібно постійно виконувати очищення кешу hashcat. Для очищення використовується команда:</p><p style="text-align:center"><code>rm  .local/share/hashcat/hashcat.potfile</code></p>
+</div>
+</li>
+</ol>
+<h3 id="практичне-завдання-5-за-допомогою-програми-hashcat-підберіть-паролі-хеші-яких-зберігаються-у-файлі-при-чому-результат-підбору-збережіть-у-файл"><em>Практичне завдання 5. За допомогою програми Hashcat підберіть паролі, хеші яких зберігаються у файлі, при чому результат підбору збережіть у файл.</em></h3>
+<p>Для цього:</p>
+<ol>
+<li>
+<p>Створіть файл за допомогою команди <code>nano  file_name.hash</code>, де <em><strong>file_name</strong></em> – назва файлу з хешами паролів та помістіть у нього хеші паролів з табл. 2 відповідно до Вашого варіанту (номер за журналом).</p>
+</li>
+<li>
+<p>Виконайте очищення кешу <em>hashcat</em> та підбір паролів, використовуючи словник <em>rockyou.txt</em>, який знаходиться у каталозі <em>lab.support.files/dictionaries</em>:</p>
+<p style="text-align:center"><code>hashcat -m 0  -a 0  директорія file_name.hash  директорія словника  -o Result_file_name.txt</code></p>
+<p>де: <em><strong>-o</strong></em> – опція, яка вказує на те, що результат буде зберігатися до файлу;</p>
+<p><em><strong>Result_file_name.txt</strong></em> – ім'я файлу, в який буде збережено результат підбору пароля, якщо файл не існує - система його автоматично створить.</p>
+<p>Таблиця 2-Результат підбору пароля за хешем</p>
+<table border="1">
+<thead>
+<tr>
+<th style="text-align:center">Варіант</th>
+<th style="text-align:center">Хеш-функція паролю</th>
+<th style="text-align:center">Результат</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center"><p>25f9e794323b453885f5181f1b624d0b</p><p>25d55ad283aa400af464c76d713c07ad</p><p>e807f1fcf82d132f9bb018ca6738a19f</p><p>1bbd886460827015e5d605ed44252251</p><p>6fb42da0e32e07b61c9f0251fe627a9c</p></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center"><p>f5bb0c8de146c67b44babbf4e6584cc0</p><p>3fc0a7acf087f549ac2b266baf94b8b1</p><p>3c1b3d790e3320bd76eb04b83737e3b4</p><p>7ef6156c32f427d713144f67e2ef14d2</p><p>40587bff0e72b6fdbba30c40c95e148a</p></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center"><p>2a062126ee92cb96a03bef1eb1008c4d</p><p>de88e3e4ab202d87754078cbb2df6063</p><p>011dade3db85ad9c3d2ed4fc769feebe</p><p>e08895459d20596f3b50c9388212a360</p><p>b1ef741bee14a29acbe5686f59b62569</p></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:center"><p>fa2cf686c5b6e4f3aa6bcc78af3b5b97</p><p>cc077e4074d58b5b3afe96921b220364</p><p>ede6b50e7b5826fe48fc1f0fe772c48f</p><p>48474f975022f960bc2afbe49be581e8</p><p>fb7545a86cc63865c8b8c951921a330e</p></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td style="text-align:center"><p>7b82a31a3b6beeb12a5dd434b6ad99a9</p><p>fb88df842f8ad97d0d9896f65f4b43a5</p><p>0a5c74700f24603f7a50a94db27b69c5</p><p>2053cae483814bb626fe54501efd88ea</p><p>96d5bb00238b4f1ca7c564afd48755c6</p></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">6</td>
+<td style="text-align:center"><p>5fec940440a22960dff996fd784050dd</p><p>75631f399043213a36602cc670faef71</p><p>4fa015299a5b9245ce18ba7415ebaef4</p><p>2472cdee89db72478781ccec27a2f429</p><p>dd9d21e22391090ddce7c6ed58c6412d</p></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">7</td>
+<td style="text-align:center"><p>e9982ec5ca981bd365603623cf4b2277</p><p>3108a23274394232683dcbd36ac8f0de</p><p>7996ff3f95c05ebce27860e538aa8518</p><p>23729fbe0d0690a27b194ace305b41d3</p><p>091ac352e63f98e793caa27d7527cbf7</p></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">8</td>
+<td style="text-align:center"><p>801331a48f06c0a6a4513d10bbde8fa7</p><p>b717415eb5e699e4989ef3e2c4e9cbf7</p><p>adfbac2f3b6daf4ae4150f3bd94e0814</p><p>dffec1c29bdb2abe6d98aca7465ff7c8</p><p>bedd7e37f1ed81bf660df0041775690f</p></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">9</td>
+<td style="text-align:center"><p>29a928032aacb13464cf3b1660d4af16</p><p>1b2de2499e5f93e00a5a90e79a9da4b1</p><p>dca91d99a6ae65021cf75af70cf236f5</p><p>2e8a4851996d71d98faaa4b41ba9a2d8</p><p>8fcced6090be0e0aff3c025f8b32d9eb</p></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">10</td>
+<td style="text-align:center"><p>52e3bbafc627009ac13caff1200a0dbf</p><p>231851c3fd80a639b619d8df5e5beff6</p><p>d84574d8eefdfe842fd3fd1b48f69f99</p><p>387ca9e729b0193407d0d63733295076</p><p>5b7bae27799a00bef1fc3ceb670ed0b9</p></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">11</td>
+<td style="text-align:center"><p>8a43bf57861205772834bea553e789b0</p><p>cc4a1fea0564d010a8996003fd540947</p><p>007b4262dace4b392bb7e6bac2cdff71</p><p>f93448e7dfc30a5b31bff37869b08d4b</p><p>8ef26e773ae0f7b05538f88cb41f2e7e</p></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">12</td>
+<td style="text-align:center"><p>b9bac2d64856281f7499b0bd69c7e51f</p><p>ccffe5403c2417a131ba3e43e94d94af</p><p>9484e9b7da67f3760aa855c8671dcc47</p><p>3bb84a868357cfc783b3cedad9279125</p><p>49abed18580386c46b377881a7896ec3</p></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">13</td>
+<td style="text-align:center"><p>e6da82e07972862c0f6d68593b91fa82</p><p>4bbb92a45dd4e5a11c07da05c92e19d5</p><p>4a639b6136a07efc4634b0546e1dfe38</p><p>6f48fd5bb8e0ba0b1aa566faf0988267</p><p>aa36867ec6ee6c5dc978dd7e02fc9218</p></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">14</td>
+<td style="text-align:center"><p>c5c43182c20d90212da4d29ecee661ca</p><p>80480126b65a4fa4766cf68b83d2493f</p><p>88b65509c5770950fb7d20192fd1c52f</p><p>c7054d12edaa991d17025d966267b5d0</p><p>2dd85b17fea5bed42c556e35ca290980</p></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">15</td>
+<td style="text-align:center"><p>1c3e11ab7c4f78704c27c1056a80b06d</p><p>62f3035e47b6a52a2b238a3dee9c45ae</p><p>420ce838f4e94f8cc2f6f7711c707e48</p><p>2b102cdc6cf9c8105821d06866f2d940</p><p>3b7c48c76dc77759d0a2c8a556e7836e</p></td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p><strong>Занесіть отриманий результат</strong> (хеш та дешифрований пароль) <strong>до зошитів</strong>.</p>
+</li>
+<li>
+<p>Повторно виконайте очищення кешу програми. <em>hashcat</em></p>
+</li>
+</ol>
+<h3 id="практичне-завдання-6-за-допомогою-програми-aircrack-ng-підберіть-пароль-до-точки-доступу-wi-fi"><em>Практичне завдання 6. За допомогою програми aircrack-ng підберіть пароль до точки доступу Wi-Fi.</em></h3>
+<p>Для цього:</p>
+<ol>
+<li>
+<p>За допомогою команди програми <em>aircrack-ng</em></p>
+<p style="text-align:center"><code>sudo aircrack-ng --bssid bssid_point  -w словник хендшейк</code></p>
+<p>де: <em><strong>bssid_point</strong></em> – <em>bssid</em> точки доступу (<em>MAC</em>-адреса точки доступу). В груповому занятті використовується точка доступу що має наступну <em>MAC</em>-адресу <em><strong>50:64:2B:C6:20:D9</strong></em>;</p>
+<p><strong>словник</strong> – шлях до файлу із словником паролів. В даному груповому використайте словник <em><strong>ks_mob.txt</strong></em>, що знаходиться у каталозі <em><strong>lab.support.files/dictionaries</strong></em>;</p>
+<p><strong>хендшейк</strong> – шлях до файлу з розширенням *.<em>cap</em>, що містить перехоплений хендшейк. В даному груповому хеншейк зберігається у файлі <em><strong>hand_shake.cap</strong></em>  у каталозі <em><strong>lab.support.files</strong></em></p>
+<p>виконайте дешифрування <em>WPA2</em>-пароля точки доступу (рис. 6).</p>
+</li>
+<li>
+<p>У вікні, яке з’явилося, проаналізуйте отриманий пароль (<em>Current passphrase</em>), скільки часу затрачено та скільки залишилося (<em>Time left</em>:) до повного перебору всіх варіантів, а також швидкість підбору паролю.</p>
+<p style="text-align:center;"><img src="media\gr_2\pic6.jpg"></p>
+<p style="text-align:center;"><em>Рис. 6. Процес підбору пароля за допомогою aircrack-ng</em></p>
+<div class="markdown-alert markdown-alert-note"><p class="markdown-alert-title"><svg class="octicon octicon-info mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>У випадку успішного дешифрування паролю з’явиться відповідне повідомлення KEY FOUND.</p><p></p>
+</div>
+</li>
+<li>
+<p><strong>Занесіть до зошитів</strong> відповідну інформацію (затрачений час, швидкість підбору та дешифрований пароль точки доступу)</p>
+</li>
+</ol>
+<h3 id="практичне-завдання-7-за-допомогою-програми-zip-password-recover--підберіть-пароль-до-архіву-та-ознайомтеся-з-його-вмістом"><em>Практичне завдання 7. За допомогою програми ZIP Password Recover  підберіть пароль до архіву та ознайомтеся з його вмістом.</em></h3>
+<p>Для цього:</p>
+<ol>
+<li>
+<p>Відкрийте програму <em><strong>ZIP Password Recover</strong></em>, використавши для цього файл <em><strong>easypasswordrecoveryzip.exe</strong></em>, що знаходиться в теці <em><strong>lab.support.files\ZIP Password Recover</strong></em>.</p>
+</li>
+<li>
+<p>Після запуску перед Вами з’явиться головне вікно програми. (рис. 7), в якому необхідно натиснути на кнопку <em><strong>Add File</strong></em> (рис. 6, позначка 1) та обрати <em>zip</em>-архів, до якого ви хочете підібрати пароль. Оберіть для підбору архів <em><strong>file-1.zip</strong></em>. Після чого у відповідній області з’явиться інформація про обраний архів (рис. 7, позначка 2).</p>
+<p style="text-align:center;"><img src="media\gr_2\pic7.jpg"></p>
+<p style="text-align:center;"><em>Рис. 7. Головне вікно програми ZIP Password Recover.</em></p>
+</li>
+<li>
+<p>Програма надає можливість обрати один із методів підбору паролів та налаштувати його, натиснувши кнопку <em><strong>Setting</strong></em>.</p>
+<p>Програма підтримує наступні методи «атаки» для підбору пароля (рис. 7, позначка 3):</p>
+<ul>
+<li><em><strong>Dictionary attack</strong></em> – підбір на основі словників, тобто перевірка списку можливих паролів.</li>
+<li><em><strong>Mask attack</strong></em> або масковий підбір — коли відомі деякі елементи пароля й програма підставляє лише змінні частини.</li>
+<li><em><strong>Brute-force</strong></em> – атака грубої сили, тобто перебір всіх комбінацій.</li>
+</ul>
+<p>При виборі контретного методу активується кнопка <em><strong>Setting.</strong></em></p>
+<p>Оберіть для підбору пароля метод – <em>Dictionary attack</em> та натисніть кнопку <em><strong>Setting</strong></em> (рис. 7, позначка 4).</p>
+</li>
+<li>
+<p>У вікні, що відкрилося можливо обрати словник, який буде використаний для підбору пароля. Якщо Ви бачите, що обраний словник <em>dic.txt</em> (рис. 8), то залиште в даному вікні все без змін.</p>
+<p style="text-align:center;"><img src="media\gr_2\pic8.jpg"></p>
+<p style="text-align:center;"><em>Рис. 8. Вікно додавання словника.</em></p>
+</li>
+<li>
+<p>Після вибору потрібного <em>zip</em>-архіву, методу підбору пароля та словника для початку підбору натисніть кнопку <em><strong>Start</strong></em> (рис. 7, позначка 5). За допомогою секундоміра зафіксуйте час, який знадобився для підбору пароля. <strong>Запишіть</strong> отриманий час у зошит.</p>
+</li>
+<li>
+<p>Якщо програма змогла підібрати пароль у нижній лівій частині головного вікна з’явиться відповідне повідомлення, яке буде містити підібраний до архіву пароль (рис. 9).</p>
+<p style="text-align:center;"><img src="media\gr_2\pic9.jpg"></p>
+<p style="text-align:center;"><em>Рис. 9. Повідомлення з підібраним паролем</em></p>
+</li>
+<li>
+<p>Якщо Вам вдалося підібрати пароль до архіву <em>file-1.zip</em> ознайомтесь з його вмістом.</p>
+</li>
+</ol>
+<h3 id="практичне-завдання-8-виконайте-завдання-яке-наведене-в-файлі-samle-1txt-архіву-file-1zip"><em>Практичне завдання 8. Виконайте завдання, яке наведене в файлі samle-1.txt архіву file-1.zip.</em></h3>
+<h3 id="практичне-завдання-9-виконайте-завдання-яке-наведене-в-файлі-samle-2txt-архіву-file-2zipzip"><em>Практичне завдання 9. Виконайте завдання, яке наведене в файлі samle-2.txt архіву file-2.zip.</em></h3>
+
+<table border="1">
+<caption><strong>Поточний контроль закріплення теоретичних знань та практичних навичок.</strong></caption>
+<thead>
+<tr>
+<th style="text-align:center">Вид заняття</th>
+<th style="text-align:center", colspan="4">Оцінка за національною шкалою</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center">&quot;2&quot;</th>
+<th style="text-align:center">&quot;3&quot;</th>
+<th style="text-align:center">&quot;4&quot;</th>
+<th style="text-align:center">&quot;5&quot;</th>
+</tr>
+<tr>
+<td style="text-align:center">Вхідний контроль</td>
+<td style="text-align:center">0 – 0,4</td>
+<td style="text-align:center">0,5</td>
+<td style="text-align:center">0,6 – 0,8</td>
+<td style="text-align:center">0,9-1,0</td>
+</tr>
+<tr>
+<td style="text-align:center", rowspan="2">Практичні завдання</td>
+<td style="text-align:center">&lt;4 завдання</td>
+<td style="text-align:center">4-5 завдання</td>
+<td style="text-align:center">6-8 завдання</td>
+<td style="text-align:center">9 завдання</td>
+</tr>
+<tr>
+<td style="text-align:center">0 – 0,4</td>
+<td style="text-align:center">0,5</td>
+<td style="text-align:center">0,6 – 0,8</td>
+<td style="text-align:center">0,9-1,0</td>
+</tr>
+<tr>
+<td style="text-align:center">Всього</td>
+<td style="text-align:center"><strong>0 - 0,9</strong></td>
+<td style="text-align:center"><strong>1,0 - 1,2</strong></td>
+<td style="text-align:center"><strong>1,3 – 1,7</strong></td>
+<td style="text-align:center"><strong>1,8 – 2,0</strong></td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>3. Заключна частина заняття</strong></p>
+<p>У ході групового заняття було закріплено теоретичні положення щодо застосування парольних методів автентифікації та практично визначено їх стійкість до основних видів парольних атак. У процесі розрахунку часу та ймовірності підбору паролів було наочно підтверджено визначальну роль довжини та складності пароля у забезпеченні кіберстійкості інформаційно-комунікаційних систем.<br>
+Під час виконання практичних завдань із використанням програм <em>Hashcat</em>, <em>aircrack-ng</em> та <em>ZIP Password Recover</em> відбулось знайомство з реальними інструментами, що застосовуються під час автономних та інтерактивних атак, а також були здобуті навички аналізу швидкості підбору, оцінки ефективності словникових і перебірних методів та інтерпретації результатів дешифрування.<br>
+За результатами заняття сформовано розуміння критичної залежності рівня кібербезпеки від дисциплінованого дотримання вимог парольної політики, недопущення повторного використання паролів та необхідності впровадження багатофакторної автентифікації. Отримані знання і практичні навички є необхідною складовою підготовки фахівців з кібербезпеки для забезпечення надійного захисту інформаційних ресурсів в умовах сучасних загроз.</p>
+<p><em><strong>Завдання на самостійну підготовку:</strong></em></p>
+<ol>
+<li>Повторити та узагальнити вимоги парольної політики ЗС України, підготувавши короткий структурований конспект (1–2 стор.).</li>
+<li>Пояснити та проілюструвати вплив довжини пароля й потужності алфавіту на час імовірного підбору з використанням відповідних формул.</li>
+<li>Класифікувати та порівняти основні методи парольних атак (<em>brute-force</em>, словникова, фішинг, соціальна інженерія, кейлогінг), визначивши їх переваги, обмеження та типові сценарії застосування.</li>
+<li>Обчислити та проаналізувати стійкість трьох різних паролів (слабкого, середнього та складного) за швидкостей підбору 10⁴, 10⁶ і 10¹² паролів/с, оформити результати у вигляді таблиці з висновками.</li>
+<li>Застосувати на практиці <em>Hashcat</em> або аналогічний інструмент для демонстрації словникової та <em>brute-force</em> атаки на навчальний хеш (за умови законності використання), зафіксувати швидкість, час та результат.</li>
+<li>Провести аналіз та підготувати короткий звіт (1 стор.) щодо ризиків використання слабких паролів у <em>Wi-Fi</em>-мережах і <em>ZIP</em>-архівах з урахуванням результатів групового заняття.</li>
+</ol>
+
+        </body>
+        </html>
